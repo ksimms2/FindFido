@@ -2,7 +2,7 @@
 
 ## A profile for your pets to assist in finding them if they get lost.
 
-###App Name : FindFido
+### App Name : FindFido
 
 The functionality of this app will feature a profile of your pet and allow the user to send notifications when or if your pet is lost.
 + Main Profile: upload photo of pet, name of pet, fun facts.
