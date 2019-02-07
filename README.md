@@ -2,7 +2,7 @@
 
 ## A profile to help determine the users carbon footprint and how to decrease it.
 
-###App Name : Green Print
+### App Name : Green Print
 
 The functionality of this app will feature a profile of the user and a score of their carbon footprint. The user would then able to see their progression of decreasing their score by submitting daily/weekly tasks like recycling or riding their bicycle to work. The user would then be able to notify friends of their progress. 
 + Main Profile: upload photo of username, summary, and initial carbon footprint score.
