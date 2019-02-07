@@ -1,7 +1,7 @@
 ## User Story 1
 
 * Who: Marie
-* What: FindFido
-* Where: Marie used this app in her neighborhood
-* Why: When returning from work, she realized that the gate was left open and her dog Storm was missing!
-* How:She was able to send out a notification to her area and was informed that Storm was found a couple blocks away sniffing around someones chicken coop.
+* What: Green Print
+* Where: Albuquerque, NM
+* Why: Marie understands the importance to decrease her carbon footprint
+* How: By using Green Print, Marie was able to see her carbon footprint and she received tips on how to improve. She was then able to submit daily tasks like recycling to the app to decrease her score. 

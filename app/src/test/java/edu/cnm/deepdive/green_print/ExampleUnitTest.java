@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.findfido;
+package edu.cnm.deepdive.green_print;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.findfido;
+package edu.cnm.deepdive.green_print;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -19,11 +19,11 @@ public class MainActivity extends AppCompatActivity
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    setContentView(edu.cnm.deepdive.green_print.R.layout.activity_main);
+    Toolbar toolbar = (Toolbar) findViewById(edu.cnm.deepdive.green_print.R.id.toolbar);
     setSupportActionBar(toolbar);
 
-    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+    FloatingActionButton fab = (FloatingActionButton) findViewById(edu.cnm.deepdive.green_print.R.id.fab);
     fab.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -32,19 +32,19 @@ public class MainActivity extends AppCompatActivity
       }
     });
 
-    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+    DrawerLayout drawer = (DrawerLayout) findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        this, drawer, toolbar, edu.cnm.deepdive.green_print.R.string.navigation_drawer_open, edu.cnm.deepdive.green_print.R.string.navigation_drawer_close);
     drawer.addDrawerListener(toggle);
     toggle.syncState();
 
-    NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+    NavigationView navigationView = (NavigationView) findViewById(edu.cnm.deepdive.green_print.R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
   }
 
   @Override
   public void onBackPressed() {
-    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+    DrawerLayout drawer = (DrawerLayout) findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
     if (drawer.isDrawerOpen(GravityCompat.START)) {
       drawer.closeDrawer(GravityCompat.START);
     } else {
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     // Inflate the menu; this adds items to the action bar if it is present.
-    getMenuInflater().inflate(R.menu.main, menu);
+    getMenuInflater().inflate(edu.cnm.deepdive.green_print.R.menu.main, menu);
     return true;
   }
 
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity
     int id = item.getItemId();
 
     //noinspection SimplifiableIfStatement
-    if (id == R.id.action_settings) {
+    if (id == edu.cnm.deepdive.green_print.R.id.action_settings) {
       return true;
     }
 
@@ -80,21 +80,21 @@ public class MainActivity extends AppCompatActivity
     // Handle navigation view item clicks here.
     int id = item.getItemId();
 
-    if (id == R.id.nav_camera) {
+    if (id == edu.cnm.deepdive.green_print.R.id.nav_camera) {
       // Handle the camera action
-    } else if (id == R.id.nav_gallery) {
+    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_gallery) {
 
-    } else if (id == R.id.nav_slideshow) {
+    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_slideshow) {
 
-    } else if (id == R.id.nav_manage) {
+    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_manage) {
 
-    } else if (id == R.id.nav_share) {
+    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_share) {
 
-    } else if (id == R.id.nav_send) {
+    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_send) {
 
     }
 
-    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+    DrawerLayout drawer = (DrawerLayout) findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
     return true;
   }
