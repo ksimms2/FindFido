@@ -3,6 +3,8 @@ package edu.cnm.deepdive.green_print;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -77,25 +79,48 @@ public class MainActivity extends AppCompatActivity
   @SuppressWarnings("StatementWithEmptyBody")
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
-    // Handle navigation view item clicks here.
-    int id = item.getItemId();
-
-    if (id == edu.cnm.deepdive.green_print.R.id.nav_camera) {
-      // Handle the camera action
-    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_gallery) {
-
-    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_slideshow) {
-
-    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_manage) {
-
-    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_share) {
-
-    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_send) {
+//    // Handle navigation view item clicks here.
+//    int id = item.getItemId();
+//
+//    if (id == edu.cnm.deepdive.green_print.R.id.home) {
+//      // Handle the camera action
+//    } else if (id == edu.cnm.deepdive.green_print.R.id.profile) {
+//
+//    } else if (id == edu.cnm.deepdive.green_print.R.id.details) {
+//
+//    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_notify) {
+//
+//    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_tips) {
+//
+//    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_send) {
+//
+//    }
+    Bundle args = new Bundle();
+    switch(item.getItemId()){
+      case R.id.fragment_home:
+        loadFragment(new Home(), R.id.fragment_container, "Home", null);
+        break;
+//      case R.id.fragment_2:
+//        loadFragment(new Fragment2(), R.id.fragment_container, "fragment2", null);
+//        break;
+//      case R.id.fragment_2a:
+//        args.putString(Fragment2.BODY_TEXT_KEY, "");
 
     }
 
-    DrawerLayout drawer = (DrawerLayout) findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
+    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
     return true;
+  }
+
+  public void loadFragment(Fragment fragment, int container, String tag, Bundle args) {
+    FragmentManager manager = getSupportFragmentManager();
+    if (args != null){
+      fragment.setArguments(args);
+    }
+    manager.beginTransaction()
+        .add(container, fragment, tag)
+        .commit();
+
   }
 }
