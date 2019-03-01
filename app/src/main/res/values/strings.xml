@@ -8,5 +8,10 @@
   <string name="action_settings">Settings</string>
 
   <!-- TODO: Remove or change this placeholder text -->
-  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="hello_home_page">Hello Home Page</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_questions_page">Hello Questions</string>
+  <string name="hello_scroll">This Page Needs to Scroll Questions</string>
+
 </resources>

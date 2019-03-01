@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 
 
 
-public class Home extends Fragment {
+public class HomeFragment extends Fragment {
 
 
-  public Home() {
+  public HomeFragment() {
     // Required empty public constructor
   }
 

@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
+    // automatically handle clicks on the HomeFragment/Up button, so long
     // as you specify a parent activity in AndroidManifest.xml.
     int id = item.getItemId();
 
@@ -98,11 +98,11 @@ public class MainActivity extends AppCompatActivity
     Bundle args = new Bundle();
     switch(item.getItemId()){
       case R.id.fragment_home:
-        loadFragment(new Home(), R.id.fragment_container, "Home", null);
+        loadFragment(new HomeFragment(), R.id.fragment_container, "HomeFragment", null);
         break;
-//      case R.id.fragment_2:
-//        loadFragment(new Fragment2(), R.id.fragment_container, "fragment2", null);
-//        break;
+      case R.id.fragment_questions:
+        loadFragment(new QuestionsFragment(), R.id.fragment_container, "fragment2", null);
+        break;
 //      case R.id.fragment_2a:
 //        args.putString(Fragment2.BODY_TEXT_KEY, "");
 

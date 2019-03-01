@@ -14,7 +14,7 @@
       android:icon="@drawable/ic_local_florist"
       android:title="Profile"/>
     <item
-      android:id="@+id/details"
+      android:id="@+id/fragment_questions"
       android:icon="@drawable/tree_icon"
       android:title="Questions"/>
     <item
