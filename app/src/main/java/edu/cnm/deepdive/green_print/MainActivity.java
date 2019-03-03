@@ -34,6 +34,34 @@ public class MainActivity extends AppCompatActivity
       }
     });
 
+    //API_KEY
+    String api_key = "33264bc96a0872c47527a6a2c954ae49";
+    String url = "http://api.eia.gov/category";
+    String delimeter = "&";
+    String apiEndPt = "/?api_key=33264bc96a0872c47527a6a2c954ae49&category_id=371";
+
+    //C02 calculator
+    //vehicle type
+    //vehicle year
+    //vehicle make
+    // vehicle model
+    // vehicle annual mileage
+    // description of use of vehicle
+    //travel by train,bus,taxi, ferry
+    // how many times a week do you travel by train,bus,taxi,ferry
+    // estimate using gallons of fuel
+    //// gallons used in a year
+    // zipcode
+    //electricity
+    //natural gas
+    // heating oil
+    // propane
+    //gasoline
+    //diesel
+
+
+
+
     DrawerLayout drawer = (DrawerLayout) findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
         this, drawer, toolbar, edu.cnm.deepdive.green_print.R.string.navigation_drawer_open, edu.cnm.deepdive.green_print.R.string.navigation_drawer_close);
