@@ -4,12 +4,14 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity(
-    foreignKeys = @ForeignKey(entity = Consumption.class, parentColumns = "activity_id", childColumns = "activity_id",
+    foreignKeys = @ForeignKey(entity = Consumption.class, parentColumns = "consumption_id", childColumns = "consumption_id",
         onDelete = ForeignKey.CASCADE))
- public class Activity {
+
+ public class Activity implements Serializable {
 
 
   @ColumnInfo(name = "activity_id")

@@ -1,34 +1,42 @@
 package edu.cnm.deepdive.green_print.entity;
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
+import com.google.gson.annotations.Expose;
 import java.util.Date;
 
+
+  @Entity(
+    indices = @Index(value = "date", unique = true))
+
  public class Consumption {
+
 
   @ColumnInfo(name = "consumption_id")
   @PrimaryKey(autoGenerate = true)
   private long id;
 
   @NonNull
- // @Expose
+  @Expose
   private Date date;
 
 
-  //@Expose
+  @Expose
   private String category;
 
- // @Expose
-  private String decription;
+  @Expose
+  private String description;
 
- // @Expose
+ @Expose
   private String type;
 
- // @Expose
+ @Expose
   private String url;
 
- // @Expose
+  @Expose
   private Long amount;
 
   public long getId(){
@@ -63,21 +71,16 @@ import java.util.Date;
     this.category=category;
   }
 
-//  public String getDescription(){
-//    return descritpion;
-//  }
-//
-//  public void setDescription(String description){
-//    this.description=description;
-//  }
-//
-//  public String getCopyright(){
-//    return copyright;
-//  }
-//
-//  public void setCopyright(String copyright){
-//    this.copyright=copyright;
-//  }
+
+  public String getDescription(){
+    return description;
+  }
+
+  public void setDescription(String description){
+    this.description=description;
+  }
+
+
 
   public String getUrl(){
     return url;
