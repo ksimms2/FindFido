@@ -36,10 +36,11 @@ public class MainActivity extends AppCompatActivity
     });
 
     //API_KEY
-    String api_key = "33264bc96a0872c47527a6a2c954ae49";
-    String url = "http://api.eia.gov/category";
-    String delimeter = "&";
-    String apiEndPt = "/?api_key=33264bc96a0872c47527a6a2c954ae49&category_id=371";
+    String api_id = "d6f58a93";
+    String api_key = "0a16fb60fa68e7fdd7551231dd01a736";
+    String url = "https://api-central.berkeley.edu/api/11";
+    String delimeter = "?";
+    String apiEndPt = "https://apis.berkeley.edu/coolclimate/footprint-sandbox";
 
     //C02 calculator
     //vehicle type

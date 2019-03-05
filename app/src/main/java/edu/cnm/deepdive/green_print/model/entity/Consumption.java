@@ -9,7 +9,7 @@ import com.google.gson.annotations.Expose;
 
 
   @Entity()
-   // indices = @Index(value = "date", unique = true))
+
 
  public class Consumption {
 
@@ -19,8 +19,7 @@ import com.google.gson.annotations.Expose;
   private long id;
 
   @NonNull
-//  @Expose
-//  private Calendar date;
+
 
 
   @Expose
@@ -55,13 +54,6 @@ import com.google.gson.annotations.Expose;
       this.type = type;
     }
 
-//  public Date getDate(){
-//    return date;
-//  }
-//
-//  public void setDate(Date date){
-//    this.date=date;
-//  }
 
   public Long getAmount() {
     return amount;

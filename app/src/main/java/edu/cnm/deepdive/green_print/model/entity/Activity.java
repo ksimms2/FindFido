@@ -5,8 +5,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
+
 
 @Entity(
     foreignKeys = @ForeignKey(entity = Consumption.class, parentColumns = "consumption_id", childColumns = "consumption_id",
@@ -24,47 +23,7 @@ import java.util.Date;
   private long consumptionId;
 
 
-//  private Calendar timestamp = new Calendar() {
-//    @Override
-//    protected void computeTime() {
-//
-//    }
-//
-//    @Override
-//    protected void computeFields() {
-//
-//    }
-//
-//    @Override
-//    public void add(int field, int amount) {
-//
-//    }
-//
-//    @Override
-//    public void roll(int field, boolean up) {
-//
-//    }
-//
-//    @Override
-//    public int getMinimum(int field) {
-//      return 0;
-//    }
-//
-//    @Override
-//    public int getMaximum(int field) {
-//      return 0;
-//    }
-//
-//    @Override
-//    public int getGreatestMinimum(int field) {
-//      return 0;
-//    }
-//
-//    @Override
-//    public int getLeastMaximum(int field) {
-//      return 0;
-//    }
-//  };
+
 
   public long getId() {
     return id;
@@ -82,11 +41,5 @@ import java.util.Date;
     this.consumptionId = consumptionId;
   }
 
-//  public Calendar getTimestamp() {
-//    return timestamp;
-//  }
-//
-//  public void setTimestamp(Calendar timestamp) {
-//    this.timestamp = timestamp;
-//  }
+
 }
