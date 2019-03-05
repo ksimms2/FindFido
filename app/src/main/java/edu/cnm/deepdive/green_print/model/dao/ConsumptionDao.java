@@ -1,13 +1,11 @@
-package edu.cnm.deepdive.green_print.dao;
+package edu.cnm.deepdive.green_print.model.dao;
 
 
 import android.arch.persistence.room.Dao;
 
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
-import edu.cnm.deepdive.green_print.entity.Consumption;
-
-import java.util.List;
+import edu.cnm.deepdive.green_print.model.entity.Consumption;
 
 @Dao
 public interface ConsumptionDao {

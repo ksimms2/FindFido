@@ -1,19 +1,16 @@
-package edu.cnm.deepdive.green_print;
+package edu.cnm.deepdive.green_print.model;
 
 
 import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverter;
-import android.arch.persistence.room.TypeConverters;
 import android.support.annotation.Nullable;
-import edu.cnm.deepdive.green_print.ConsumptionDB.Converters;
-import edu.cnm.deepdive.green_print.dao.ActivityDao;
-import edu.cnm.deepdive.green_print.dao.ConsumptionDao;
-import edu.cnm.deepdive.green_print.entity.Activity;
-import edu.cnm.deepdive.green_print.entity.Consumption;
+//import edu.cnm.deepdive.green_print.model.ConsumptionDB.Converters;
+import edu.cnm.deepdive.green_print.model.dao.ActivityDao;
+import edu.cnm.deepdive.green_print.model.dao.ConsumptionDao;
+import edu.cnm.deepdive.green_print.model.entity.Activity;
+import edu.cnm.deepdive.green_print.model.entity.Consumption;
 import java.util.Calendar;
-import java.util.Date;
 
 @Database(
     entities = {Activity.class, Consumption.class},
@@ -32,9 +29,9 @@ public abstract class ConsumptionDB extends RoomDatabase {
      *
      * @return single {@link ApodDB} instance reference.
      */
-    public synchronized static ConsumptionDao getInstance() {
-      return InstanceHolder.INSTANCE;
-    }
+//    public synchronized static ConsumptionDao getInstance() {
+//      return InstanceHolder.INSTANCE;
+//    }
 
     /**
      * Returns an instance of a Room-generated implementation of {@link ApodDao}.
@@ -53,30 +50,31 @@ public abstract class ConsumptionDB extends RoomDatabase {
 //
 //    }
 
-    /**
-     * Supports conversion operations for persistence of relevant types not natively supported by
-     * Room/SQLite.
-     */
-    public static class Converters {
-
       /**
-       * Converts a {@link Long} value containing the number of milliseconds since the start of the
-       * Unix epoch (1970-01-01 00:00:00.000 UTC) to an instance of {@link Calendar}, and returns the
-       * latter.
-       *
-       * @param milliseconds date-time as a number of milliseconds since the start of the Unix epoch.
-       * @return date-time as a {@link Calendar} instance.
+       * Supports conversion operations for persistence of relevant types not natively supported by
+       * Room/SQLite.
        */
-      @Nullable
-      @TypeConverter
-      public static Calendar calendarFromLong(@Nullable Long milliseconds) {
-        if (milliseconds != null) {
-          Calendar calendar = Calendar.getInstance();
-          calendar.setTimeInMillis(milliseconds);
-          return calendar;
+      public static class Converters {
+
+        /**
+         * Converts a {@link Long} value containing the number of milliseconds since the start of the
+         * Unix epoch (1970-01-01 00:00:00.000 UTC) to an instance of {@link Calendar}, and returns
+         * the latter.
+         *
+         * @param milliseconds date-time as a number of milliseconds since the start of the Unix
+         * epoch.
+         * @return date-time as a {@link Calendar} instance.
+         */
+        @Nullable
+        @TypeConverter
+        public static Calendar calendarFromLong(@Nullable Long milliseconds) {
+          if (milliseconds != null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(milliseconds);
+            return calendar;
+          }
+          return null;
         }
-        return null;
-      }
 
 //      /**
 //       * Converts a {@link Calendar} date-time value number of milliseconds since the start of the
@@ -119,6 +117,6 @@ public abstract class ConsumptionDB extends RoomDatabase {
 //        return (date != null) ? date.toEpochDays() : null;
 //      }
 //
+      }
     }
-
 }

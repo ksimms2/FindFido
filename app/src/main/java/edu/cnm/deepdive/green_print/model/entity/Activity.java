@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.green_print.entity;
+package edu.cnm.deepdive.green_print.model.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

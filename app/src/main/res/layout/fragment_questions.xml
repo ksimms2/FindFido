@@ -5,7 +5,7 @@
   android:layout_width="fill_parent"
   android:layout_height="wrap_content"
   android:background="#080808"
-  tools:context=".QuestionsFragment">
+  tools:context=".controller.QuestionsFragment">
 
   <LinearLayout
     android:layout_width="fill_parent"

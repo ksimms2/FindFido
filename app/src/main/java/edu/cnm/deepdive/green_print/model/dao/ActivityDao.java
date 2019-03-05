@@ -1,9 +1,9 @@
-package edu.cnm.deepdive.green_print.dao;
+package edu.cnm.deepdive.green_print.model.dao;
 
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
-import edu.cnm.deepdive.green_print.entity.Activity;
+import edu.cnm.deepdive.green_print.model.entity.Activity;
 import java.util.List;
 
 @Dao
