@@ -13,5 +13,9 @@
   <!-- TODO: Remove or change this placeholder text -->
   <string name="hello_questions_page">Hello Questions</string>
   <string name="hello_scroll">This Page Needs to Scroll Questions</string>
+  <string name="survey">Survey</string>
+  <string name="home">Home</string>
+  <string name="score">Score</string>
+  <string name="menu">Menu</string>
 
 </resources>

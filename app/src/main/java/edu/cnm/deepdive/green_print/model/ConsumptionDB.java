@@ -2,11 +2,13 @@ package edu.cnm.deepdive.green_print.model;
 
 
 import android.arch.persistence.room.Database;
+import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverter;
 import android.support.annotation.Nullable;
 //import edu.cnm.deepdive.green_print.model.ConsumptionDB.Converters;
 import edu.cnm.deepdive.green_print.model.dao.ActivityDao;
+import edu.cnm.deepdive.green_print.model.dao.ConsumptionApplication;
 import edu.cnm.deepdive.green_print.model.dao.ConsumptionDao;
 import edu.cnm.deepdive.green_print.model.entity.Activity;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
@@ -25,18 +27,18 @@ public abstract class ConsumptionDB extends RoomDatabase {
     private static final String DB_NAME = "apod_db";
 
     /**
-     * Returns the single instance of {@link ApodDB} for the current application context.
+     * Returns the single instance of {@link ConsumptionDao} for the current application context.
      *
-     * @return single {@link ApodDB} instance reference.
+     * @return single {@link ConsumptionDao} instance reference.
      */
-//    public synchronized static ConsumptionDao getInstance() {
-//      return InstanceHolder.INSTANCE;
-//    }
+    public synchronized static ConsumptionDB getInstance() {
+      return InstanceHolder.INSTANCE;
+    }
 
     /**
-     * Returns an instance of a Room-generated implementation of {@link ApodDao}.
+     * Returns an instance of a Room-generated implementation of {@link ConsumptionDao}.
      *
-     * @return data access object for CRUD operations involving {@link Apod} instances.
+     * @return data access object for CRUD operations involving {@link Activity} instances.
      */
     public abstract ConsumptionDao getConsumtionDao();
 
@@ -44,38 +46,38 @@ public abstract class ConsumptionDB extends RoomDatabase {
 
     private static class InstanceHolder {
 
-//      private static final ConsumptionDB INSTANCE = Room.databaseBuilder(
-//          ApodApplication.getInstance().getApplicationContext(), ConsumptionDB.class, DB_NAME)
-//          .build();
-//
-//    }
+      private static final ConsumptionDB INSTANCE = Room.databaseBuilder(
+          ConsumptionApplication.getInstance().getApplicationContext(), ConsumptionDB.class, DB_NAME)
+          .build();
+
+    }
 
       /**
        * Supports conversion operations for persistence of relevant types not natively supported by
        * Room/SQLite.
        */
-      public static class Converters {
-
-        /**
-         * Converts a {@link Long} value containing the number of milliseconds since the start of the
-         * Unix epoch (1970-01-01 00:00:00.000 UTC) to an instance of {@link Calendar}, and returns
-         * the latter.
-         *
-         * @param milliseconds date-time as a number of milliseconds since the start of the Unix
-         * epoch.
-         * @return date-time as a {@link Calendar} instance.
-         */
-        @Nullable
-        @TypeConverter
-        public static Calendar calendarFromLong(@Nullable Long milliseconds) {
-          if (milliseconds != null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(milliseconds);
-            return calendar;
-          }
-          return null;
-        }
-
+//      public static class Converters {
+//
+//        /**
+//         * Converts a {@link Long} value containing the number of milliseconds since the start of the
+//         * Unix epoch (1970-01-01 00:00:00.000 UTC) to an instance of {@link Calendar}, and returns
+//         * the latter.
+//         *
+//         * @param milliseconds date-time as a number of milliseconds since the start of the Unix
+//         * epoch.
+//         * @return date-time as a {@link Calendar} instance.
+//         */
+//        @Nullable
+//        @TypeConverter
+//        public static Calendar calendarFromLong(@Nullable Long milliseconds) {
+//          if (milliseconds != null) {
+//            Calendar calendar = Calendar.getInstance();
+//            calendar.setTimeInMillis(milliseconds);
+//            return calendar;
+//          }
+//          return null;
+//        }
+//
 //      /**
 //       * Converts a {@link Calendar} date-time value number of milliseconds since the start of the
 //       * Unix epoch (1970-01-01 00:00:00.000 UTC), and returns the latter.
@@ -117,6 +119,6 @@ public abstract class ConsumptionDB extends RoomDatabase {
 //        return (date != null) ? date.toEpochDays() : null;
 //      }
 //
-      }
-    }
+//      }
+//   }
 }

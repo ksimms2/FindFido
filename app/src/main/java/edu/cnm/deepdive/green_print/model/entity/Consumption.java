@@ -2,15 +2,14 @@ package edu.cnm.deepdive.green_print.model.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import com.google.gson.annotations.Expose;
-import java.util.Date;
 
 
-  @Entity(
-    indices = @Index(value = "date", unique = true))
+
+  @Entity()
+   // indices = @Index(value = "date", unique = true))
 
  public class Consumption {
 
@@ -20,8 +19,8 @@ import java.util.Date;
   private long id;
 
   @NonNull
-  @Expose
-  private Date date;
+//  @Expose
+//  private Calendar date;
 
 
   @Expose
@@ -30,7 +29,9 @@ import java.util.Date;
   @Expose
   private String description;
 
- @Expose
+
+
+    @Expose
   private String type;
 
  @Expose
@@ -46,14 +47,21 @@ import java.util.Date;
   public void setId(long id) {
     this.id=id;
   }
+    public String getType() {
+      return type;
+    }
 
-  public Date getDate(){
-    return date;
-  }
+    public void setType(String type) {
+      this.type = type;
+    }
 
-  public void setDate(Date date){
-    this.date=date;
-  }
+//  public Date getDate(){
+//    return date;
+//  }
+//
+//  public void setDate(Date date){
+//    this.date=date;
+//  }
 
   public Long getAmount() {
     return amount;

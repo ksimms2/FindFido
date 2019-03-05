@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import edu.cnm.deepdive.green_print.R;
 
 
-public class QuestionsFragment extends Fragment {
+public class SurveyFragment extends Fragment {
 
 
-  public QuestionsFragment() {
+  public SurveyFragment() {
     // Required empty public constructor
   }
 
@@ -21,7 +21,7 @@ public class QuestionsFragment extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     // Inflate the layout for this fragment
-    return inflater.inflate(R.layout.fragment_questions, container, false);
+    return inflater.inflate(R.layout.fragment_survey, container, false);
   }
 
 }

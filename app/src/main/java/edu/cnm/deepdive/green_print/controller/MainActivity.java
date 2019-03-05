@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity
         loadFragment(new HomeFragment(), R.id.fragment_container, "HomeFragment", null);
         break;
       case R.id.fragment_questions:
-        loadFragment(new QuestionsFragment(), R.id.fragment_container, "fragment2", null);
+        loadFragment(new SurveyFragment(), R.id.fragment_container, "fragment2", null);
         break;
 //      case R.id.fragment_2a:
 //        args.putString(Fragment2.BODY_TEXT_KEY, "");

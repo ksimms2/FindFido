@@ -5,6 +5,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity(
@@ -23,7 +24,47 @@ import java.util.Date;
   private long consumptionId;
 
 
-  private Date timestamp = new Date();
+//  private Calendar timestamp = new Calendar() {
+//    @Override
+//    protected void computeTime() {
+//
+//    }
+//
+//    @Override
+//    protected void computeFields() {
+//
+//    }
+//
+//    @Override
+//    public void add(int field, int amount) {
+//
+//    }
+//
+//    @Override
+//    public void roll(int field, boolean up) {
+//
+//    }
+//
+//    @Override
+//    public int getMinimum(int field) {
+//      return 0;
+//    }
+//
+//    @Override
+//    public int getMaximum(int field) {
+//      return 0;
+//    }
+//
+//    @Override
+//    public int getGreatestMinimum(int field) {
+//      return 0;
+//    }
+//
+//    @Override
+//    public int getLeastMaximum(int field) {
+//      return 0;
+//    }
+//  };
 
   public long getId() {
     return id;
@@ -33,19 +74,19 @@ import java.util.Date;
     this.id = id;
   }
 
-  public long getConsumptionIdId() {
+  public long getConsumptionId() {
     return consumptionId;
   }
 
-  public void setConsumptionIdId(long consumptionId) {
+  public void setConsumptionId(long consumptionId) {
     this.consumptionId = consumptionId;
   }
 
-  public Date getTimestamp() {
-    return timestamp;
-  }
-
-  public void setTimestamp(Date timestamp) {
-    this.timestamp = timestamp;
-  }
+//  public Calendar getTimestamp() {
+//    return timestamp;
+//  }
+//
+//  public void setTimestamp(Calendar timestamp) {
+//    this.timestamp = timestamp;
+//  }
 }

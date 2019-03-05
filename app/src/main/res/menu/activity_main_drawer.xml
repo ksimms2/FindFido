@@ -3,29 +3,32 @@
   xmlns:tools="http://schemas.android.com/tools"
   tools:showIn="navigation_view">
 
+
+  <item android:title="@string/menu"/>
+
   <group android:checkableBehavior="single">
-    <item android:title="Menu"></item>
+
     <item
       android:id="@+id/fragment_home"
       android:icon="@drawable/ic_spa"
-      android:title="Home"/>
-    <item
+      android:title="@string/home"/>
+ <!--   <item
       android:id="@+id/profile"
       android:icon="@drawable/ic_local_florist"
-      android:title="Profile"/>
+      android:title="Profile"/> -->
     <item
       android:id="@+id/fragment_questions"
       android:icon="@drawable/tree_icon"
-      android:title="Questions"/>
+      android:title="@string/survey"/>
     <item
       android:id="@+id/nav_notify"
       android:icon="@drawable/ic_insert_chart"
-      android:title="Score"/>
+      android:title="@string/score"/>
 
   </group>
 
 
-  <item android:title="Communicate">
+ <!-- <item android:title="Communicate">
     <menu>
       <item
         android:id="@+id/nav_tips"
@@ -36,6 +39,6 @@
         android:icon="@drawable/ic_menu_send"
         android:title="Send_to_Friends"/>
     </menu>
-  </item>
+  </item> -->
 
 </menu>
