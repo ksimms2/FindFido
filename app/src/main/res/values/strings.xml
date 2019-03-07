@@ -18,4 +18,32 @@
   <string name="score">Score</string>
   <string name="menu">Menu</string>
 
+  <string name="question_1">1) What is your zipcode?</string>
+  <string name="question_2">2) How many people live in your house?</string>
+  <string name="question_3">3) How many adults live in your house?</string>
+  <string name="question_4">4) How many children live in your house?</string>
+  <string name="question_5">5) What is your annual income?</string>
+  <string name="question_6">6) How large is your house (square feet)?</string>
+  <string name="question_7">7) What is your annual electric bill?</string>
+  <string name="question_8">8) What is your annual natural gas bill?</string>
+  <string name="question_9">9) What is your annual heating oil bill?</string>
+  <string name="question_10">10) What is your annual water/sewage bill?</string>
+  <string name="question_11">11) How many days do you heat your house per year?</string>
+  <string name="question_12">12) How many days do you cool your house per year?</string>
+  <string name="question_13">13) How many miles do you drive in your primary vehicle per year?</string>
+  <string name="question_14">14) What is the MPG of that vehicle?</string>
+
+
+
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello Score fragment</string>
+  <string name="question_15">15) How many miles do you drive in your secondary vehicle per year?</string>
+  <string name="question_16">16) What is the MPG of that vehicle?</string>
+  <string name="question_17">17) How many miles do you drive in your third vehicle per year?</string>
+  <string name="question_18">18) What is the MPG of that vehicle?</string>
+  <string name="question_19">19) How many miles do you travel by plane per year?</string>
+  <string name="question_20">20) How many miles do you travel using public transportation per year?</string>
+
+
 </resources>

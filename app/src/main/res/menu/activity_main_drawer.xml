@@ -21,7 +21,7 @@
       android:icon="@drawable/tree_icon"
       android:title="@string/survey"/>
     <item
-      android:id="@+id/nav_notify"
+      android:id="@+id/fragment_score"
       android:icon="@drawable/ic_insert_chart"
       android:title="@string/score"/>
 

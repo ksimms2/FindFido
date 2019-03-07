@@ -4,98 +4,102 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="fill_parent"
   android:layout_height="wrap_content"
-  android:background="#080808"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:background="#30362e"
+  android:padding="@dimen/activity_horizontal_margin"
   tools:context=".controller.SurveyFragment">
 
-  <LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+  <android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+
     >
 
     <TextView
+      android:id="@+id/survey_id"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:textColor="#00FF00"
       android:textSize="50sp"
-      android:text="Survey"/>
+      android:text="@string/survey"/>
 
-    <TextView
+   <!-- <TextView
       android:id="@+id/textView2"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="TextView"/>
+      android:text="TextView"/> -->
 
 
-    <android.support.design.widget.TextInputEditText
+    <!--<android.support.design.widget.TextInputEditText
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="@dimen/activity_horizontal_margin"
       android:hint="TextInputEditText"
-      android:textColor="#fcfdfc"/>
+      android:textColor="#fcfdfc"/>-->
 
 
     <TextView
-      android:id="@+id/textView3"
+      android:id="@+id/question_1_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_alignParentLeft="true"
+      app:layout_constrain=""
       android:layout_below="@+id/textView3"
       android:layout_marginTop="23dp"
-      android:text="1) What is your zipcode?"
+      android:text="@string/question_1"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      android:textColor="#31b335" />
 
     <EditText
-      android:id="@+id/editText4"
+      android:id="@+id/answer_1_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView4"
-      android:layout_toRightOf="@+id/textView4"
+      android:layout_toRightOf="@+id/question_1_id"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView5"
+      android:id="@+id/question_2_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView5"
       android:layout_marginTop="23dp"
-      android:text="2) How many people live in your house?"
+      android:text="@string/question_2"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText5"
+      android:id="@+id/answer_2_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView5"
       android:layout_toRightOf="@+id/textView5"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView6"
+      android:id="@+id/question_3_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView6"
       android:layout_marginTop="23dp"
-      android:text="3) How many adults live in your house?"
+      android:text="@string/question_3"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText6"
+      android:id="@+id/answer_3_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView6"
@@ -108,414 +112,414 @@
     </EditText>
 
     <TextView
-      android:id="@+id/textView7"
+      android:id="@+id/question_4_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView7"
       android:layout_marginTop="23dp"
-      android:text="4) How many children live in your house?"
+      android:text="@string/question_4"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText7"
+      android:id="@+id/answer_4_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView7"
       android:layout_toRightOf="@+id/textView7"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView8"
+      android:id="@+id/question_5_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView3"
       android:layout_marginTop="23dp"
-      android:text="5) What is your annual income?"
+      android:text="@string/question_5"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText8"
+      android:id="@+id/answer_5_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView8"
       android:layout_toRightOf="@+id/textView8"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView9"
+      android:id="@+id/question_6_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView9"
       android:layout_marginTop="23dp"
-      android:text="6) How large is your house (square feet)?"
+      android:text="@string/question_6"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText9"
+      android:id="@+id/answer_6_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView9"
       android:layout_toRightOf="@+id/textView9"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView10"
+      android:id="@+id/question_7_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView3"
       android:layout_marginTop="23dp"
-      android:text="7) What is your annual electric bill?"
+      android:text="@string/question_7"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText10"
+      android:id="@+id/answer_7_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView10"
       android:layout_toRightOf="@+id/textView10"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
     <TextView
-      android:id="@+id/textView11"
+      android:id="@+id/question_8_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView11"
       android:layout_marginTop="23dp"
-      android:text="8) What is your annual natural gas bill?"
+      android:text="@string/question_8"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText11"
+      android:id="@+id/answer_8_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView11"
       android:layout_toRightOf="@+id/textView11"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView12"
+      android:id="@+id/question_9_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView12"
       android:layout_marginTop="23dp"
-      android:text="9) What is your annual heating oil bill?"
+      android:text="@string/question_9"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText12"
+      android:id="@+id/answer_9_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView12"
       android:layout_toRightOf="@+id/textView12"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView13"
+      android:id="@+id/question_10_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView13"
       android:layout_marginTop="23dp"
-      android:text="10) What is your annual water/sewage bill?"
+      android:text="@string/question_10"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText13"
+      android:id="@+id/answer_10_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView13"
       android:layout_toRightOf="@+id/textView13"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView14"
+      android:id="@+id/question_11_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView14"
       android:layout_marginTop="23dp"
-      android:text="11) How many days do you heat your house per year?"
+      android:text="@string/question_11"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText14"
+      android:id="@+id/answer_11_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView14"
       android:layout_toRightOf="@+id/textView14"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView15"
+      android:id="@+id/question_12_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView15"
       android:layout_marginTop="23dp"
-      android:text="12) How many days do you cool your house per year?"
+      android:text="@string/question_12"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText15"
+      android:id="@+id/answer_12_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView15"
       android:layout_toRightOf="@+id/textView15"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView16"
+      android:id="@+id/question_13_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView16"
       android:layout_marginTop="23dp"
-      android:text="13) How many miles do you drive in your primary vehicle per year?"
+      android:text="@string/question_13"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText16"
+      android:id="@+id/answer_13_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView16"
       android:layout_toRightOf="@+id/textView16"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView17"
+      android:id="@+id/question_14_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView17"
       android:layout_marginTop="23dp"
-      android:text="14) What is the MPG of that vehicle?"
+      android:text="@string/question_14"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText17"
+      android:id="@+id/answer_14_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView17"
       android:layout_toRightOf="@+id/textView17"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView18"
+      android:id="@+id/question_15_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView18"
       android:layout_marginTop="23dp"
-      android:text="15) How many miles do you drive in your secondary vehicle per year?"
+      android:text="@string/question_15"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText19"
+      android:id="@+id/answer_15_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView19"
       android:layout_toRightOf="@+id/textView19"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView20"
+      android:id="@+id/question_16_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView20"
       android:layout_marginTop="23dp"
-      android:text="16) What is the MPG of that vehicle?"
+      android:text="@string/question_16"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText21"
+      android:id="@+id/answer_16_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView21"
       android:layout_toRightOf="@+id/textView21"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView22"
+      android:id="@+id/question_17_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView22"
       android:layout_marginTop="23dp"
-      android:text="17) How many miles do you drive in your third vehicle per year?"
+      android:text="@string/question_17"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText23"
+      android:id="@+id/answer_17_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView23"
       android:layout_toRightOf="@+id/textView23"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView24"
+      android:id="@+id/question_18_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView24"
       android:layout_marginTop="23dp"
-      android:text="18) What is the MPG of that vehicle?"
+      android:text="@string/question_18"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText25"
+      android:id="@+id/answer_18_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView25"
       android:layout_toRightOf="@+id/textView25"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView26"
+      android:id="@+id/question_19_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView26"
       android:layout_marginTop="23dp"
-      android:text="19) How many miles do you travel by plane per year?"
+      android:text="@string/question_19"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText27"
+      android:id="@+id/answer_19_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView27"
       android:layout_toRightOf="@+id/textView27"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
     <TextView
-      android:id="@+id/textView28"
+      android:id="@+id/question_20_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView28"
       android:layout_marginTop="23dp"
-      android:text="20) How many miles do you travel using public transportation per year?"
+      android:text="@string/question_20"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:textColor="#0099FF" />
 
     <EditText
-      android:id="@+id/editText29"
+      android:id="@+id/answer_20_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignBottom="@+id/textView29"
       android:layout_toRightOf="@+id/textView29"
       android:background="#CCCCCC"
       android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="number" >
 
       <requestFocus />
     </EditText>
 
 
 
-  </LinearLayout>
+  </android.support.constraint.ConstraintLayout>
 
 </ScrollView>
