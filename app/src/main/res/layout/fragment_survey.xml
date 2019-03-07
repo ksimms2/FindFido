@@ -2,7 +2,7 @@
 <ScrollView
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="fill_parent"
+  android:layout_width="match_parent"
   android:layout_height="wrap_content"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:background="#30362e"
@@ -13,7 +13,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:theme="@style/SurveyPage"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:theme="@style/SurveyPageTheme"
 
     >
     <android.support.constraint.Guideline
@@ -21,7 +22,8 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      app:layout_constraintGuide_begin="196dp"/>
+
+      app:layout_constraintGuide_percent="0.5"/>
 
     <TextView
       android:id="@+id/survey_id"
@@ -32,11 +34,11 @@
       android:text="@string/survey"
       app:layout_constraintTop_toTopOf="parent"/>
 
-   <!-- <TextView
-      android:id="@+id/textView2"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="TextView"/> -->
+    <!-- <TextView
+       android:id="@+id/textView2"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="TextView"/> -->
 
 
     <!--<android.support.design.widget.TextInputEditText
@@ -49,503 +51,522 @@
 
     <TextView
       android:id="@+id/question_1_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/survey_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_1_id"
+      app:layout_constraintLeft_toLeftOf="parent"
+      android:paddingTop="15dp"
       android:text="@string/question_1"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#31b335" />
+      />
 
     <EditText
       android:id="@+id/answer_1_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/survey_id"
-      app:layout_constraintLeft_toRightOf="@id/question_1_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_1_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_1_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_2_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_1_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_2_id"
+      android:paddingTop="15dp"
       android:text="@string/question_2"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_2_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_1_id"
-      app:layout_constraintLeft_toRightOf="@id/question_2_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_2_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_2_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_3_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_2_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_3_id"
+      android:paddingTop="15dp"
       android:text="@string/question_3"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_3_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_2_id"
-      app:layout_constraintLeft_toRightOf="@id/question_3_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_3_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_3_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="textPersonName" >
+      android:inputType="textPersonName">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_4_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_3_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_4_id"
+      android:paddingTop="15dp"
       android:text="@string/question_4"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_4_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_3_id"
-      app:layout_constraintLeft_toRightOf="@id/question_4_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_4_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_4_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_5_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_4_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_5_id"
+      android:paddingTop="15dp"
       android:text="@string/question_5"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_5_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_4_id"
-      app:layout_constraintLeft_toRightOf="@id/question_5_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_5_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_5_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_6_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_5_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_6_id"
+      android:paddingTop="15dp"
       android:text="@string/question_6"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_6_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_5_id"
-      app:layout_constraintLeft_toRightOf="@id/question_6_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_6_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_6_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_7_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/question_6_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_7_id"
+      app:layout_constraintTop_toBottomOf="@+id/question_5_id"
+      android:paddingTop="15dp"
       android:text="@string/question_7"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_7_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_6_id"
-      app:layout_constraintLeft_toRightOf="@id/question_7_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_7_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_7_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
     <TextView
       android:id="@+id/question_8_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_7_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_8_id"
+      android:paddingTop="15dp"
       android:text="@string/question_8"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_8_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_7_id"
-      app:layout_constraintLeft_toRightOf="@id/question_8_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_8_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_8_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_9_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_8_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_9_id"
+      android:paddingTop="15dp"
       android:text="@string/question_9"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_9_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_8_id"
-      app:layout_constraintLeft_toRightOf="@id/question_9_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_9_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_9_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_10_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_9_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_10_id"
+      android:paddingTop="15dp"
       android:text="@string/question_10"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_10_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_9_id"
-      app:layout_constraintLeft_toRightOf="@id/question_10_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_10_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_10_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_11_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_10_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_11_id"
+      android:paddingTop="15dp"
       android:text="@string/question_11"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_11_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_10_id"
-      app:layout_constraintLeft_toRightOf="@id/question_11_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_11_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_11_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_12_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_11_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_12_id"
+      android:paddingTop="15dp"
       android:text="@string/question_12"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_12_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_11_id"
-      app:layout_constraintLeft_toRightOf="@id/question_12_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_12_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_12_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_13_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_12_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_13_id"
+      android:paddingTop="15dp"
       android:text="@string/question_13"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_13_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_12_id"
-      app:layout_constraintLeft_toRightOf="@id/question_13_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_13_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_13_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_14_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_13_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_14_id"
+      android:paddingTop="15dp"
       android:text="@string/question_14"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_14_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_13_id"
-      app:layout_constraintLeft_toRightOf="@id/question_14_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_14_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_14_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_15_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_14_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_15_id"
+      android:paddingTop="15dp"
       android:text="@string/question_15"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_15_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_14_id"
-      app:layout_constraintLeft_toRightOf="@id/question_15_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_15_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_15_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_16_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_15_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_16_id"
+      android:paddingTop="15dp"
       android:text="@string/question_16"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_16_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_15_id"
-      app:layout_constraintLeft_toRightOf="@id/question_16_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_16_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_16_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_17_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_16_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_17_id"
+      android:paddingTop="15dp"
       android:text="@string/question_17"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_17_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_16_id"
-      app:layout_constraintLeft_toRightOf="@id/question_17_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_17_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_17_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_18_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_17_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_18_id"
+      android:paddingTop="15dp"
       android:text="@string/question_18"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_18_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_17_id"
-      app:layout_constraintLeft_toRightOf="@id/question_18_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_18_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_18_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_19_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_18_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_19_id"
+      android:paddingTop="15dp"
       android:text="@string/question_19"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_19_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_18_id"
-      app:layout_constraintLeft_toRightOf="@id/question_19_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_19_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_19_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
 
     <TextView
       android:id="@+id/question_20_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="@+id/guideline"
       app:layout_constraintTop_toBottomOf="@+id/question_19_id"
-      app:layout_constraintRight_toLeftOf="@id/answer_20_id"
+      android:paddingTop="15dp"
       android:text="@string/question_20"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textColor="#0099FF" />
+      />
 
     <EditText
       android:id="@+id/answer_20_id"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
-      app:layout_constraintTop_toBottomOf="@+id/answer_19_id"
-      app:layout_constraintLeft_toRightOf="@id/question_20_id"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/question_20_id"
+      app:layout_constraintBottom_toBottomOf="@id/question_20_id"
       android:background="#CCCCCC"
-      android:ems="10"
-      android:inputType="number" >
+      android:inputType="number">
 
-      <requestFocus />
+      <requestFocus/>
     </EditText>
-
 
 
   </android.support.constraint.ConstraintLayout>
