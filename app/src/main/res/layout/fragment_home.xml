@@ -1,17 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/linearLayout"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="#008015"
+  android:background="#3f474d"
   tools:context=".controller.HomeFragment">
 
-  <!-- TODO: Update blank fragment layout -->
-  <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:textColor="#00FF00"
-    android:textSize="50sp"
-    android:text="@string/hello_home_page"/>
 
-</FrameLayout>
+  <!-- TODO: Update blank fragment layout -->
+
+  <ImageView
+    android:id="@+id/imageView4"
+    android:layout_width="133dp"
+    android:layout_height="117dp"
+    android:src="@mipmap/green_footprint"
+    app:layout_constraintBottom_toTopOf="@+id/textView2"
+
+      />
+
+  <TextView
+    android:id="@+id/textView2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/welcome_to_greenprint"
+    android:textColor="#00FF00"
+    android:textSize="35sp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    />
+
+
+
+  <!--    tools:layout_editor_absoluteX="6dp"
+      tools:layout_editor_absoluteY="271dp"-->
+
+</android.support.constraint.ConstraintLayout>
+
+  <!-- android:layout_gravity="center"-->
+  <!-- app:layout_constraintBottom_toBottomeOf="@+id/imageView4" -->

@@ -32,18 +32,19 @@
   <string name="question_12">12) How many days do you cool your house per year?</string>
   <string name="question_13">13) How many miles do you drive in your primary vehicle per year?</string>
   <string name="question_14">14) What is the MPG of that vehicle?</string>
-
-
-
-
-  <!-- TODO: Remove or change this placeholder text -->
-  <string name="hello_blank_fragment">Hello Score fragment</string>
   <string name="question_15">15) How many miles do you drive in your secondary vehicle per year?</string>
   <string name="question_16">16) What is the MPG of that vehicle?</string>
   <string name="question_17">17) How many miles do you drive in your third vehicle per year?</string>
   <string name="question_18">18) What is the MPG of that vehicle?</string>
   <string name="question_19">19) How many miles do you travel by plane per year?</string>
   <string name="question_20">20) How many miles do you travel using public transportation per year?</string>
+
+
+
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello Score fragment</string>
+  <string name="welcome_to_greenprint">Welcome to GreenPrint</string>
 
 
 </resources>
