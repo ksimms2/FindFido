@@ -1,17 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="#689b70"
+  android:background="@color/colorPrimaryDark"
   tools:context=".controller.ScoreFragment">
 
   <!-- TODO: Update blank fragment layout -->
-  <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:textColor="#ffd900"
-    android:textSize="50sp"
-    android:text="@string/hello_blank_fragment"/>
+  <EditText
+    android:id="@+id/scoreBox"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:ems="20"
+    android:textSize="35dp"
+    android:hint="Score"
+    android:textColorHint="#CCCCCC"
+    android:textColor="#CCCCCC"
+    android:gravity="center"
+    android:inputType="textPersonName"
+    android:background="@drawable/textview_border"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintVertical_bias="0.3" />
 
-</FrameLayout>
+  <TextView
+    android:id="@+id/yourScore"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:paddingBottom="15dp"
+    android:gravity="center"
+    android:text="@string/your_score"
+    android:textColor="#00FF00"
+    android:textSize="30sp"
+    app:layout_constraintBottom_toTopOf="@id/scoreBox"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    android:paddingLeft="20dp"
+    />
+
+
+</android.support.constraint.ConstraintLayout>

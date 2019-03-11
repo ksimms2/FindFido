@@ -47,6 +47,7 @@
   <string name="welcome_to_greenprint">Welcome to GreenPrint!</string>
   <string name="number_hint">number</string>
   <string name="zip_code_hint">Zip code</string>
+  <string name="your_score">Your Score</string>
 
 
 </resources>
