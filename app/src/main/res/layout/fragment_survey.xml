@@ -49,6 +49,8 @@
       android:textColor="#fcfdfc"/>-->
 
 
+    <!-- TODO need to hard code so user can only select '1' to get to zipcode -->
+
     <TextView
       android:id="@+id/question_1_id"
       android:layout_width="0dp"
@@ -70,7 +72,8 @@
       app:layout_constraintTop_toTopOf="@id/question_1_id"
       app:layout_constraintBottom_toBottomOf="@id/question_1_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/zip_code_hint">
 
       <requestFocus/>
     </EditText>
@@ -96,7 +99,8 @@
       app:layout_constraintTop_toTopOf="@id/question_2_id"
       app:layout_constraintBottom_toBottomOf="@id/question_2_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -122,7 +126,8 @@
       app:layout_constraintTop_toTopOf="@id/question_3_id"
       app:layout_constraintBottom_toBottomOf="@id/question_3_id"
       android:background="#CCCCCC"
-      android:inputType="textPersonName">
+      android:inputType="textPersonName"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -148,7 +153,8 @@
       app:layout_constraintTop_toTopOf="@id/question_4_id"
       app:layout_constraintBottom_toBottomOf="@id/question_4_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -174,7 +180,8 @@
       app:layout_constraintTop_toTopOf="@id/question_5_id"
       app:layout_constraintBottom_toBottomOf="@id/question_5_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -200,7 +207,8 @@
       app:layout_constraintTop_toTopOf="@id/question_6_id"
       app:layout_constraintBottom_toBottomOf="@id/question_6_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -226,7 +234,8 @@
       app:layout_constraintTop_toTopOf="@id/question_7_id"
       app:layout_constraintBottom_toBottomOf="@id/question_7_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -251,7 +260,8 @@
       app:layout_constraintTop_toTopOf="@id/question_8_id"
       app:layout_constraintBottom_toBottomOf="@id/question_8_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -277,7 +287,8 @@
       app:layout_constraintTop_toTopOf="@id/question_9_id"
       app:layout_constraintBottom_toBottomOf="@id/question_9_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -303,7 +314,8 @@
       app:layout_constraintTop_toTopOf="@id/question_10_id"
       app:layout_constraintBottom_toBottomOf="@id/question_10_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -329,7 +341,8 @@
       app:layout_constraintTop_toTopOf="@id/question_11_id"
       app:layout_constraintBottom_toBottomOf="@id/question_11_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -355,7 +368,8 @@
       app:layout_constraintTop_toTopOf="@id/question_12_id"
       app:layout_constraintBottom_toBottomOf="@id/question_12_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -381,7 +395,8 @@
       app:layout_constraintTop_toTopOf="@id/question_13_id"
       app:layout_constraintBottom_toBottomOf="@id/question_13_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -407,7 +422,8 @@
       app:layout_constraintTop_toTopOf="@id/question_14_id"
       app:layout_constraintBottom_toBottomOf="@id/question_14_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -433,7 +449,8 @@
       app:layout_constraintTop_toTopOf="@id/question_15_id"
       app:layout_constraintBottom_toBottomOf="@id/question_15_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -459,7 +476,8 @@
       app:layout_constraintTop_toTopOf="@id/question_16_id"
       app:layout_constraintBottom_toBottomOf="@id/question_16_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -485,7 +503,8 @@
       app:layout_constraintTop_toTopOf="@id/question_17_id"
       app:layout_constraintBottom_toBottomOf="@id/question_17_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -511,7 +530,8 @@
       app:layout_constraintTop_toTopOf="@id/question_18_id"
       app:layout_constraintBottom_toBottomOf="@id/question_18_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -537,7 +557,8 @@
       app:layout_constraintTop_toTopOf="@id/question_19_id"
       app:layout_constraintBottom_toBottomOf="@id/question_19_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
@@ -563,7 +584,8 @@
       app:layout_constraintTop_toTopOf="@id/question_20_id"
       app:layout_constraintBottom_toBottomOf="@id/question_20_id"
       android:background="#CCCCCC"
-      android:inputType="number">
+      android:inputType="number"
+      android:hint="@string/number_hint">
 
       <requestFocus/>
     </EditText>
