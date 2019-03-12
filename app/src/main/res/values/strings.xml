@@ -48,6 +48,8 @@
   <string name="number_hint">number</string>
   <string name="zip_code_hint">Zip code</string>
   <string name="your_score">Your Score</string>
+  <string name="retake_survey">Retake Survey</string>
+  <string name="score">Score</string>
 
 
 </resources>

@@ -8,4 +8,5 @@
   <color name="blackText">#000000</color>
   <color name="blueText">#0099FF</color>
   <color name="scrollViewBackground">#668c5a</color>
+  <color name="colorWhite">#CCCCCC</color>
 </resources>

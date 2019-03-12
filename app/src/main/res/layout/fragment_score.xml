@@ -13,13 +13,13 @@
     android:id="@+id/scoreBox"
     android:layout_width="200dp"
     android:layout_height="200dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
     android:ems="20"
-    android:textSize="35dp"
-    android:hint="Score"
-    android:textColorHint="#CCCCCC"
-    android:textColor="#CCCCCC"
+    android:textSize="35sp"
+    android:textStyle="bold"
+
+    android:hint="@string/score"
+    android:textColorHint="@color/colorWhite"
+    android:textColor="@color/colorWhite"
     android:gravity="center"
     android:inputType="textPersonName"
     android:background="@drawable/textview_border"
@@ -27,7 +27,7 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintVertical_bias="0.3" />
+    app:layout_constraintVertical_bias="0.4" />
 
   <TextView
     android:id="@+id/yourScore"
@@ -42,8 +42,48 @@
     app:layout_constraintBottom_toTopOf="@id/scoreBox"
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"
-    android:paddingLeft="20dp"
+
     />
 
+  <android.support.constraint.Guideline
+    android:id="@+id/center_guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.5"/>
+  <android.support.constraint.Guideline
+    android:id="@+id/horizontal_guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.75"/>
+
+  <Button
+    android:id="@+id/retake_survey"
+
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:textButton="@color/colorWhite"
+    android:text="@string/retake_survey"
+    android:textColor="@color/colorPrimaryDark"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toLeftOf="@id/center_guideline"
+    app:layout_constraintTop_toBottomOf="@id/horizontal_guideline"
+    android:background="@drawable/button_border"
+    />
+
+  <Button
+    android:id="@+id/update_score"
+    style="@android:style/Widget.Button.Toggle"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:text="Update Score"
+    android:textColor="@color/colorPrimaryDark"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/horizontal_guideline"
+    app:layout_constraintLeft_toRightOf="@id/center_guideline"
+    android:background="@drawable/button_border"/>
+
+  <!-- TODO Add retake survey, and update code-->
 
 </android.support.constraint.ConstraintLayout>
