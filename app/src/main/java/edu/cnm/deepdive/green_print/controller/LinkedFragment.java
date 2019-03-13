@@ -13,7 +13,7 @@ import edu.cnm.deepdive.green_print.R;
 public abstract class LinkedFragment extends Fragment {
 
 
-  private Button mainMenuButton;
+  private Button retakeSurvey;
 
 
 
@@ -35,9 +35,9 @@ public abstract class LinkedFragment extends Fragment {
 
   protected View linkButton(View view) {
 
-    mainMenuButton = (Button) view.findViewById(R.id.retake_survey_button);
+    retakeSurvey = (Button) view.findViewById(R.id.retake_survey_button);
 
-    mainMenuButton.setOnClickListener(new View.OnClickListener() {
+    retakeSurvey.setOnClickListener(new View.OnClickListener() {
 
 
 
