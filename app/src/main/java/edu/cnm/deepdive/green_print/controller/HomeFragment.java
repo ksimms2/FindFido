@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import edu.cnm.deepdive.green_print.R;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends LinkedFragment {
 
 
   public HomeFragment() {

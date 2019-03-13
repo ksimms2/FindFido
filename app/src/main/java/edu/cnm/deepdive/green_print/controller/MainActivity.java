@@ -1,12 +1,9 @@
 package edu.cnm.deepdive.green_print.controller;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -20,6 +17,9 @@ import edu.cnm.deepdive.green_print.R;
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
+
+
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar = (Toolbar) findViewById(edu.cnm.deepdive.green_print.R.id.toolbar);
     setSupportActionBar(toolbar);
 
-    FloatingActionButton fab = (FloatingActionButton) findViewById(edu.cnm.deepdive.green_print.R.id.fab);
-    fab.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            .setAction("Action", null).show();
-      }
-    });
+//    FloatingActionButton fab = (FloatingActionButton) findViewById(edu.cnm.deepdive.green_print.R.id.fab);
+////    fab.setOnClickListener(new View.OnClickListener() {
+////      @Override
+////      public void onClick(View view) {
+////        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+////            .setAction("Action", null).show();
+////      }
+////    });
 
     //API_KEY
     String api_id = "d6f58a93";
@@ -74,6 +74,16 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView = (NavigationView) findViewById(edu.cnm.deepdive.green_print.R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
 
+
+
+
+
+    loadHomeFragment();
+
+
+ }
+  protected void loadHomeFragment() {
+
     Fragment fragmentHome = new HomeFragment();
 
     FragmentManager manager = getSupportFragmentManager();
@@ -83,6 +93,10 @@ public class MainActivity extends AppCompatActivity
     transaction.commit();
 
   }
+
+
+
+
 
   @Override
   public void onBackPressed() {
@@ -119,7 +133,7 @@ public class MainActivity extends AppCompatActivity
   @SuppressWarnings("StatementWithEmptyBody")
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
-//    // Handle navigation view item clicks here.
+/**    // Handle navigation view item clicks here.
 //    int id = item.getItemId();
 //
 //    if (id == edu.cnm.deepdive.green_print.R.id.home) {
@@ -134,7 +148,7 @@ public class MainActivity extends AppCompatActivity
 //
 //    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_send) {
 //
-//    }
+    }*/
     Bundle args = new Bundle();
     switch(item.getItemId()){
       case R.id.fragment_home:
@@ -147,8 +161,7 @@ public class MainActivity extends AppCompatActivity
         loadFragment(new ScoreFragment(), R.id.fragment_container, "ScoreFragment", null);
         break;
 
-//      case R.id.fragment_2a:
-//        args.putString(Fragment2.BODY_TEXT_KEY, "");
+
 
     }
 
@@ -167,4 +180,6 @@ public class MainActivity extends AppCompatActivity
         .commit();
 
   }
+
+
 }

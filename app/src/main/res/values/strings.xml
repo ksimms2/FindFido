@@ -49,7 +49,8 @@
   <string name="zip_code_hint">Zip code</string>
   <string name="your_score">Your Score</string>
   <string name="retake_survey">Retake Survey</string>
-  <string name="score">Score</string>
+  <string name="score_display">Score</string>
+  <string name="update_score">Update Score</string>
 
 
 </resources>

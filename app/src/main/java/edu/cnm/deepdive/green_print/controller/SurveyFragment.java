@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import edu.cnm.deepdive.green_print.R;
 
 
-public class SurveyFragment extends Fragment {
+public class SurveyFragment extends LinkedFragment {
 
 
   public SurveyFragment() {
