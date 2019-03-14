@@ -1,6 +1,13 @@
 package edu.cnm.deepdive.green_print.controller;
 
 
+import android.widget.Toast;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.StringReader;
@@ -94,7 +101,7 @@ public class CC_API {
     };
 
 
-    public float calculateFootprint(int[] inputValues){
+    public float calculateFootprint(Integer[] inputValues){
 
         // Example curl request
         // curl -X GET "https://apis.berkeley.edu/coolclimate/footprint-sandbox?input_location_mode=1&input_location=87113&input_income=3&input_size=2&input_footprint_transportation_miles1=10000&input_footprint_transportation_mpg1=12&input_footprint_transportation_fuel1=0" -H "accept: application/xml" -H "app_id: d6f58a93" -H "app_key: 0a16fb60fa68e7fdd7551231dd01a736"
@@ -135,6 +142,33 @@ public class CC_API {
             // Build full url string
             String fullUrlStr = url + "?" + params.toString();
             System.out.printf("API Request: %s%n", fullUrlStr);
+
+/*
+            // Instantiate the RequestQueue.
+            RequestQueue queue = Volley.newRequestQueue(this);
+            String url = fullUrlStr + "-H \"accept: application/xml\" -H \"app_id: d6f58a93\" -H \"app_key: 0a16fb60fa68e7fdd7551231dd01a736\"";
+
+            // Request a string response from the provided URL.
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Display the first 500 characters of the response string.
+
+                        String toastStr = "Footprint: " + response.substring(0,500) + "tons/year";
+                        Toast.makeText(getActivity(), toastStr, Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getActivity(), "That didn't work!", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            // Add the request to the RequestQueue.
+            queue.add(stringRequest);
+*/
 
             // Send URL get request
             URL obj = new URL(fullUrlStr);

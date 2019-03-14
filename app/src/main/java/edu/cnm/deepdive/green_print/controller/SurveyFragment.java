@@ -1,31 +1,23 @@
 package edu.cnm.deepdive.green_print.controller;
 
-
-
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import edu.cnm.deepdive.green_print.R;
-import java.util.ArrayList;
 
 
 public class SurveyFragment extends LinkedFragment {
 
   private Button submitButton;
 
-
-
-
   public SurveyFragment() {
     // Required empty public constructor
   }
-
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,11 +25,6 @@ public class SurveyFragment extends LinkedFragment {
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_survey, container, false);
     submitButton = (Button) view.findViewById(R.id.submit_button);
-
-
-
-
-
 
     submitButton.setOnClickListener(new View.OnClickListener(){
 
@@ -67,24 +54,40 @@ public class SurveyFragment extends LinkedFragment {
         }
 */
         // this is so we can check connectivity to internet, must activate code above
-        int[] inputValues2 = new int[]{87113, 3, 2, 1, 1, 1700, 80, 40, 0, 11, 100, 200, 10000, 12, 5000, 17, 2000, 19, 0, 0};
+        Integer[] inputValues2 = new Integer[]{87113, 3, 2, 1, 1, 1700, 80, 40, 0, 11, 100, 200, 10000, 12, 5000, 17, 2000, 19, 0, 0};
 
-        CC_API ccApi = new CC_API();
-        float total_carbon_footprint = ccApi.calculateFootprint(inputValues2);
 
+        // had to alt-enter/ to to revert to last commit
+        new CCAPITask().execute(inputValues2);
         // Display total carbon footprint if available
-        if (total_carbon_footprint == -1) {
-          Toast.makeText(getActivity(), "*** Error: Can't Calculate Carbon Footprint. ***", Toast.LENGTH_SHORT).show();
-        } else {
-          String toastStr = "Footprint: " + String.valueOf(total_carbon_footprint) + "tons/year";
-          Toast.makeText(getActivity(), toastStr, Toast.LENGTH_SHORT).show();
-        }
 
       }
     });
 
   return view;
 
+  }
+  private class CCAPITask extends AsyncTask<Integer, Void, Float>{
+
+
+    @Override
+    protected Float doInBackground(Integer... inputValues2) {
+      CC_API ccApi = new CC_API();
+      float total_carbon_footprint = ccApi.calculateFootprint(inputValues2);
+
+      return total_carbon_footprint;
+    }
+
+    @Override
+    protected void onPostExecute(Float total_carbon_footprint) {
+      if (total_carbon_footprint == -1) {
+        Toast.makeText(getActivity(), "*** Error: Can't Calculate Carbon Footprint. ***", Toast.LENGTH_SHORT).show();
+      } else {
+        String toastStr = "Footprint: " + String.valueOf(total_carbon_footprint) + "tons/year";
+        Toast.makeText(getActivity(), toastStr, Toast.LENGTH_SHORT).show();
+      }
+
+    }
   }
 
 
