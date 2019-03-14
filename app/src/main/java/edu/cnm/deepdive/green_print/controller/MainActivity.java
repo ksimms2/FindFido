@@ -36,31 +36,7 @@ public class MainActivity extends AppCompatActivity
 ////      }
 ////    });
 
-    //API_KEY
-    String api_id = "d6f58a93";
-    String api_key = "0a16fb60fa68e7fdd7551231dd01a736";
-    String url = "https://api-central.berkeley.edu/api/11";
-    String delimeter = "?";
-    String apiEndPt = "https://apis.berkeley.edu/coolclimate/footprint-sandbox";
 
-    //C02 calculator
-    //vehicle type
-    //vehicle year
-    //vehicle make
-    // vehicle model
-    // vehicle annual mileage
-    // description of use of vehicle
-    //travel by train,bus,taxi, ferry
-    // how many times a week do you travel by train,bus,taxi,ferry
-    // estimate using gallons of fuel
-    //// gallons used in a year
-    // zipcode
-    //electricity
-    //natural gas
-    // heating oil
-    // propane
-    //gasoline
-    //diesel
 
 
 
