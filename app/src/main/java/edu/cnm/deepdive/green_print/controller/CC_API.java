@@ -8,11 +8,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import edu.cnm.deepdive.green_print.service.CC_APIWebService.GetCCAPITask;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -106,24 +109,24 @@ public class CC_API {
         // Example curl request
         // curl -X GET "https://apis.berkeley.edu/coolclimate/footprint-sandbox?input_location_mode=1&input_location=87113&input_income=3&input_size=2&input_footprint_transportation_miles1=10000&input_footprint_transportation_mpg1=12&input_footprint_transportation_fuel1=0" -H "accept: application/xml" -H "app_id: d6f58a93" -H "app_key: 0a16fb60fa68e7fdd7551231dd01a736"
 
-        try {
-            String url = "https://apis.berkeley.edu/coolclimate/footprint";
-            String format = "xml";
-            String app_id = "d6f58a93";
-            String app_key = "0a16fb60fa68e7fdd7551231dd01a736";
+        //try {
+//            String url = "https://apis.berkeley.edu/coolclimate/footprint";
+//            String format = "xml";
+//            String app_id = "d6f58a93";
+//            String app_key = "0a16fb60fa68e7fdd7551231dd01a736";
 
-            StringBuilder params = new StringBuilder();
-
+            //StringBuilder params = new StringBuilder();
+        Map<String, String> params = new HashMap<>();
             // Build Parameter request string
             for (int i = 0; i < inputValues.length; i++) {
 
                 int curValue = inputValues[i];
 
-                if(i > 0) {
-                    params.append("&");
-                }
+//                if(i > 0) {
+//                    params.append("&");
+//                }
 
-                params.append(keys[i] + "=" + String.valueOf(curValue));
+                params.put(keys[i], String.valueOf(curValue));
             }
 
 
@@ -131,68 +134,44 @@ public class CC_API {
             // Get two letter state abbreviation from zip code
             String stateAbbrvStr = getStateFromZip(String.valueOf(inputValues[0]));
             System.out.printf("State: %s%n", stateAbbrvStr);
-            params.append("&internal_state_abbreviation=" + stateAbbrvStr);
+            params.put("internal_state_abbreviation=", stateAbbrvStr);
 
             // Add required keys with no value
             for (int i = 0; i < requiredKeys.length; i++) {
-                params.append("&" + requiredKeys[i]);
+                params.put( requiredKeys[i], "");
             }
 
 
             // Build full url string
-            String fullUrlStr = url + "?" + params.toString();
-            System.out.printf("API Request: %s%n", fullUrlStr);
+            // fullUrlStr = url + "?" + params.toString();
+           // System.out.printf("API Request: %s%n", fullUrlStr);
 
-/*
-            // Instantiate the RequestQueue.
-            RequestQueue queue = Volley.newRequestQueue(this);
-            String url = fullUrlStr + "-H \"accept: application/xml\" -H \"app_id: d6f58a93\" -H \"app_key: 0a16fb60fa68e7fdd7551231dd01a736\"";
 
-            // Request a string response from the provided URL.
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
 
-                        String toastStr = "Footprint: " + response.substring(0,500) + "tons/year";
-                        Toast.makeText(getActivity(), toastStr, Toast.LENGTH_SHORT).show();
+//            // Send URL get request
+//            URL obj = new URL(fullUrlStr);
+//            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+//
+//            con.setRequestProperty("accept", "application/" + format);
+//            con.setRequestProperty("app_id", app_id);
+//            con.setRequestProperty("app_key", app_key);
+//
+//            con.setRequestMethod("GET");
+//
+//            int responseCode = con.getResponseCode();
+//            System.out.println("Response Code: " + responseCode);
+//            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+//            String inputLine;
+//            StringBuffer response = new StringBuffer();
+//
+//            while ((inputLine = in.readLine()) != null) {
+//                response.append(inputLine);
+//            }
+//
+//            in.close();
+                new GetCCAPITask().
 
-                    }
-                }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getActivity(), "That didn't work!", Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            // Add the request to the RequestQueue.
-            queue.add(stringRequest);
-*/
-
-            // Send URL get request
-            URL obj = new URL(fullUrlStr);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
-            con.setRequestProperty("accept", "application/" + format);
-            con.setRequestProperty("app_id", app_id);
-            con.setRequestProperty("app_key", app_key);
-
-            con.setRequestMethod("GET");
-
-            int responseCode = con.getResponseCode();
-            System.out.println("Response Code: " + responseCode);
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-
-            in.close();
-
-            String responseStr = response.toString();
+           // String responseStr = response.toString();
             //System.out.print(responseStr);
 
 
@@ -221,10 +200,10 @@ public class CC_API {
                 return -1;
             }
 
-        } catch (Exception e) {
-            System.out.println(e);
-            return -1;
-        }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//            return -1;
+//        }
     }
 
     private String getValueForKey(Element allElements, String keyStr) {
