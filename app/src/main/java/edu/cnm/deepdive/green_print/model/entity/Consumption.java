@@ -4,7 +4,6 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
-import com.google.gson.annotations.Expose;
 
 
 
@@ -22,21 +21,21 @@ import com.google.gson.annotations.Expose;
 
 
 
-  @Expose
+
   private String category;
 
-  @Expose
+
   private String description;
 
 
 
-    @Expose
+
   private String type;
 
- @Expose
+
   private String url;
 
-  @Expose
+
   private Long amount;
 
   public long getId(){

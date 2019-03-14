@@ -1,26 +1,10 @@
 package edu.cnm.deepdive.green_print.controller;
 
 
-import android.widget.Toast;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import edu.cnm.deepdive.green_print.service.CC_APIWebService.GetCCAPITask;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.StringReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import android.content.Context;
 import java.util.HashMap;
 import java.util.Map;
-import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
 
 public class CC_API {
 
@@ -104,7 +88,7 @@ public class CC_API {
     };
 
 
-    public float calculateFootprint(Integer[] inputValues){
+    public Map<String, String> calculateFootprintParams(Integer[] inputValues){
 
         // Example curl request
         // curl -X GET "https://apis.berkeley.edu/coolclimate/footprint-sandbox?input_location_mode=1&input_location=87113&input_income=3&input_size=2&input_footprint_transportation_miles1=10000&input_footprint_transportation_mpg1=12&input_footprint_transportation_fuel1=0" -H "accept: application/xml" -H "app_id: d6f58a93" -H "app_key: 0a16fb60fa68e7fdd7551231dd01a736"
@@ -134,7 +118,7 @@ public class CC_API {
             // Get two letter state abbreviation from zip code
             String stateAbbrvStr = getStateFromZip(String.valueOf(inputValues[0]));
             System.out.printf("State: %s%n", stateAbbrvStr);
-            params.put("internal_state_abbreviation=", stateAbbrvStr);
+            params.put("internal_state_abbreviation", stateAbbrvStr);
 
             // Add required keys with no value
             for (int i = 0; i < requiredKeys.length; i++) {
@@ -169,41 +153,42 @@ public class CC_API {
 //            }
 //
 //            in.close();
-                new GetCCAPITask().
+                return params;
 
            // String responseStr = response.toString();
             //System.out.print(responseStr);
 
 
             // Parse XML response to get value for carbon footprint grand total
-            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
-                    .parse(new InputSource(new StringReader(responseStr)));
-
-            NodeList responseList = doc.getElementsByTagName("response");
-            if (responseList.getLength() > 0) {
-                Element allElements = (Element)responseList.item(0);
-
-                String totalTonsPerYearStr = getValueForKey(allElements, "result_grand_total");
-
-                // Example: You can get any value from a key in the response
-                //String otherValueFromResponse = getValueForKey(allElements, "result_takeaction_grand_total");
-                //System.out.printf("Example of Other Response Value: %s%n", otherValueFromResponse);
-
-                if (totalTonsPerYearStr.isEmpty()) {
-                    return -1;
-                } else {
-                    return Float.parseFloat(totalTonsPerYearStr);
-                }
-
-            } else {
-                // Error
-                return -1;
-            }
+//            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+//                    .parse(new InputSource(new StringReader(responseStr)));
+//
+//            NodeList responseList = doc.getElementsByTagName("response");
+//            if (responseList.getLength() > 0) {
+//                Element allElements = (Element)responseList.item(0);
+//
+//                String totalTonsPerYearStr = getValueForKey(allElements, "result_grand_total");
+//
+//                // Example: You can get any value from a key in the response
+//                //String otherValueFromResponse = getValueForKey(allElements, "result_takeaction_grand_total");
+//                //System.out.printf("Example of Other Response Value: %s%n", otherValueFromResponse);
+//
+//                if (totalTonsPerYearStr.isEmpty()) {
+//                    return -1;
+//                } else {
+//                    return Float.parseFloat(totalTonsPerYearStr);
+//                }
+//
+//            } else {
+//                // Error
+//                return -1;
+//            }
 
 //        } catch (Exception e) {
 //            System.out.println(e);
 //            return -1;
 //        }
+
     }
 
     private String getValueForKey(Element allElements, String keyStr) {

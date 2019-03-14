@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import edu.cnm.deepdive.green_print.R;
+import edu.cnm.deepdive.green_print.model.entity.CCResponse;
+import edu.cnm.deepdive.green_print.service.BaseFluentAsyncTask.ResultListener;
+import edu.cnm.deepdive.green_print.service.CC_APIWebService.GetCCAPITask;
+import java.util.Map;
 
 
 public class SurveyFragment extends LinkedFragment {
@@ -58,7 +62,17 @@ public class SurveyFragment extends LinkedFragment {
 
 
         // had to alt-enter/ to to revert to last commit
-        new CCAPITask().execute(inputValues2);
+        CC_API ccApi = new CC_API();
+        Map<String, String> params = ccApi.calculateFootprintParams(inputValues2);
+
+        new GetCCAPITask().setSuccessListener(
+            ccResponse ->
+                Toast.makeText(getActivity(),
+                    "Total: "+ccResponse.getGrandTotal(),Toast.LENGTH_LONG)
+                    .show())
+            .execute(params);
+
+
         // Display total carbon footprint if available
 
       }
@@ -66,28 +80,6 @@ public class SurveyFragment extends LinkedFragment {
 
   return view;
 
-  }
-  private class CCAPITask extends AsyncTask<Integer, Void, Float>{
-
-
-    @Override
-    protected Float doInBackground(Integer... inputValues2) {
-      CC_API ccApi = new CC_API();
-      float total_carbon_footprint = ccApi.calculateFootprint(inputValues2);
-
-      return total_carbon_footprint;
-    }
-
-    @Override
-    protected void onPostExecute(Float total_carbon_footprint) {
-      if (total_carbon_footprint == -1) {
-        Toast.makeText(getActivity(), "*** Error: Can't Calculate Carbon Footprint. ***", Toast.LENGTH_SHORT).show();
-      } else {
-        String toastStr = "Footprint: " + String.valueOf(total_carbon_footprint) + "tons/year";
-        Toast.makeText(getActivity(), toastStr, Toast.LENGTH_SHORT).show();
-      }
-
-    }
   }
 
 

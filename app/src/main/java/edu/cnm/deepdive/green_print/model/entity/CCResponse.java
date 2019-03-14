@@ -1,10 +1,12 @@
 package edu.cnm.deepdive.green_print.model.entity;
 
-import javax.xml.bind.annotation.XmlElement;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 
+@Root(name = "response", strict = false)
 public class CCResponse {
 
-  @XmlElement(name = "result_grand_total")
+  @Element(name = "result_grand_total")
   private Float grandTotal;
 
   public Float getGrandTotal() {

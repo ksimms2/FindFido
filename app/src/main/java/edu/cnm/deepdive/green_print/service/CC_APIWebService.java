@@ -5,12 +5,15 @@ import edu.cnm.deepdive.green_print.BuildConfig;
 import edu.cnm.deepdive.green_print.CC_APIApplication;
 import edu.cnm.deepdive.green_print.R;
 import edu.cnm.deepdive.green_print.model.entity.CCResponse;
-import edu.cnm.deepdive.green_print.model.entity.Consumption;
 import java.util.Map;
+import okhttp3.OkHttpClient;
+import okhttp3.OkHttpClient.Builder;
+import okhttp3.logging.HttpLoggingInterceptor;
+import okhttp3.logging.HttpLoggingInterceptor.Level;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.jaxb.JaxbConverterFactory;
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
@@ -18,7 +21,7 @@ import retrofit2.http.QueryMap;
 public interface CC_APIWebService {
   @Headers({
       "app_id: " + BuildConfig.APP_ID,
-      "app_key: " + BuildConfig.API_KEY
+      "app_key: " + BuildConfig.APP_KEY
   })
   @GET("coolclimate/footprint")
   Call<CCResponse> get(@QueryMap Map<String, String> mapParam);
@@ -33,8 +36,8 @@ public interface CC_APIWebService {
 
     private static final CC_APIWebService INSTANCE;
 
-    private static final String API_KEY;
-    private static final String APP_ID;
+    /*private static final String API_KEY;
+    private static final String APP_ID;*/
 
 
 
@@ -47,16 +50,25 @@ public interface CC_APIWebService {
 //          .excludeFieldsWithoutExposeAnnotation()
 //          .create();
 
+      HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+
+      httpLoggingInterceptor.setLevel(Level.BODY);
+
+      OkHttpClient.Builder httpClient = new Builder();
+
+      httpClient.addInterceptor(httpLoggingInterceptor);
+
       Retrofit retrofit = new Retrofit.Builder()
           .baseUrl(application.getApplicationContext().getString(R.string.base_url))
-          .addConverterFactory(JaxbConverterFactory.create())
+          .addConverterFactory(SimpleXmlConverterFactory.create())
+          .client(httpClient.build())
           .build();
 
       INSTANCE = retrofit.create(CC_APIWebService.class);
 
-      API_KEY = BuildConfig.API_KEY;
+      /*API_KEY = BuildConfig.API_KEY;
 
-      APP_ID = BuildConfig.APP_ID;
+      APP_ID = BuildConfig.APP_ID;*/
 
     }
 
