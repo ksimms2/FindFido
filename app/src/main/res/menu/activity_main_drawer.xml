@@ -24,6 +24,10 @@
       android:id="@+id/fragment_score"
       android:icon="@drawable/ic_insert_chart"
       android:title="@string/score"/>
+    <item
+      android:id="@+id/fragment_update"
+      android:icon="@drawable/ic_insert_chart"
+      android:title="@string/update"/>
 
   </group>
 

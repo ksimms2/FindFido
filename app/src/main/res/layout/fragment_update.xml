@@ -5,42 +5,31 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:padding="16dp"
   android:background="@color/colorPrimaryDark"
   tools:context=".controller.ScoreFragment">
 
 
-  <LinearLayout
+  <ListView
+    android:id="@+id/takeaction_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-      android:id="@+id/takeaction_1_id"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="TextView"/>
-    <CheckBox
-      android:id="@+id/checkBox_1_id"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="CheckBox"/>
-    <TextView
-      android:id="@+id/takeaction_2_id"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="TextView"/>
-    <CheckBox
-      android:id="@+id/checkBox_2_id"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="CheckBox"/>
 
-    <Button
-      android:id="@+id/update_button"
-      android:layout_width="100dp"
-      android:layout_height="80dp"
-      android:text="Update"
-      android:textStyle="bold"
-      android:layout_marginBottom="40dp"
-      />
-  </LinearLayout>
+
+
+
+  </ListView>
+
+  <Button
+    android:id="@+id/update_button"
+    android:layout_width="100dp"
+    android:layout_height="80dp"
+
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:text="Update"
+    android:textStyle="bold"
+    android:layout_marginBottom="20dp"/>
+
 </android.support.constraint.ConstraintLayout>

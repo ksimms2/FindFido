@@ -12,6 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import edu.cnm.deepdive.green_print.R;
 
 public class MainActivity extends AppCompatActivity
@@ -55,6 +59,7 @@ public class MainActivity extends AppCompatActivity
 
 
     loadHomeFragment();
+
 
 
  }
@@ -135,6 +140,9 @@ public class MainActivity extends AppCompatActivity
         break;
       case R.id.fragment_score:
         loadFragment(new ScoreFragment(), R.id.fragment_container, "ScoreFragment", null);
+        break;
+      case R.id.fragment_update:
+        loadFragment(new ScoreFragment(), R.id.fragment_container, "UpdateFragment", null);
         break;
 
 

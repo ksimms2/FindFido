@@ -31,6 +31,24 @@ public class CC_API {
             "input_footprint_transportation_publictrans"
     };
 
+    private static String[] takeActionKeys = {
+        "input_takeaction_switch_to_cfl",
+        "input_takeaction_maintain_my_vehicles",
+        "input_takeaction_more_efficient_vehicle",
+        "input_takeaction_reduce_air_travel",
+        "input_takeaction_telecommute_to_work",
+        "input_takeaction_thermostat_summer",
+        "input_takeaction_offset_housing",
+        "input_takeaction_energy_star_fridge",
+        "input_takeaction_thermostat_winter",
+        "input_takeaction_offset_transportation",
+        "input_takeaction_ride_my_bike",
+        "input_takeaction_purchase_green_electricity",
+        "input_takeaction_take_public_transportation",
+        "input_takeaction_carpool_to_work",
+        "input_takeaction_practice_eco_driving",
+    };
+
     // Set to default values
     private static String[] requiredKeys = {
             "input_location_mode=1",                                        // 1 = Zip code

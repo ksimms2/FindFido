@@ -40,8 +40,23 @@
   <string name="question_19">19) How many miles do you travel by plane per year?</string>
   <string name="question_20">20) How many miles do you travel using public transportation per year?</string>
 
+  <string name="takeaction_1">1) Switch to Cfl to reduce footprint by ? tons/year</string>
+  <string name="takeaction_2">2) Maintain my vehicles to reduce footprint by ? tons/year</string>
+  <string name="takeaction_3">3) More efficient vehicle to reduce footprint by ? tons/year</string>
+  <string name="takeaction_4">4) Reduce air travel to reduce footprint by ? tons/year</string>
+  <string name="takeaction_5">5) Telecommute to work to reduce footprint by ? tons/year </string>
+  <string name="takeaction_6">6) Minimize summer thermostat usage to reduce footprint by ? tons/year</string>
+  <string name="takeaction_7">7) Offset housing to reduce footprint by ? tons/year</string>
+  <string name="takeaction_8">8) Get an Energy Star fridge to reduce footprint ?tons/year</string>
+  <string name="takeaction_9">9) Minimize winter thermostat usage to reduce footprint by ? tons/year</string>
+  <string name="takeaction_10">10) Offset transportation to reduce footprint by ? tons/year</string>
+  <string name="takeaction_11">11) Ride my bike to instead of driving to reduce by ? tons/year</string>
+  <string name="takeaction_12">12) Purchase Green Electricity to reduce by ? tons/year</string>
+  <string name="takeaction_13">13) Take public transportation to reduce footprint by ? tons/year</string>
+  <string name="takeaction_14">14) Carpool to work to reduce footprint by ? tons/year</string>
+  <string name="takeaction_15">15) Practice Eco driving to reduce by ? tons/year</string>
 
-  <!-- TODO: Remove or change this placeholder text -->
+
   <string name="hello_blank_fragment">Hello Score fragment</string>
   <string name="welcome_to_greenprint">Welcome to GreenPrint!</string>
   <string name="number_hint">number</string>
@@ -50,6 +65,7 @@
   <string name="retake_survey">Retake Survey</string>
   <string name="score_display">Score</string>
   <string name="update_score">Update Score</string>
+  <string name="update">Update</string>
 
 
 </resources>

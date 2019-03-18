@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+
+  <TextView
+    android:id="@+id/takeaction_1_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_1"/>
+  <TextView
+    android:id="@+id/takeaction_2_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_2"/>
+  <TextView
+    android:id="@+id/takeaction_3_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_3"/>
+  <TextView
+    android:id="@+id/takeaction_4_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_4"/>
+  <TextView
+    android:id="@+id/takeaction_5_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_5"/>
+  <TextView
+    android:id="@+id/takeaction_6_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_6"/>
+  <TextView
+    android:id="@+id/takeaction_7_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_7"/>
+  <TextView
+    android:id="@+id/takeaction_8_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_8"/>
+  <TextView
+    android:id="@+id/takeaction_9_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_9"/>
+
+  <TextView
+    android:id="@+id/takeaction_10_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_10"/>
+  <TextView
+    android:id="@+id/takeaction_11_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_10"/>
+
+  <TextView
+    android:id="@+id/takeaction_12_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_12"/>
+  <TextView
+    android:id="@+id/takeaction_13_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_13"/>
+  <TextView
+    android:id="@+id/takeaction_14_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_14"/>
+  <TextView
+    android:id="@+id/takeaction_15_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/takeaction_15"/>
+
+
+</android.support.constraint.ConstraintLayout>
