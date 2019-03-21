@@ -57,6 +57,8 @@ public class ScoreFragment extends LinkedFragment {
       @Override
       public void onClick(View v) {
         Toast.makeText(getActivity(), "Going to Update Score", Toast.LENGTH_SHORT).show();
+        UpdateFragment updateFragment = new UpdateFragment();
+        getFragmentManager().beginTransaction().replace(R.id.fragment_container, updateFragment).commit();
       // need to create the update fragment maybe... it might stay on Score
       }
     });

@@ -1,35 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:padding="16dp"
   android:background="@color/colorPrimaryDark"
   tools:context=".controller.ScoreFragment">
 
+ <android.support.v7.widget.RecyclerView
+   android:id="@+id/update_view"
+   android:layout_width="match_parent"
+   android:layout_height="0dp"
+   android:layout_marginTop="4dp"
+   android:layout_marginBottom="4dp"
+   app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+   app:layout_constraintTop_toTopOf="parent"
+   app:layout_constraintBottom_toBottomOf="parent"/>
 
-  <ListView
-    android:id="@+id/takeaction_list"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
 
 
 
 
-  </ListView>
-
-  <Button
-    android:id="@+id/update_button"
-    android:layout_width="100dp"
-    android:layout_height="80dp"
-
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    android:text="Update"
-    android:textStyle="bold"
-    android:layout_marginBottom="20dp"/>
 
 </android.support.constraint.ConstraintLayout>

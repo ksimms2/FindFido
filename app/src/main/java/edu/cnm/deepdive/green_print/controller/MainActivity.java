@@ -16,13 +16,18 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import edu.cnm.deepdive.green_print.R;
+import edu.cnm.deepdive.green_print.service.FragmentService;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
 
-
+  //private ImageFragment imageFragment;
+  private UpdateFragment updateFragment;
+  private ProgressBar loading;
+  private DrawerLayout navigation;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +115,29 @@ public class MainActivity extends AppCompatActivity
 
     return super.onOptionsItemSelected(item);
   }
-
+//  private void setupFragments(Bundle savedInstanceState) {
+//    navigation = findViewById(R.id.nav_view);
+//    //navigation.setOnNavigationItemSelectedListener(this);
+//    FragmentService fragmentService = FragmentService.getInstance();
+//    if (savedInstanceState == null) {
+//      surveyFragment = new SurveyFragment();
+//      fragmentService.loadFragment(this, R.id.fragment_container, imageFragment,
+//          imageFragment.getClass().getSimpleName(), true);
+//      historyFragment = new HistoryFragment();
+//      fragmentService.loadFragment(this, R.id.fragment_container, updateFragment,
+//          updateFragment.getClass().getSimpleName(), false);
+//    } else {
+//      imageFragment = (ImageFragment) fragmentService.findFragment(
+//          this, R.id.fragment_container, ImageFragment.class.getSimpleName());
+//      updateFragment = (UpdateFragment) fragmentService.findFragment(
+//          this, R.id.fragment_container, UpdateFragment.class.getSimpleName());
+//    }
+//    surveyFragment.setHistoryFragment(updateFragment);
+//    UpdateFragment.setSurveyFragment(surveyFragment);
+//  }
+  public DrawerLayout getNavigation(){
+    return navigation;
+  }
   @SuppressWarnings("StatementWithEmptyBody")
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
@@ -141,9 +168,9 @@ public class MainActivity extends AppCompatActivity
       case R.id.fragment_score:
         loadFragment(new ScoreFragment(), R.id.fragment_container, "ScoreFragment", null);
         break;
-      case R.id.fragment_update:
-        loadFragment(new ScoreFragment(), R.id.fragment_container, "UpdateFragment", null);
-        break;
+//      case R.id.fragment_update:
+//        loadFragment(new UpdateFragment(), R.id.fragment_container, "UpdateFragment", null);
+//        break;
 
 
 

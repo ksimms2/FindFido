@@ -6,6 +6,8 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 import java.io.Serializable;
 
+import java.util.Calendar;
+
 
 @Entity(
     foreignKeys = @ForeignKey(entity = Consumption.class, parentColumns = "consumption_id", childColumns = "consumption_id",
@@ -22,7 +24,7 @@ import java.io.Serializable;
   @ColumnInfo(name = "consumption_id", index = true)
   private long consumptionId;
 
-
+  private Calendar timestamp = Calendar.getInstance();
 
 
   public long getId() {
@@ -41,5 +43,11 @@ import java.io.Serializable;
     this.consumptionId = consumptionId;
   }
 
+  public Calendar getTimestamp() {
+    return timestamp;
+  }
 
+  public void setTimestamp(Calendar timestamp) {
+    this.timestamp = timestamp;
+  }
 }

@@ -66,6 +66,7 @@
   <string name="score_display">Score</string>
   <string name="update_score">Update Score</string>
   <string name="update">Update</string>
+  <string name="update_your_footprint">Update your footprint:</string>
 
 
 </resources>

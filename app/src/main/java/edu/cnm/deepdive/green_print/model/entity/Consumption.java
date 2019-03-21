@@ -4,39 +4,33 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
+//import com.google.gson.annotations.Expose;
+//import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+import java.util.Calendar;
 
 
+@Entity()
 
-  @Entity()
 
-
- public class Consumption {
+ public class Consumption implements Serializable {
 
 
   @ColumnInfo(name = "consumption_id")
   @PrimaryKey(autoGenerate = true)
   private long id;
 
+
+
+
+
+
   @NonNull
-
-
-
-
-  private String category;
-
-
-  private String description;
-
-
-
-
-  private String type;
-
-
-  private String url;
-
-
-  private Long amount;
+ // @Expose
+  private Calendar time;
+ // @Expose
+  private Float score;
 
   public long getId(){
     return id;
@@ -45,49 +39,29 @@ import android.support.annotation.NonNull;
   public void setId(long id) {
     this.id=id;
   }
-    public String getType() {
-      return type;
+
+
+
+    @NonNull
+    public Calendar getTime() {
+      return time;
     }
 
-    public void setType(String type) {
-      this.type = type;
+    public void setTime(@NonNull Calendar time) {
+      this.time = time;
+    }
+
+    public Float getScore() {
+    return score;
+  }
+
+  public void setScore(Float score){
+    this.score = score;
     }
 
 
-  public Long getAmount() {
-    return amount;
-  }
+    //TODO make a time stamp category
 
-  public void setAmount(Long amount){
-    this.amount = amount;
-    }
-
-  public String getCategory(){
-    return category;
-  }
-
-  public void setCategory(String category){
-    this.category=category;
-  }
-
-
-  public String getDescription(){
-    return description;
-  }
-
-  public void setDescription(String description){
-    this.description=description;
-  }
-
-
-
-  public String getUrl(){
-    return url;
-  }
-
-  public void setUrl(String url){
-    this.url=url;
-  }
 
 
 }

@@ -14,7 +14,7 @@ public abstract class LinkedFragment extends Fragment {
 
 
   private Button retakeSurvey;
-
+  private Button updateScore;
 
 
 
@@ -41,6 +41,7 @@ public abstract class LinkedFragment extends Fragment {
 
 
 
+
       @Override
 
       public void onClick(View view) {
@@ -56,5 +57,30 @@ public abstract class LinkedFragment extends Fragment {
     return view;
 
   }
+
+//  protected View linkButtonUpdate(View view) {
+//
+//    updateScore = (Button) view.findViewById(R.id.update_score_button);
+//    updateScore.setOnClickListener(new View.OnClickListener() {
+//
+//
+//
+//
+//      @Override
+//
+//      public void onClick(View view) {
+//
+//        loadHomeFragment();
+//
+//      }
+//
+//
+//
+//    });
+//
+//    return view;
+//
+//  }
+
 
 }

@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.green_print.model.entity;
+package edu.cnm.deepdive.green_print.model.pojo;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;

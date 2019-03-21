@@ -3,9 +3,14 @@ package edu.cnm.deepdive.green_print.model.dao;
 
 import android.arch.persistence.room.Dao;
 
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
+import android.arch.persistence.room.Query;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 @Dao
 public interface ConsumptionDao {
@@ -61,10 +66,17 @@ public interface ConsumptionDao {
      * @return inserted record ID(s).
      */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-   public void insertConsumption(Consumption... consumptions);
+    List<Long>insert(Consumption... consumptions);
 
 
+    @Query("SELECT * FROM Consumption ORDER BY time DESC")
+    List<Consumption> findFirstByTime(Calendar time);
 
+    @Query("SELECT * FROM Consumption ORDER BY time DESC")
+    List<Consumption> findAll();
+
+    @Delete
+    int delete(Consumption... consumptions);
 
 
 }

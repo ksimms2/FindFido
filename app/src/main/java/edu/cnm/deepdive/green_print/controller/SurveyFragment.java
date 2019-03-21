@@ -1,6 +1,5 @@
 package edu.cnm.deepdive.green_print.controller;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import edu.cnm.deepdive.green_print.R;
-import edu.cnm.deepdive.green_print.model.entity.CCResponse;
-import edu.cnm.deepdive.green_print.service.BaseFluentAsyncTask.ResultListener;
 import edu.cnm.deepdive.green_print.service.CC_APIWebService.GetCCAPITask;
 import java.util.Map;
 
@@ -81,6 +78,7 @@ public class SurveyFragment extends LinkedFragment {
   return view;
 
   }
+
 
 
 }

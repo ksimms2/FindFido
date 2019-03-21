@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 import edu.cnm.deepdive.green_print.BuildConfig;
 import edu.cnm.deepdive.green_print.CC_APIApplication;
 import edu.cnm.deepdive.green_print.R;
-import edu.cnm.deepdive.green_print.model.entity.CCResponse;
+import edu.cnm.deepdive.green_print.model.pojo.CCResponse;
 import java.util.Map;
 import okhttp3.OkHttpClient;
 import okhttp3.OkHttpClient.Builder;
@@ -36,8 +36,8 @@ public interface CC_APIWebService {
 
     private static final CC_APIWebService INSTANCE;
 
-    /*private static final String API_KEY;
-    private static final String APP_ID;*/
+    //private static final String API_KEY;
+    private static final String APP_ID;
 
 
 
@@ -66,9 +66,9 @@ public interface CC_APIWebService {
 
       INSTANCE = retrofit.create(CC_APIWebService.class);
 
-      /*API_KEY = BuildConfig.API_KEY;
+      //API_KEY = BuildConfig.API_KEY;
 
-      APP_ID = BuildConfig.APP_ID;*/
+      APP_ID = BuildConfig.APP_ID;
 
     }
 

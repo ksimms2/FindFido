@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d77aa711e07df1d71ba7b3a67c8aa908",
+    "identityHash": "234a74315303fa27852877d0896b6da4",
     "entities": [
       {
         "tableName": "Activity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`activity_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `consumption_id` INTEGER NOT NULL, FOREIGN KEY(`consumption_id`) REFERENCES `Consumption`(`consumption_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`activity_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `consumption_id` INTEGER NOT NULL, `timestamp` TEXT, FOREIGN KEY(`consumption_id`) REFERENCES `Consumption`(`consumption_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -19,6 +19,12 @@
             "columnName": "consumption_id",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -53,7 +59,7 @@
       },
       {
         "tableName": "Consumption",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`consumption_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `category` TEXT NOT NULL, `description` TEXT, `type` TEXT, `url` TEXT, `amount` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`consumption_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `time` TEXT NOT NULL, `score` REAL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -62,33 +68,15 @@
             "notNull": true
           },
           {
-            "fieldPath": "category",
-            "columnName": "category",
+            "fieldPath": "time",
+            "columnName": "time",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "description",
-            "columnName": "description",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "type",
-            "columnName": "type",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "url",
-            "columnName": "url",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "amount",
-            "columnName": "amount",
-            "affinity": "INTEGER",
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "REAL",
             "notNull": false
           }
         ],
@@ -104,7 +92,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"d77aa711e07df1d71ba7b3a67c8aa908\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"234a74315303fa27852877d0896b6da4\")"
     ]
   }
 }
