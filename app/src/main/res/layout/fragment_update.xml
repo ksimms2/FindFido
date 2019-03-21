@@ -1,26 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
+  android:layout_height="wrap_content"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:padding="16dp"
   android:background="@color/colorPrimaryDark"
   tools:context=".controller.ScoreFragment">
 
- <android.support.v7.widget.RecyclerView
-   android:id="@+id/update_view"
+
+ <android.support.constraint.ConstraintLayout
    android:layout_width="match_parent"
-   android:layout_height="0dp"
-   android:layout_marginTop="4dp"
-   android:layout_marginBottom="4dp"
-   app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-   app:layout_constraintTop_toTopOf="parent"
-   app:layout_constraintBottom_toBottomOf="parent"/>
+   android:layout_height="wrap_content"
+   android:orientation="vertical"
+   android:padding="@dimen/activity_horizontal_margin"
+   android:theme="@style/SurveyPageTheme"
+
+   >
+
+
+  <TextView
+    android:id="@+id/update_footprint_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textColor="#00FF00"
+    android:textSize="30sp"
+    android:text="@string/update_your_footprint"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+  <CheckBox
+    android:id="@+id/check_1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_1"
+    android:background="@color/colorWhite"
+
+    android:layout_marginTop="10dp"
+    app:layout_constraintTop_toBottomOf="@id/update_footprint_id"
+    android:checked="false"/>
+
+  <CheckBox
+    android:id="@+id/check_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_2"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+    app:layout_constraintTop_toBottomOf="@id/check_1"/>
+  <CheckBox
+    android:id="@+id/check_3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_3"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_2"/>
+
+  <CheckBox
+    android:id="@+id/check_4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_4"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_3"/>
+  <CheckBox
+    android:id="@+id/check_5"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_5"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_4"/>
+  <CheckBox
+    android:id="@+id/check_6"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_6"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_5"/>
+  <CheckBox
+    android:id="@+id/check_7"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_7"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_6"/>
+  <CheckBox
+    android:id="@+id/check_8"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_8"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_7"/>
+  <CheckBox
+    android:id="@+id/check_9"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_9"
+    android:background="@color/colorWhite"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_8"/>
+  <CheckBox
+    android:id="@+id/check_10"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_10"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_9"/>
+  <CheckBox
+    android:id="@+id/check_11"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_11"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_10"/>
+  <CheckBox
+    android:id="@+id/check_12"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_12"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_11"/>
+  <CheckBox
+    android:id="@+id/check_13"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_13"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_12"/>
+  <CheckBox
+    android:id="@+id/check_14"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_14"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+    app:layout_constraintTop_toBottomOf="@id/check_13"/>
+  <CheckBox
+    android:id="@+id/check_15"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/takeaction_15"
+    android:background="@color/colorWhite"
+    android:checked="false"
+
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintTop_toBottomOf="@id/check_14"/>
 
 
 
+  <Button
+    android:id="@+id/update_button"
+    android:layout_width="100dp"
+    android:layout_height="80dp"
+    app:layout_constraintTop_toBottomOf="@id/check_15"
+    app:layout_constraintRight_toRightOf="parent"
+    android:text="@string/update"
+    android:textStyle="bold"
 
+    android:layout_marginBottom="20dp"/>
 
+ </android.support.constraint.ConstraintLayout>
 
-</android.support.constraint.ConstraintLayout>
+</ScrollView>

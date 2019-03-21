@@ -28,7 +28,7 @@ import java.util.Calendar;
 
   @NonNull
  // @Expose
-  private Calendar time;
+  private Calendar time = Calendar.getInstance();
  // @Expose
   private Float score;
 

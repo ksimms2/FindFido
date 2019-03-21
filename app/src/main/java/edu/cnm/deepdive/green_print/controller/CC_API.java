@@ -106,27 +106,16 @@ public class CC_API {
     };
 
 
-    public Map<String, String> calculateFootprintParams(Integer[] inputValues){
+    public Map<String, String> calculateFootprintParams(int[] inputValues){
 
-        // Example curl request
-        // curl -X GET "https://apis.berkeley.edu/coolclimate/footprint-sandbox?input_location_mode=1&input_location=87113&input_income=3&input_size=2&input_footprint_transportation_miles1=10000&input_footprint_transportation_mpg1=12&input_footprint_transportation_fuel1=0" -H "accept: application/xml" -H "app_id: d6f58a93" -H "app_key: 0a16fb60fa68e7fdd7551231dd01a736"
 
-        //try {
-//            String url = "https://apis.berkeley.edu/coolclimate/footprint";
-//            String format = "xml";
-//            String app_id = "d6f58a93";
-//            String app_key = "0a16fb60fa68e7fdd7551231dd01a736";
-
-            //StringBuilder params = new StringBuilder();
         Map<String, String> params = new HashMap<>();
             // Build Parameter request string
             for (int i = 0; i < inputValues.length; i++) {
 
                 int curValue = inputValues[i];
 
-//                if(i > 0) {
-//                    params.append("&");
-//                }
+
 
                 params.put(keys[i], String.valueOf(curValue));
             }
@@ -144,68 +133,10 @@ public class CC_API {
             }
 
 
-            // Build full url string
-            // fullUrlStr = url + "?" + params.toString();
-           // System.out.printf("API Request: %s%n", fullUrlStr);
 
-
-
-//            // Send URL get request
-//            URL obj = new URL(fullUrlStr);
-//            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-//
-//            con.setRequestProperty("accept", "application/" + format);
-//            con.setRequestProperty("app_id", app_id);
-//            con.setRequestProperty("app_key", app_key);
-//
-//            con.setRequestMethod("GET");
-//
-//            int responseCode = con.getResponseCode();
-//            System.out.println("Response Code: " + responseCode);
-//            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-//            String inputLine;
-//            StringBuffer response = new StringBuffer();
-//
-//            while ((inputLine = in.readLine()) != null) {
-//                response.append(inputLine);
-//            }
-//
-//            in.close();
                 return params;
 
-           // String responseStr = response.toString();
-            //System.out.print(responseStr);
 
-
-            // Parse XML response to get value for carbon footprint grand total
-//            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder()
-//                    .parse(new InputSource(new StringReader(responseStr)));
-//
-//            NodeList responseList = doc.getElementsByTagName("response");
-//            if (responseList.getLength() > 0) {
-//                Element allElements = (Element)responseList.item(0);
-//
-//                String totalTonsPerYearStr = getValueForKey(allElements, "result_grand_total");
-//
-//                // Example: You can get any value from a key in the response
-//                //String otherValueFromResponse = getValueForKey(allElements, "result_takeaction_grand_total");
-//                //System.out.printf("Example of Other Response Value: %s%n", otherValueFromResponse);
-//
-//                if (totalTonsPerYearStr.isEmpty()) {
-//                    return -1;
-//                } else {
-//                    return Float.parseFloat(totalTonsPerYearStr);
-//                }
-//
-//            } else {
-//                // Error
-//                return -1;
-//            }
-
-//        } catch (Exception e) {
-//            System.out.println(e);
-//            return -1;
-//        }
 
     }
 

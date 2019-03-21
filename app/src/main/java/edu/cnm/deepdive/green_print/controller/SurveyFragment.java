@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import edu.cnm.deepdive.green_print.R;
+import edu.cnm.deepdive.green_print.model.ConsumptionDB;
+import edu.cnm.deepdive.green_print.model.entity.Consumption;
 import edu.cnm.deepdive.green_print.service.CC_APIWebService.GetCCAPITask;
 import java.util.Map;
 
@@ -27,7 +29,7 @@ public class SurveyFragment extends LinkedFragment {
     View view = inflater.inflate(R.layout.fragment_survey, container, false);
     submitButton = (Button) view.findViewById(R.id.submit_button);
 
-    submitButton.setOnClickListener(new View.OnClickListener(){
+    submitButton.setOnClickListener(new View.OnClickListener() {
 
       @Override
       public void onClick(View view) {
@@ -41,7 +43,7 @@ public class SurveyFragment extends LinkedFragment {
 
         //Toast.makeText(getActivity(), "Submit Clicked", Toast.LENGTH_SHORT).show();
 
-/*
+
         for(int i = 1; i <= numInputs; i++){
           idStr = "answer_" + String.valueOf(i) + "_id";
           resID = getResources().getIdentifier(idStr, "id", getContext().getPackageName());
@@ -53,32 +55,37 @@ public class SurveyFragment extends LinkedFragment {
           inputValues[i - 1] = Integer.parseInt(userInputStr);
 
         }
-*/
-        // this is so we can check connectivity to internet, must activate code above
-        Integer[] inputValues2 = new Integer[]{87113, 3, 2, 1, 1, 1700, 80, 40, 0, 11, 100, 200, 10000, 12, 5000, 17, 2000, 19, 0, 0};
+
+        // this is hard code so we can check connectivity to internet, must activate code above
+ //       Integer[] inputValues2 = new Integer[]{87113, 3, 2, 1, 1, 1700, 80, 40, 0, 11, 100, 200,
+  //         10000, 12, 5000, 17, 2000, 19, 0, 0};
 
 
-        // had to alt-enter/ to to revert to last commit
         CC_API ccApi = new CC_API();
-        Map<String, String> params = ccApi.calculateFootprintParams(inputValues2);
+        Map<String, String> params = ccApi.calculateFootprintParams(inputValues);
 
-        new GetCCAPITask().setSuccessListener(
-            ccResponse ->
-                Toast.makeText(getActivity(),
-                    "Total: "+ccResponse.getGrandTotal(),Toast.LENGTH_LONG)
-                    .show())
+        new GetCCAPITask()
+            .setTransformer((response) -> {
+              Consumption consumption = new Consumption();
+              consumption.setScore(response.getGrandTotal());
+              ConsumptionDB.getInstance().getConsumtionDao().insert(consumption);
+              return response;
+            })
+            .setSuccessListener(
+                ccResponse ->
+                    Toast.makeText(getActivity(),
+                        "Total: " + ccResponse.getGrandTotal(), Toast.LENGTH_LONG)
+                        .show())
             .execute(params);
-
 
         // Display total carbon footprint if available
 
       }
     });
 
-  return view;
+    return view;
 
   }
-
 
 
 }

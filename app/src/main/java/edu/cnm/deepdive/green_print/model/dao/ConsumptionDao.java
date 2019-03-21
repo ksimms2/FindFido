@@ -69,8 +69,8 @@ public interface ConsumptionDao {
     List<Long>insert(Consumption... consumptions);
 
 
-    @Query("SELECT * FROM Consumption ORDER BY time DESC")
-    List<Consumption> findFirstByTime(Calendar time);
+   // @Query("SELECT * FROM Consumption ORDER BY time DESC")
+    //List<Consumption> findFirstByTime(Calendar time);
 
     @Query("SELECT * FROM Consumption ORDER BY time DESC")
     List<Consumption> findAll();

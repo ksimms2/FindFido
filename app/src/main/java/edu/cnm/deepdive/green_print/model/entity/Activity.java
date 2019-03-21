@@ -26,7 +26,6 @@ import java.util.Calendar;
 
   private Calendar timestamp = Calendar.getInstance();
 
-
   public long getId() {
     return id;
   }

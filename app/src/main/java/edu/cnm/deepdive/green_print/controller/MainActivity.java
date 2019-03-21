@@ -36,19 +36,6 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar = (Toolbar) findViewById(edu.cnm.deepdive.green_print.R.id.toolbar);
     setSupportActionBar(toolbar);
 
-//    FloatingActionButton fab = (FloatingActionButton) findViewById(edu.cnm.deepdive.green_print.R.id.fab);
-////    fab.setOnClickListener(new View.OnClickListener() {
-////      @Override
-////      public void onClick(View view) {
-////        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-////            .setAction("Action", null).show();
-////      }
-////    });
-
-
-
-
-
 
     DrawerLayout drawer = (DrawerLayout) findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

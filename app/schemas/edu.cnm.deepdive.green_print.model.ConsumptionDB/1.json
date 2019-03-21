@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "234a74315303fa27852877d0896b6da4",
+    "identityHash": "c834436980966d3fd74d82e1b3977789",
     "entities": [
       {
         "tableName": "Activity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`activity_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `consumption_id` INTEGER NOT NULL, `timestamp` TEXT, FOREIGN KEY(`consumption_id`) REFERENCES `Consumption`(`consumption_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`activity_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `consumption_id` INTEGER NOT NULL, `timestamp` INTEGER, FOREIGN KEY(`consumption_id`) REFERENCES `Consumption`(`consumption_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -23,7 +23,7 @@
           {
             "fieldPath": "timestamp",
             "columnName": "timestamp",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": false
           }
         ],
@@ -59,7 +59,7 @@
       },
       {
         "tableName": "Consumption",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`consumption_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `time` TEXT NOT NULL, `score` REAL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`consumption_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `time` INTEGER NOT NULL, `score` REAL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -70,7 +70,7 @@
           {
             "fieldPath": "time",
             "columnName": "time",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -92,7 +92,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"234a74315303fa27852877d0896b6da4\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"c834436980966d3fd74d82e1b3977789\")"
     ]
   }
 }

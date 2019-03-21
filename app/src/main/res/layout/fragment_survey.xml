@@ -126,7 +126,7 @@
       app:layout_constraintTop_toTopOf="@id/question_3_id"
       app:layout_constraintBottom_toBottomOf="@id/question_3_id"
       android:background="#CCCCCC"
-      android:inputType="textPersonName"
+      android:inputType="number"
       android:hint="@string/number_hint">
 
       <requestFocus/>

@@ -18,29 +18,14 @@ public final class ConsumptionDBService {
 
   public static class InsertConsumptionTask extends
       BaseFluentAsyncTask<Consumption, Void, List<Long>, List<Long>> {
-    private boolean foreground;
 
-    public InsertConsumptionTask(boolean foreground) {
-      this.foreground = foreground;
-    }
 
     @Override
     protected List<Long> perform (Consumption... consumptions){
-      List<Long> consumptionIds = ConsumptionDB.getInstance().getConsumtionDao().insert(consumptions);
-      if(foreground){
-        List<Activity> activities = new LinkedList<>();
-
-        for(long id : consumptionIds){
-          Activity activity = new Activity();
-          activity.setConsumptionId(id);
-          activities.add(activity);
-        }
-        ConsumptionDB.getInstance().getActivityDao().insert(activities);
-      }
-      return consumptionIds;
+      return ConsumptionDB.getInstance().getConsumtionDao().insert(consumptions);
     }
   }
-                                                                    //this is Date in Apod, but mine is time?
+  //this is Date in Apod, but mine is time?
   public static class SelectConsumptionTask extends BaseFluentAsyncTask<Calendar, Void, Consumption, Consumption>{
 //   @Override
 //   protected Consumption perform(Calendar... time) {
@@ -77,10 +62,10 @@ public final class ConsumptionDBService {
   }
   public static class InsertActivityTask extends BaseFluentAsyncTask<Activity, Void, List<Long>, List<Long>>{
 
-  @Nullable
-  @Override
-  protected List<Long> perform(Activity... activities) throws TaskException {
-    return ConsumptionDB.getInstance().getActivityDao().insert(activities);
+    @Nullable
+    @Override
+    protected List<Long> perform(Activity... activities) throws TaskException {
+      return ConsumptionDB.getInstance().getActivityDao().insert(activities);
+    }
   }
-}
 }
