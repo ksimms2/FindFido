@@ -1,6 +1,8 @@
 package edu.cnm.deepdive.green_print.controller;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,12 +45,11 @@ public class SurveyFragment extends LinkedFragment {
 
         //Toast.makeText(getActivity(), "Submit Clicked", Toast.LENGTH_SHORT).show();
 
-
-        for(int i = 1; i <= numInputs; i++){
+        for (int i = 1; i <= numInputs; i++) {
           idStr = "answer_" + String.valueOf(i) + "_id";
           resID = getResources().getIdentifier(idStr, "id", getContext().getPackageName());
 
-          parentView = (View)view.getParent();
+          parentView = (View) view.getParent();
 
           userInputText = parentView.findViewById(resID);
           userInputStr = userInputText.getText().toString();
@@ -57,9 +58,8 @@ public class SurveyFragment extends LinkedFragment {
         }
 
         // this is hard code so we can check connectivity to internet, must activate code above
- //       Integer[] inputValues2 = new Integer[]{87113, 3, 2, 1, 1, 1700, 80, 40, 0, 11, 100, 200,
-  //         10000, 12, 5000, 17, 2000, 19, 0, 0};
-
+        // Integer[] inputValues2 = new Integer[]{87113, 3, 2, 1, 1, 1700, 80, 40, 0, 11, 100, 200,
+        // 10000, 12, 5000, 17, 2000, 19, 0, 0};
 
         CC_API ccApi = new CC_API();
         Map<String, String> params = ccApi.calculateFootprintParams(inputValues);
@@ -73,7 +73,7 @@ public class SurveyFragment extends LinkedFragment {
             })
             .setSuccessListener(
                 ccResponse ->
-                    Toast.makeText(getActivity(),
+                    Toast.makeText(getActivity(), //put moving to new scorefragment here
                         "Total: " + ccResponse.getGrandTotal(), Toast.LENGTH_LONG)
                         .show())
             .execute(params);
@@ -81,11 +81,40 @@ public class SurveyFragment extends LinkedFragment {
         // Display total carbon footprint if available
 
       }
+
     });
 
     return view;
 
+
   }
+
+
+  private void saveSurveyPreferences() {
+
+    SharedPreferences.Editor prefsEdit = PreferenceManager.getDefaultSharedPreferences(getContext())
+        .edit();
+
+    View view = getView();
+    EditText answer_3_id = view
+        .findViewById(R.id.answer_3_id);// make for all 20 make a constants page
+    String answer3 = answer_3_id.getText().toString();
+
+    prefsEdit.putString("SavedAnswer3", answer3);
+    prefsEdit.apply();
+
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+    prefs.getString("First", null);
+  }
+
+//      submitButton.setOnClickListener(new View.OnClickListener(){
+//    @Override
+//    public void onClick(View v) {
+//      // Toast.makeText(getActivity(), "Going to Score", Toast.LENGTH_SHORT).show();
+//      ScoreFragment scoreFragment = new ScoreFragment();
+//      getFragmentManager().beginTransaction().replace(R.id.fragment_container, scoreFragment).commit();
+//    }
+//  });
 
 
 }
