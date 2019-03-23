@@ -2,21 +2,18 @@ package edu.cnm.deepdive.green_print.controller;
 
 
 import android.os.Bundle;
-;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.EditText;
 import android.widget.Toast;
 import edu.cnm.deepdive.green_print.R;
+import edu.cnm.deepdive.green_print.model.entity.Consumption;
+
+;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +26,8 @@ public class ScoreFragment extends LinkedFragment {
 
   private Button surveyButton;
   private Button updateButton;
-
+  Consumption cmpnScore = new Consumption();
+  private EditText scoreToText;
   public ScoreFragment() {
     // Required empty public constructor
   }
@@ -42,25 +40,23 @@ public class ScoreFragment extends LinkedFragment {
 
       View view = inflater.inflate(R.layout.fragment_score, container, false);
 
-      surveyButton = (Button) view.findViewById(R.id.retake_survey_button);
-      updateButton = (Button) view.findViewById(R.id.update_score_button);
+    surveyButton = view.findViewById(R.id.retake_survey_button);
+    updateButton = view.findViewById(R.id.update_score_button);
+    scoreToText = view.findViewById(R.id.scoreBox);
+    //scoreToText = cmpnScore.getScore();
 
-    surveyButton.setOnClickListener(new View.OnClickListener(){
-      @Override
-      public void onClick(View v) {
-        Toast.makeText(getActivity(), "Going to Survey", Toast.LENGTH_SHORT).show();
-          SurveyFragment surveyFragment = new SurveyFragment();
-       getFragmentManager().beginTransaction().replace(R.id.fragment_container, surveyFragment).commit();
-      }
+    surveyButton.setOnClickListener(v -> {
+      Toast.makeText(getActivity(), "Going to Survey", Toast.LENGTH_SHORT).show();
+      SurveyFragment surveyFragment = new SurveyFragment();
+      getFragmentManager().beginTransaction().replace(R.id.fragment_container, surveyFragment)
+          .commit();
     });
-    updateButton.setOnClickListener(new View.OnClickListener(){
-      @Override
-      public void onClick(View v) {
-        Toast.makeText(getActivity(), "Going to Update Score", Toast.LENGTH_SHORT).show();
-        UpdateFragment updateFragment = new UpdateFragment();
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, updateFragment).commit();
+    updateButton.setOnClickListener(v -> {
+      Toast.makeText(getActivity(), "Going to Update Score", Toast.LENGTH_SHORT).show();
+      UpdateFragment updateFragment = new UpdateFragment();
+      getFragmentManager().beginTransaction().replace(R.id.fragment_container, updateFragment)
+          .commit();
       // need to create the update fragment maybe... it might stay on Score
-      }
     });
 
 

@@ -3,7 +3,8 @@ package edu.cnm.deepdive.green_print.controller;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +20,10 @@ import java.util.Map;
 
 public class SurveyFragment extends LinkedFragment {
 
-
+  private Button goToButton;
   private Button submitButton;
   public static final String MY_PREFERENCES = "MyPrefs";
+  //ScoreFragment scoreFragment = new ScoreFragment();
 
 
   SharedPreferences sharedPreferences;
@@ -57,8 +59,10 @@ public class SurveyFragment extends LinkedFragment {
     EditText answer19Id = view.findViewById(R.id.answer_19_id);
     EditText answer20Id = view.findViewById(R.id.answer_20_id);
 
+    goToButton = view.findViewById(R.id.goto_button);
     submitButton = view.findViewById(R.id.submit_button);
-    sharedPreferences = this.getActivity().getSharedPreferences("MyPerfs", Context.MODE_PRIVATE);
+    sharedPreferences = this.getActivity()
+        .getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
 
     answer1Id.setText(sharedPreferences.getString("SavedAnswer1", ""));
     answer2Id.setText(sharedPreferences.getString("SavedAnswer2", ""));
@@ -81,7 +85,24 @@ public class SurveyFragment extends LinkedFragment {
     answer19Id.setText(sharedPreferences.getString("SavedAnswer19", ""));
     answer20Id.setText(sharedPreferences.getString("SavedAnswer20", ""));
 
+    goToButton.setOnClickListener(v -> {
+      Toast.makeText(getActivity(), "Going to Score", Toast.LENGTH_SHORT).show();
+      ScoreFragment scoreFragment = new ScoreFragment();
+      getFragmentManager().beginTransaction().replace(R.id.fragment_container, scoreFragment)
+          .commit();
+    });
+
+
     submitButton.setOnClickListener(view1 -> {
+
+//      submitButton.setOnClickListener(new View.OnClickListener(){
+//        @Override
+//        public void onClick(View v) {
+//          // Toast.makeText(getActivity(), "Going to Score", Toast.LENGTH_SHORT).show();
+//          ScoreFragment scoreFragment = new ScoreFragment();
+//          getFragmentManager().beginTransaction().replace(R.id.fragment_container, scoreFragment).commit();
+//        }
+//      });
 
       String answer1 = answer1Id.getText().toString();
       String answer2 = answer2Id.getText().toString();
@@ -148,13 +169,14 @@ public class SurveyFragment extends LinkedFragment {
       editor.putString("SavedAnswer18", answer18);
       editor.putString("SavedAnswer19", answer19);
       editor.putString("SavedAnswer20", answer20);
-
       editor.commit();
+
       Toast.makeText(getActivity(), "Saved in Preferences", Toast.LENGTH_LONG).show();
 
       // this is hard code so we can check connectivity to internet, must activate code above
       // Integer[] inputValues2 = new Integer[]{87113, 3, 2, 1, 1, 1700, 80, 40, 0, 11, 100, 200,
       // 10000, 12, 5000, 17, 2000, 19, 0, 0};
+
 
       CC_API ccApi = new CC_API();
       Map<String, String> params = ccApi.calculateFootprintParams(inputValues);
@@ -167,47 +189,52 @@ public class SurveyFragment extends LinkedFragment {
             return response;
           })
           .setSuccessListener(
+
               ccResponse ->
+
                   Toast.makeText(getActivity(), //put moving to new scorefragment here
                       "Total: " + ccResponse.getGrandTotal(), Toast.LENGTH_LONG)
                       .show())
+
           .execute(params);
 
       // Display total carbon footprint if available
-
     });
-
+    //loadFragment(new ScoreFragment());
     return view;
 
-
   }
 
+//  private void saveSurveyPreferences() {
+//
+//    SharedPreferences.Editor prefsEdit = PreferenceManager.getDefaultSharedPreferences(getContext())
+//        .edit();
+//
+//    View view = getView();
+//    EditText answer3Id = view
+//        .findViewById(R.id.answer_3_id);// make for all 20 make a constants page
+//    String answer3 = answer3Id.getText().toString();
+//
+//    prefsEdit.putString("SavedAnswer3", answer3);
+//    prefsEdit.apply();
+//
+//    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+//    prefs.getString("First", null);
+//  }
 
-  private void saveSurveyPreferences() {
 
-    SharedPreferences.Editor prefsEdit = PreferenceManager.getDefaultSharedPreferences(getContext())
-        .edit();
-
-    View view = getView();
-    EditText answer3Id = view
-        .findViewById(R.id.answer_3_id);// make for all 20 make a constants page
-    String answer3 = answer3Id.getText().toString();
-
-    prefsEdit.putString("SavedAnswer3", answer3);
-    prefsEdit.apply();
-
-    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-    prefs.getString("First", null);
+  public void loadFragment(ScoreFragment frag) {
+    //create a fragment manager
+    FragmentManager man = getFragmentManager();
+    // begin transaction
+    FragmentTransaction transaction = man.beginTransaction();
+    // replace the fragment with the score
+    transaction.replace(R.id.fragment_container, frag);
+    // save changes
+    transaction.addToBackStack(null);
+    transaction.commit();
   }
 
-//      submitButton.setOnClickListener(new View.OnClickListener(){
-//    @Override
-//    public void onClick(View v) {
-//      // Toast.makeText(getActivity(), "Going to Score", Toast.LENGTH_SHORT).show();
-//      ScoreFragment scoreFragment = new ScoreFragment();
-//      getFragmentManager().beginTransaction().replace(R.id.fragment_container, scoreFragment).commit();
-//    }
-//  });
 
 
 }

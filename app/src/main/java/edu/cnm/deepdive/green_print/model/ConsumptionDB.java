@@ -14,7 +14,6 @@ import edu.cnm.deepdive.green_print.model.dao.ConsumptionDao;
 import edu.cnm.deepdive.green_print.model.entity.Activity;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
 import java.util.Calendar;
-import java.util.Date;
 
 
 @Database(

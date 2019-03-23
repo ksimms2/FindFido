@@ -602,6 +602,19 @@
       android:layout_marginBottom="40dp"
       />
 
+    <Button
+      android:id="@+id/goto_button"
+      android:textStyle="bold"
+      android:layout_width="100dp"
+      android:layout_height="80dp"
+      android:layout_marginBottom="40dp"
+
+      android:text="Go To Score"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintRight_toLeftOf="@id/guideline"
+      app:layout_constraintTop_toBottomOf="@id/question_20_id"
+      />
+
 
   </android.support.constraint.ConstraintLayout>
 

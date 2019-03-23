@@ -4,11 +4,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -21,7 +19,6 @@ import edu.cnm.deepdive.green_print.model.entity.Consumption;
 import edu.cnm.deepdive.green_print.service.CC_APIWebService;
 import edu.cnm.deepdive.green_print.service.FragmentService;
 import java.util.List;
-import java.util.Objects;
 
 //import edu.cnm.deepdive.green_print.view.UpdateAdapter;
 
