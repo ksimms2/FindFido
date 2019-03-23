@@ -1,10 +1,10 @@
 package edu.cnm.deepdive.green_print.controller;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,13 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import edu.cnm.deepdive.green_print.R;
-import edu.cnm.deepdive.green_print.service.FragmentService;
+
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,47 +29,39 @@ public class MainActivity extends AppCompatActivity
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(edu.cnm.deepdive.green_print.R.layout.activity_main);
-    Toolbar toolbar = (Toolbar) findViewById(edu.cnm.deepdive.green_print.R.id.toolbar);
+    Toolbar toolbar = findViewById(edu.cnm.deepdive.green_print.R.id.toolbar);
     setSupportActionBar(toolbar);
 
-
-    DrawerLayout drawer = (DrawerLayout) findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
+    DrawerLayout drawer = findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-        this, drawer, toolbar, edu.cnm.deepdive.green_print.R.string.navigation_drawer_open, edu.cnm.deepdive.green_print.R.string.navigation_drawer_close);
+        this, drawer, toolbar, edu.cnm.deepdive.green_print.R.string.navigation_drawer_open,
+        edu.cnm.deepdive.green_print.R.string.navigation_drawer_close);
     drawer.addDrawerListener(toggle);
     toggle.syncState();
 
-    NavigationView navigationView = (NavigationView) findViewById(edu.cnm.deepdive.green_print.R.id.nav_view);
+    NavigationView navigationView = findViewById(edu.cnm.deepdive.green_print.R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
-
-
-
-
 
     loadHomeFragment();
 
+  }
 
-
- }
-  protected void loadHomeFragment() {
+  private void loadHomeFragment() {
 
     Fragment fragmentHome = new HomeFragment();
 
     FragmentManager manager = getSupportFragmentManager();
     FragmentTransaction transaction = manager.beginTransaction();
-    transaction.add(R.id.fragment_container, fragmentHome ,"home" );
+    transaction.add(R.id.fragment_container, fragmentHome, "home");
     transaction.addToBackStack(null);
     transaction.commit();
 
   }
 
 
-
-
-
   @Override
   public void onBackPressed() {
-    DrawerLayout drawer = (DrawerLayout) findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
+    DrawerLayout drawer = findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
     if (drawer.isDrawerOpen(GravityCompat.START)) {
       drawer.closeDrawer(GravityCompat.START);
     } else {
@@ -102,7 +90,8 @@ public class MainActivity extends AppCompatActivity
 
     return super.onOptionsItemSelected(item);
   }
-//  private void setupFragments(Bundle savedInstanceState) {
+
+  //  private void setupFragments(Bundle savedInstanceState) {
 //    navigation = findViewById(R.id.nav_view);
 //    //navigation.setOnNavigationItemSelectedListener(this);
 //    FragmentService fragmentService = FragmentService.getInstance();
@@ -122,30 +111,14 @@ public class MainActivity extends AppCompatActivity
 //    surveyFragment.setHistoryFragment(updateFragment);
 //    UpdateFragment.setSurveyFragment(surveyFragment);
 //  }
-  public DrawerLayout getNavigation(){
+  public DrawerLayout getNavigation() {
     return navigation;
   }
-  @SuppressWarnings("StatementWithEmptyBody")
+
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
-/**    // Handle navigation view item clicks here.
-//    int id = item.getItemId();
-//
-//    if (id == edu.cnm.deepdive.green_print.R.id.home) {
-//      // Handle the camera action
-//    } else if (id == edu.cnm.deepdive.green_print.R.id.profile) {
-//
-//    } else if (id == edu.cnm.deepdive.green_print.R.id.details) {
-//
-//    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_notify) {
-//
-//    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_tips) {
-//
-//    } else if (id == edu.cnm.deepdive.green_print.R.id.nav_send) {
-//
-    }*/
-    Bundle args = new Bundle();
-    switch(item.getItemId()){
+
+    switch (item.getItemId()) {
       case R.id.fragment_home:
         loadFragment(new HomeFragment(), R.id.fragment_container, "HomeFragment", null);
         break;
@@ -159,18 +132,16 @@ public class MainActivity extends AppCompatActivity
 //        loadFragment(new UpdateFragment(), R.id.fragment_container, "UpdateFragment", null);
 //        break;
 
-
-
     }
 
-    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+    DrawerLayout drawer = findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
     return true;
   }
 
-  public void loadFragment(Fragment fragment, int container, String tag, Bundle args) {
+  private void loadFragment(Fragment fragment, int container, String tag, Bundle args) {
     FragmentManager manager = getSupportFragmentManager();
-    if (args != null){
+    if (args != null) {
       fragment.setArguments(args);
     }
     manager.beginTransaction()
