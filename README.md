@@ -27,20 +27,20 @@ For this application, the following were used to test UI and function.
 
 # External Services
 This app accesses the CoolClimate API carbon footprint calculator from the CoolClimate Network.
-![CoolClimate Network](https://coolclimate.org/index)
-![CoolClimate API](https://coolclimate.org/api)
++ [CoolClimate Network](https://coolclimate.org/index)
++ [CoolClimate API](https://coolclimate.org/api)
 
 
 
 
 
 # Wireframes
-![GreenPrint Wireframe 1](Green_Print_WireFrame1.pdf)
-![GreenPrint Wireframe 2](Green_Print_WireFrame2.pdf)
++ [GreenPrint Wireframe 1](Green_Print_WireFrame1.pdf)
++ [GreenPrint Wireframe 2](Green_Print_WireFrame2.pdf)
 
 # ERD
-![GreenPrint ERD](GreenPrint_ERD.pdf)
++ [GreenPrint ERD](GreenPrint_ERD.pdf)
 
 # User Stories
-![User Story 1](UserStory1.md)
-![User Story 2](UserStory2.md)
++ [User Story 1](UserStory1.md)
++ [User Story 2](UserStory2.md)
