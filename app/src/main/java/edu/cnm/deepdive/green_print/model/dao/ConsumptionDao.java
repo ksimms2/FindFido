@@ -7,6 +7,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ public interface ConsumptionDao {
      * Inserts one or more {@link Consumption} instances into the local database.
      *
      * @param consumptions {@link Consumption} instance(s) to be inserted.
-     * @return inserted record ID(s).
+     * @return inserted record IDs.
      *
      */
 
@@ -39,6 +40,9 @@ public interface ConsumptionDao {
      *
      * @return all {@link Consumption} instances in local database.
      */
+
+    @Query("SELECT * FROM Consumption WHERE time = :time")
+    Consumption findFirstByTime(Calendar time);
 
     @Query("SELECT * FROM Consumption ORDER BY time DESC")
     List<Consumption> findAll();

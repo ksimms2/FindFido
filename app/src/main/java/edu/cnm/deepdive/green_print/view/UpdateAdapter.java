@@ -23,18 +23,18 @@ Unneeded for now... will need to reference when you get to a list view to displa
 //import edu.cnm.deepdive.green_print.model.entity.Consumption;
 //import java.util.List;
 //
-//public class UpdateAdapter extends RecyclerView.Adapter<UpdateAdapter.Holder> {
+//public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder> {
 //// does this need to extend something?
 //// in Apod it extends RecylcerView which I dont have
 //
 //  Context context;
-//  private UpdateFragment updateFragment;
+//  private HistoryFragment historyFragment;
 //  private List<ConsumptionWithActivities> items;
 //  //private DateFormat format;
 //
-//  public UpdateAdapter(UpdateFragment updateFragment, List<ConsumptionWithActivities> items) {
-//    context = updateFragment.getContext();
-//    this.updateFragment = updateFragment;
+//  public HistoryAdapter(HistoryFragment updateFragment, List<ConsumptionWithActivities> items) {
+//    context = historyFragment.getContext();
+//    this.historyFragment = historyFragment;
 //    this.items = items;
 //    //format = android.text.format.DateFormat.getDateFormat(context);
 //  }
