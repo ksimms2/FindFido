@@ -29,10 +29,9 @@ import java.util.Map;
 
 public class SurveyFragment extends LinkedFragment {
 
-  private Button goToButton;
+
   private Button submitButton;
   public static final String MY_PREFERENCES = "MyPrefs";
-  //ScoreFragment scoreFragment = new ScoreFragment();
 
 
   SharedPreferences sharedPreferences;
@@ -42,9 +41,18 @@ public class SurveyFragment extends LinkedFragment {
   }
 
   /**
-   * Implements API using input from survey. Saves survey answers in shared preferences. Displays
-   * the score into the ScoreFragment.
+   * <code>OnCreateView</code> launches the UI for the home screen. Calls on the
+   * <code>R.layout.fragment_survey</code>, which presents the .xml UI design.
+   * Implements API using input from survey. Saves survey answers in shared preferences.
+   * Displays the score into the ScoreFragment.
+   *
+   * @param inflater loads UI
+   * @param container uses the set container for the group
+   * @param savedInstanceState Saves the instance created
+   * @return displays the UI on the screen
+   *
    */
+
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,7 +81,7 @@ public class SurveyFragment extends LinkedFragment {
     EditText answer19Id = view.findViewById(R.id.answer_19_id);
     EditText answer20Id = view.findViewById(R.id.answer_20_id);
 
-    goToButton = view.findViewById(R.id.goto_button);
+
     submitButton = view.findViewById(R.id.submit_button);
     sharedPreferences = this.getActivity()
         .getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
@@ -99,23 +107,10 @@ public class SurveyFragment extends LinkedFragment {
     answer19Id.setText(sharedPreferences.getString("SavedAnswer19", ""));
     answer20Id.setText(sharedPreferences.getString("SavedAnswer20", ""));
 
-    goToButton.setOnClickListener(v -> {
-      Toast.makeText(getActivity(), "Going to Score", Toast.LENGTH_SHORT).show();
-      ScoreFragment scoreFragment = new ScoreFragment();
-      getFragmentManager().beginTransaction().replace(R.id.fragment_container, scoreFragment)
-          .commit();
-    });
 
     submitButton.setOnClickListener(view1 -> {
 
-//      submitButton.setOnClickListener(new View.OnClickListener(){
-//        @Override
-//        public void onClick(View v) {
-//          // Toast.makeText(getActivity(), "Going to Score", Toast.LENGTH_SHORT).show();
-//          ScoreFragment scoreFragment = new ScoreFragment();
-//          getFragmentManager().beginTransaction().replace(R.id.fragment_container, scoreFragment).commit();
-//        }
-//      });
+
 
       String answer1 = answer1Id.getText().toString();
       String answer2 = answer2Id.getText().toString();
@@ -146,7 +141,6 @@ public class SurveyFragment extends LinkedFragment {
       String userInputStr;
       int resID;
 
-      //Toast.makeText(getActivity(), "Submit Clicked", Toast.LENGTH_SHORT).show();
 
       for (int i = 1; i <= numInputs; i++) {
         idStr = "answer_" + String.valueOf(i) + "_id";
@@ -203,20 +197,30 @@ public class SurveyFragment extends LinkedFragment {
           .setSuccessListener(
 
               ccResponse ->
+                  //      ScoreFragment scoreFragment = new ScoreFragment();
 
                   Toast.makeText(getActivity(), //put moving to new scorefragment here
                       "Total: " + ccResponse.getGrandTotal(), Toast.LENGTH_LONG)
-                      .show())
+                      .show()
+          ) // Display total carbon footprint if available
 
           .execute(params);
 
-      // Display total carbon footprint if available
+      loadFragment(new ScoreFragment());
+
     });
-    //loadFragment(new ScoreFragment());
+
     return view;
 
   }
 
+
+  /**
+   * <code>loadFragment</code> allows submit button <code>R.id.submit_button</code>
+   * to transition to <code>ScoreFragment</code> after implementation of <code>GetCCAPITask</code>
+   *
+   * @param frag instance of a fragment
+   */
 
   public void loadFragment(ScoreFragment frag) {
     //create a fragment manager

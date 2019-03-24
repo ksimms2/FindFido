@@ -25,6 +25,8 @@ import edu.cnm.deepdive.green_print.model.entity.Consumption;
  * @author Kevin Simms &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
  * @version 1.0
  */
+
+
 public class ScoreFragment extends LinkedFragment {
 
   //Button surveyButton = (Button) findViewId(R.id.retake_survey_button);
@@ -39,10 +41,20 @@ public class ScoreFragment extends LinkedFragment {
     // Required empty public constructor
   }
 
+
   /**
-   * Inflates either {@link SurveyFragment} or {@link UpdateFragment} on teh click of the
+   * <code>OnCreateView</code> launches the UI for the home screen. Calls on the
+   * <code>R.layout.fragment_score</code>, which presents the .xml UI design.
+   * Inflates either {@link SurveyFragment} or {@link UpdateFragment} on the click of the
    * corresponding button. Inflates ScoreFragment's UI.
+   *
+   * @param inflater loads UI
+   * @param container uses the set container for the group
+   * @param savedInstanceState Saves the instance created
+   * @return displays the UI on the screen
+   *
    */
+
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,7 +79,7 @@ public class ScoreFragment extends LinkedFragment {
       UpdateFragment updateFragment = new UpdateFragment();
       getFragmentManager().beginTransaction().replace(R.id.fragment_container, updateFragment)
           .commit();
-      // need to create the update fragment maybe... it might stay on Score
+
     });
 
     return view;

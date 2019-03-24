@@ -49,7 +49,7 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
   private List<ConsumptionWithActivities> takeaction;
   //private UpdateAdapter adapter;
   private ScoreFragment scoreFragment;
-  private Button updateButton;
+  private Button applyButton;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,17 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
   }
 
   /**
+   */
+
+  /**
+   * <code>OnCreateView</code> launches the UI for the home screen. Calls on the
+   * <code>R.layout.fragment_update</code>, which presents the .xml UI design.
    * Implementation of clicked checked box options. Inflates and displays UpdateFragment UI.
+   *
+   * @param inflater loads UI
+   * @param container uses the set container for the group
+   * @param savedInstanceState Saves the instance created
+   * @return displays the UI on the screen
    */
 
   @Override
@@ -95,11 +105,18 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 //        })
 //
 //        //.execute(textInputScore.getText().toString()));
+    applyButton = view.findViewById(R.id.apply_button);
+
+    applyButton.setOnClickListener(v -> {
+      Toast.makeText(getActivity(), "Update Applied, Going to Your Score", Toast.LENGTH_LONG)
+          .show();
+      ScoreFragment scoreFragment = new ScoreFragment();
+      getFragmentManager().beginTransaction().replace(R.id.fragment_container, scoreFragment)
+          .commit();
+    });
     return view;
 
   }
-
-
 
   public void onClick(View view) {
 
@@ -115,6 +132,10 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
 
   }
+
+
+
+
 
 
   private static class SaveScoreTask extends AsyncTask<Consumption, Void, Void> {
