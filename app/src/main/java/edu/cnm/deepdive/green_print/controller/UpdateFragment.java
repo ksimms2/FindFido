@@ -2,6 +2,8 @@ package edu.cnm.deepdive.green_print.controller;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.view.LayoutInflater;
@@ -17,8 +19,10 @@ import edu.cnm.deepdive.green_print.model.ConsumptionDB;
 import edu.cnm.deepdive.green_print.model.entity.Activity;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
 import edu.cnm.deepdive.green_print.service.CC_APIWebService;
+import edu.cnm.deepdive.green_print.service.CC_APIWebService.GetCCAPITask;
 import edu.cnm.deepdive.green_print.service.FragmentService;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <code>UpdateFragment</code> gives the user checkbox options with activities which lower the
@@ -80,43 +84,119 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_update, container, false);
 
-//    RecyclerView updateView = view.findViewById(R.id.update_view);
-//    takeaction = new ArrayList<>();
-//    adapter = new UpdateAdapter(this, takeaction);
-//    updateView.setAdapter(adapter);
-//    refresh();
-//    return view;
+    applyButton = (Button) view.findViewById(R.id.apply_button);
 
-//    updateButton.setOnClickListener((v) -> new CC_APIWebService.GetCCAPITask()
-//        .setSuccessListener((result) -> {
-//          //ArrayAdapter<String> adapter = new ArrayAdapter<>(
-//              Objects.requireNonNull(this.getContext()), android.R.layout.simple_list_item_1,
-//              result.getGrandTotal());
-//         // textView.setText(result.getGrandTotal());// not sure what to put here
-//          takeActionListView.setAdapter(adapter);
-//          Log.d(getClass().getSimpleName(), result.toString());
-//          updateButton.setOnClickListener((b) -> new SaveScoreTask());
-//          )
-//
-//          updateButton = (Button) view.findViewById(R.id.update_button);
-//
-//          //updateButton.setOnClickListener(new View.OnClickListener(){
-//
-//        })
-//
-//        //.execute(textInputScore.getText().toString()));
-    applyButton = view.findViewById(R.id.apply_button);
+    applyButton.setOnClickListener(new View.OnClickListener() {
 
-    applyButton.setOnClickListener(v -> {
-      Toast.makeText(getActivity(), "Update Applied, Going to Your Score", Toast.LENGTH_LONG)
-          .show();
-      ScoreFragment scoreFragment = new ScoreFragment();
-      getFragmentManager().beginTransaction().replace(R.id.fragment_container, scoreFragment)
-          .commit();
+      @Override
+
+      public void onClick(View view) {
+
+//        View parentView;
+//        EditText userInputText;
+//        int numInputs = 20;
+//        int[] inputValues = new int[numInputs];
+//        String idStr;
+//        String userInputStr;
+//        int resID;
+//
+//       // Toast.makeText(getActivity(), "Update Clicked", Toast.LENGTH_SHORT).show();
+//
+//
+//
+//        for(int i = 1; i <= numInputs; i++){
+//          idStr = "answer_" + String.valueOf(i) + "_id";
+//          resID = getResources().getIdentifier(idStr, "id", getContext().getPackageName());
+//
+//          parentView = (View)view.getParent();
+//          userInputText = parentView.findViewById(resID);
+//          userInputStr = userInputText.getText().toString();
+//          inputValues[i - 1] = Integer.parseInt(userInputStr);
+//        }
+
+        // this is so we can check connectivity to internet, must activate code above
+
+        int[] inputValues2 = new int[]{87107, 3, 2, 1, 200000, 1500, 800, 80, 300, 900, 90, 120,
+            18000, 32, 15000, 28, 0, 0, 10000, 500};
+        boolean[] takeActionInputs = new boolean[]{false, false, false, false, false, false, true,
+            false, false, false, false, false, false, false, false};
+
+        CC_API ccApi = new CC_API();
+
+        //float total_carbon_footprint = ccApi.calculateFootprintParams(inputValues2, takeActionInputs);
+
+        Map<String, String> params2 = ccApi
+            .calculateFootprintParams(inputValues2, takeActionInputs);
+
+        new GetCCAPITask()
+            .setTransformer((response) -> {
+              Consumption consumption = new Consumption();
+              consumption.setScore(response.getTakeActionGrandTotal());
+              ConsumptionDB.getInstance().getConsumtionDao().insert(consumption);
+              return response;
+            })
+            .setSuccessListener(
+
+                ccResponse ->
+
+                    Toast.makeText(getActivity(),
+                        "Take Action Total: " +
+                            (ccResponse.getTakeActionGrandTotal() - 11.611036), Toast.LENGTH_LONG)
+                        .show()
+            ) // Display total carbon footprint if available
+
+            .execute(params2);
+
+        // Display total carbon footprint if available
+//        if (total_carbon_footprint == -1) {
+//
+//          Toast.makeText(getActivity(), "*** Error: Can't Calculate Carbon Footprint. ***", Toast.LENGTH_SHORT).show();
+//        } else {
+//          String toastStr = "Footprint: " + String.valueOf(total_carbon_footprint) + "tons/year";
+//
+//          Toast.makeText(getActivity(), toastStr, Toast.LENGTH_SHORT).show();
+//
+//
+//
+//        }
+        loadFragment(new ScoreFragment());
+      }
+
+
     });
+
     return view;
 
   }
+
+
+  /**
+   * <code>loadFragment</code> allows submit button <code>R.id.submit_button</code>
+   * to transition to <code>ScoreFragment</code> after implementation of <code>GetCCAPITask</code>
+   *
+   * Creates a fragment manager, replaces the current fragment and transitions to new fragment, and
+   * saves changes.
+   *
+   * @param frag2 instance of a fragment
+   */
+
+  private void loadFragment(ScoreFragment frag2) {
+
+    FragmentManager scoreFrag = getFragmentManager();
+    FragmentTransaction transaction = scoreFrag.beginTransaction();
+    transaction.replace(R.id.fragment_container, frag2);
+    transaction.addToBackStack(null);
+    transaction.commit();
+  }
+//    applyButton = view.findViewById(R.id.apply_button);
+//
+//    applyButton.setOnClickListener(v -> {
+//      Toast.makeText(getActivity(), "Update Applied, Going to Your Score", Toast.LENGTH_LONG)
+//          .show();
+//      ScoreFragment scoreFragment = new ScoreFragment();
+//      getFragmentManager().beginTransaction().replace(R.id.fragment_container, scoreFragment)
+//          .commit();
+//    });
 
   public void onClick(View view) {
 

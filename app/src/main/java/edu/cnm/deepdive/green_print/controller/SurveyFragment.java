@@ -181,9 +181,12 @@ public class SurveyFragment extends LinkedFragment {
       // this is hard code so we can check connectivity to internet, must activate code above
       // Integer[] inputValues2 = new Integer[]{87113, 3, 2, 1, 1, 1700, 80, 40, 0, 11, 100, 200,
       // 10000, 12, 5000, 17, 2000, 19, 0, 0};
+      boolean[] takeActionInputs = new boolean[]{false, false, false, false, false, false, false,
+          false, false, false, false, false, false, false, false};
+
 
       CC_API ccApi = new CC_API();
-      Map<String, String> params = ccApi.calculateFootprintParams(inputValues);
+      Map<String, String> params = ccApi.calculateFootprintParams(inputValues, takeActionInputs);
 
       new GetCCAPITask()
           .setTransformer((response) -> {
@@ -203,7 +206,7 @@ public class SurveyFragment extends LinkedFragment {
 
           .execute(params);
 
-      loadFragment(new ScoreFragment());
+      loadScoreFragment(new ScoreFragment());
 
     });
 
@@ -222,9 +225,10 @@ public class SurveyFragment extends LinkedFragment {
    * @param frag instance of a fragment
    */
 
-  public void loadFragment(ScoreFragment frag) {
+  private void loadScoreFragment(ScoreFragment frag) {
 
-    FragmentManager nextFrag = getFragmentManager();
+    FragmentManager nextFrag;
+    nextFrag = getFragmentManager();
     FragmentTransaction transaction = nextFrag.beginTransaction();
     transaction.replace(R.id.fragment_container, frag);
     transaction.addToBackStack(null);

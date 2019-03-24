@@ -25,4 +25,15 @@ public class CCResponse {
   public void setGrandTotal(Float grandTotal) {
     this.grandTotal = grandTotal;
   }
+
+  @Element(name = "result_takeaction_grand_total")
+  private Float takeActionGrandTotal;
+
+  public Float getTakeActionGrandTotal() {
+    return takeActionGrandTotal;
+  }
+
+  public void setTakeActionGrandTotal(Float takeActionGrandTotal) {
+    this.takeActionGrandTotal = takeActionGrandTotal;
+  }
 }

@@ -143,7 +143,7 @@ public class CC_API {
   };
 
   /**
-   * Initializes the <code>CC_API</code> by calling {@link #calculateFootprintParams(int[])} to gain
+   * Initializes the <code>CC_API</code> by calling {@link #calculateFootprintParams(int[], boolean[])} to gain
    * access to the API to perform calculations from the user input provided {@link #keys} within the
    * {@link SurveyFragment}. This is where the API Id and key are initialized. Calls on to fulfill
    * state requirement in API
@@ -153,7 +153,8 @@ public class CC_API {
    * ScoreFragment}
    */
 
-  public Map<String, String> calculateFootprintParams(int[] inputValues) {
+  public Map<String, String> calculateFootprintParams(int[] inputValues,
+      boolean[] takeActionInputs) {
 
     Map<String, String> params = new HashMap<>();
     // Build Parameter request string
@@ -174,6 +175,17 @@ public class CC_API {
     //Add required keys with no value
     for (int i = 0; i < requiredKeys.length; i++) {
       params.put(requiredKeys[i], "");
+    }
+    // Add Take Action keys if they were passed into the function
+    if (takeActionInputs != null) {
+      String strValue;
+
+      // Add Take Action keys
+      for (int i = 0; i < takeActionKeys.length; i++) {
+        strValue = takeActionInputs[i] ? "1"
+            : "0"; // This line sets strValue to "1" or "0" based on if takeActionInputs[i] is true or false
+        params.put(takeActionKeys[i], "=" + strValue);
+      }
     }
 
     return params;
