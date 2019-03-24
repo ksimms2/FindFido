@@ -20,7 +20,15 @@ import edu.cnm.deepdive.green_print.service.CC_APIWebService;
 import edu.cnm.deepdive.green_print.service.FragmentService;
 import java.util.List;
 
-//import edu.cnm.deepdive.green_print.view.UpdateAdapter;
+/**
+ * <code>UpdateFragment</code> gives the user checkbox options with activities which lower the
+ * users
+ * carbon footprint on completion. Update button sends a request to API and database to apply
+ * changes to the user score.
+ *
+ * @author Kevin Simms &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
+ * @version 1.0
+ */
 
 
 public class UpdateFragment extends LinkedFragment { //implements View.OnClickListener
@@ -50,6 +58,10 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
 
   }
+
+  /**
+   * Implementation of clicked checked box options. Inflates and displays UpdateFragment UI.
+   */
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,

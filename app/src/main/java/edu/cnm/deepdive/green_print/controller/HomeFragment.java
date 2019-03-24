@@ -2,12 +2,17 @@ package edu.cnm.deepdive.green_print.controller;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import edu.cnm.deepdive.green_print.R;
 
+/**
+ * <code>HomeFragment</code> displays Logo and welcome on startup
+ *
+ * @author Kevin Simms &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
+ * @version 1.0
+ */
 
 public class HomeFragment extends LinkedFragment {
 

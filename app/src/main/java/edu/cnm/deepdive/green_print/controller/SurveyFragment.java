@@ -18,6 +18,15 @@ import edu.cnm.deepdive.green_print.service.CC_APIWebService.GetCCAPITask;
 import java.util.Map;
 
 
+/**
+ * <code>SurveyFragment</code> implements user input to API when submit button is clicked.
+ * Saves user inputs in shared preferences. Submit button also implements saving grand total (score)
+ * in local database and displays score on {@link ScoreFragment}.
+ *
+ * @author Kevin Simms &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
+ * @version 1.0
+ */
+
 public class SurveyFragment extends LinkedFragment {
 
   private Button goToButton;
@@ -31,6 +40,11 @@ public class SurveyFragment extends LinkedFragment {
   public SurveyFragment() {
     // Required empty public constructor
   }
+
+  /**
+   * Implements API using input from survey. Saves survey answers in shared preferences. Displays
+   * the score into the ScoreFragment.
+   */
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,7 +105,6 @@ public class SurveyFragment extends LinkedFragment {
       getFragmentManager().beginTransaction().replace(R.id.fragment_container, scoreFragment)
           .commit();
     });
-
 
     submitButton.setOnClickListener(view1 -> {
 
@@ -169,14 +182,13 @@ public class SurveyFragment extends LinkedFragment {
       editor.putString("SavedAnswer18", answer18);
       editor.putString("SavedAnswer19", answer19);
       editor.putString("SavedAnswer20", answer20);
-      editor.commit();
+      editor.apply();
 
       Toast.makeText(getActivity(), "Saved in Preferences", Toast.LENGTH_LONG).show();
 
       // this is hard code so we can check connectivity to internet, must activate code above
       // Integer[] inputValues2 = new Integer[]{87113, 3, 2, 1, 1, 1700, 80, 40, 0, 11, 100, 200,
       // 10000, 12, 5000, 17, 2000, 19, 0, 0};
-
 
       CC_API ccApi = new CC_API();
       Map<String, String> params = ccApi.calculateFootprintParams(inputValues);
@@ -205,23 +217,6 @@ public class SurveyFragment extends LinkedFragment {
 
   }
 
-//  private void saveSurveyPreferences() {
-//
-//    SharedPreferences.Editor prefsEdit = PreferenceManager.getDefaultSharedPreferences(getContext())
-//        .edit();
-//
-//    View view = getView();
-//    EditText answer3Id = view
-//        .findViewById(R.id.answer_3_id);// make for all 20 make a constants page
-//    String answer3 = answer3Id.getText().toString();
-//
-//    prefsEdit.putString("SavedAnswer3", answer3);
-//    prefsEdit.apply();
-//
-//    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-//    prefs.getString("First", null);
-//  }
-
 
   public void loadFragment(ScoreFragment frag) {
     //create a fragment manager
@@ -234,7 +229,6 @@ public class SurveyFragment extends LinkedFragment {
     transaction.addToBackStack(null);
     transaction.commit();
   }
-
 
 
 }

@@ -35,7 +35,7 @@ public abstract class LinkedFragment extends Fragment {
 
   protected View linkButton(View view) {
 
-    retakeSurvey = (Button) view.findViewById(R.id.retake_survey_button);
+    retakeSurvey = view.findViewById(R.id.retake_survey_button);
 
     retakeSurvey.setOnClickListener(new View.OnClickListener() {
 

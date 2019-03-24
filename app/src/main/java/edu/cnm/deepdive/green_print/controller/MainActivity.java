@@ -16,6 +16,15 @@ import android.widget.ProgressBar;
 import edu.cnm.deepdive.green_print.R;
 
 
+/**
+ * <code>MainActivity</code> activates the side drawer menu {@link NavigationView} to show one of 2
+ * main {@link android.support.v4.app.Fragment} instances. It also responds to clicks on a single
+ * options {@link MenuItem} and displays the fragment on the screen
+ *
+ * @author Kevin Simms &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
+ * @version 1.0
+ */
+
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,10 +55,12 @@ public class MainActivity extends AppCompatActivity
 
   }
 
+  /**
+   * Loads the HomeFragment on startup.
+   */
   private void loadHomeFragment() {
 
     Fragment fragmentHome = new HomeFragment();
-
     FragmentManager manager = getSupportFragmentManager();
     FragmentTransaction transaction = manager.beginTransaction();
     transaction.add(R.id.fragment_container, fragmentHome, "home");
@@ -69,21 +80,28 @@ public class MainActivity extends AppCompatActivity
     }
   }
 
+  /**
+   * Inflate the menu; this adds items to the action bar if it is present.
+   *
+   * @param menu items for action bar
+   * @return items form the action bar
+   */
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
     getMenuInflater().inflate(edu.cnm.deepdive.green_print.R.menu.main, menu);
     return true;
   }
 
+  /**
+   * Handle action bar item clicks here. The action bar will automatically handle clicks on the
+   * HomeFragment/Up button, so long as you specify a parent activity in AndroidManifest.xml.
+   */
+
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the HomeFragment/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
+
     int id = item.getItemId();
 
-    //noinspection SimplifiableIfStatement
     if (id == edu.cnm.deepdive.green_print.R.id.action_settings) {
       return true;
     }
@@ -115,6 +133,12 @@ public class MainActivity extends AppCompatActivity
     return navigation;
   }
 
+  /**
+   * Implements navigation to other fragments once clicked.
+   *
+   * @param item available fragments in menu bar
+   * @return the fragment selected
+   */
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
 
@@ -138,6 +162,7 @@ public class MainActivity extends AppCompatActivity
     drawer.closeDrawer(GravityCompat.START);
     return true;
   }
+
 
   private void loadFragment(Fragment fragment, int container, String tag, Bundle args) {
     FragmentManager manager = getSupportFragmentManager();
