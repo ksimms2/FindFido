@@ -3,6 +3,7 @@ package edu.cnm.deepdive.green_print.controller;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,7 @@ import edu.cnm.deepdive.green_print.model.entity.Consumption;
  */
 
 
-public class ScoreFragment extends LinkedFragment {
+public class ScoreFragment extends Fragment {
 
   //Button surveyButton = (Button) findViewId(R.id.retake_survey_button);
 

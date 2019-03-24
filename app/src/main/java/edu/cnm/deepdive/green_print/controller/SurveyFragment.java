@@ -32,8 +32,6 @@ public class SurveyFragment extends LinkedFragment {
 
   private Button submitButton;
   public static final String MY_PREFERENCES = "MyPrefs";
-
-
   SharedPreferences sharedPreferences;
 
   public SurveyFragment() {
@@ -197,9 +195,8 @@ public class SurveyFragment extends LinkedFragment {
           .setSuccessListener(
 
               ccResponse ->
-                  //      ScoreFragment scoreFragment = new ScoreFragment();
 
-                  Toast.makeText(getActivity(), //put moving to new scorefragment here
+                  Toast.makeText(getActivity(),
                       "Total: " + ccResponse.getGrandTotal(), Toast.LENGTH_LONG)
                       .show()
           ) // Display total carbon footprint if available
@@ -219,17 +216,17 @@ public class SurveyFragment extends LinkedFragment {
    * <code>loadFragment</code> allows submit button <code>R.id.submit_button</code>
    * to transition to <code>ScoreFragment</code> after implementation of <code>GetCCAPITask</code>
    *
+   * Creates a fragment manager, replaces the current fragment and transitions to new fragment,
+   * and saves changes.
+   *
    * @param frag instance of a fragment
    */
 
   public void loadFragment(ScoreFragment frag) {
-    //create a fragment manager
-    FragmentManager man = getFragmentManager();
-    // begin transaction
-    FragmentTransaction transaction = man.beginTransaction();
-    // replace the fragment with the score
+
+    FragmentManager nextFrag = getFragmentManager();
+    FragmentTransaction transaction = nextFrag.beginTransaction();
     transaction.replace(R.id.fragment_container, frag);
-    // save changes
     transaction.addToBackStack(null);
     transaction.commit();
   }

@@ -16,6 +16,15 @@ import edu.cnm.deepdive.green_print.model.entity.Consumption;
 import java.util.Calendar;
 
 
+/**
+ * Uses a singleton pattern to implement a single app-wide connection by defining the local database
+ * assembled by its entities and converters. Asserts methods to obtain data access objects (DAOs)
+ * for the database entities.
+ *
+ * @author Kevin Simms &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
+ * @version 1.0
+ */
+
 @Database(
     entities = {Activity.class, Consumption.class},
     version = 1,
@@ -39,7 +48,7 @@ public abstract class ConsumptionDB extends RoomDatabase {
   /**
    * Returns an instance of a Room-generated implementation of {@link ConsumptionDao}.
    *
-   * @return data access object for CRUD operations involving {@link Activity} instances.
+   * @return data access object for CRUD operations involving {@link Consumption} instances.
    */
   public abstract ConsumptionDao getConsumtionDao();
 
@@ -53,30 +62,23 @@ public abstract class ConsumptionDB extends RoomDatabase {
 
   }
 
+
+  /**
+   * Supports conversion operations for persistence of relevant types not natively supported by
+   * Room/SQLite.
+   */
+
+
   public static class Converters {
 
-    private static final String JOIN_DELIMITER = "|";
-    private static final String SPLIT_DELIMITER = "\\|";
 
-
-    @TypeConverter
-    public static String stringArrayToString(String[] values) {
-      StringBuilder builder = new StringBuilder();
-      for (String value : values) {
-        builder.append(value);
-        builder.append(JOIN_DELIMITER);
-      }
-
-      builder.deleteCharAt(builder.length() - 1);
-      return builder.toString();
-
-    }
-
-    @TypeConverter
-    public static String[] stringToStringArray(String value) {
-      return value.split(SPLIT_DELIMITER);
-
-    }
+    /**
+     * Converts a Long value containing the number of milliseconds since the start of the Unix epoch
+     * (1970-01-01 00:00:00.000 UTC) to an instance of {@link Calendar}, and returns the latter.
+     *
+     * @param milliseconds date-time as a number of milliseconds since the start of the Unix epoch.
+     * @return date-time as a {@link Calendar} instance.
+     */
 
     @Nullable
     @TypeConverter
@@ -105,9 +107,5 @@ public abstract class ConsumptionDB extends RoomDatabase {
   }
 }
 
-/**
- * Supports conversion operations for persistence of relevant types not natively supported by
- * Room/SQLite.
- */
 
 

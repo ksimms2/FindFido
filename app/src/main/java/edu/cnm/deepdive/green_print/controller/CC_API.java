@@ -13,8 +13,9 @@ import org.w3c.dom.Element;
  * @author Kevin Simms &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
  * @version 1.0
  *
- * CoolClimate Network Information Director Christopher M. Jones, Ph.D. &amp; University oof
+ * CoolClimate Network Information Director Christopher M. Jones, Ph.D. &amp; University of
  * California, Berkeley
+ * @see <a hreh= https://api-central.berkeley.edu/api/11>UCB</a>
  * @see <a href= https://coolclimate.org/api>CoolClimate</a>
  */
 

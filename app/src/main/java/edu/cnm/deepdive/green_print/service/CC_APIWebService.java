@@ -18,7 +18,25 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
+
+/**
+ * Uses Retrofit service to communicate with CoolClimate web service and defines classes to support
+ * of making these requests.
+ *
+ * @author Kevin Simms &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
+ * @version 1.0
+ */
+
 public interface CC_APIWebService {
+
+
+  /**
+   * Builds and returns {@link okhttp3.Call} containing a application to the CoolClimate web service
+   * and completed by Retrofit.
+   *
+   * @param mapParam Retrofit mapping of API key and ID
+   * @return Retrofit created an instance of the web service
+   */
   @Headers({
       "app_id: " + BuildConfig.APP_ID,
       "app_key: " + BuildConfig.APP_KEY
@@ -27,28 +45,21 @@ public interface CC_APIWebService {
   Call<CCResponse> get(@QueryMap Map<String, String> mapParam);
 
 
-
-
+  /**
+   * Implements the initialization-on-demand holder expression for a singleton of {@link
+   * CC_APIWebService}.
+   */
 
   class InstanceHolder {
 
 
-
     private static final CC_APIWebService INSTANCE;
-
-    //private static final String API_KEY;
     private static final String APP_ID;
-
 
 
     static {
 
       CC_APIApplication application = CC_APIApplication.getInstance();
-
-//      Gson gson = new GsonBuilder()
-//
-//          .excludeFieldsWithoutExposeAnnotation()
-//          .create();
 
       HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
 
@@ -65,27 +76,21 @@ public interface CC_APIWebService {
           .build();
 
       INSTANCE = retrofit.create(CC_APIWebService.class);
-
-      //API_KEY = BuildConfig.API_KEY;
-
       APP_ID = BuildConfig.APP_ID;
 
     }
 
 
-
   }
 
-
-
+  /**
+   * Contains the request lifecycle for the CoolClimate web service as a {@link BaseFluentAsyncTask}
+   * subclass.
+   */
   class GetCCAPITask extends BaseFluentAsyncTask<Map, Void, CCResponse, CCResponse> {
 
-
-
     @Nullable
-
     @Override
-
     protected CCResponse perform(Map... maps) throws TaskException {
 
       try {
@@ -93,23 +98,19 @@ public interface CC_APIWebService {
         Response<CCResponse> response = InstanceHolder.INSTANCE.get(maps[0]).execute();
 
         if (!response.isSuccessful()) {
-
           throw new TaskException();
 
         }
 
         return response.body();
       } catch (Exception e) {
-        throw  new RuntimeException(e);
+        throw new RuntimeException(e);
 
       }
 
-   }
-
-
+    }
 
   }
-
 
 
 }

@@ -36,7 +36,6 @@ public abstract class LinkedFragment extends Fragment {
   protected View linkButton(View view) {
 
     retakeSurvey = view.findViewById(R.id.retake_survey_button);
-
     retakeSurvey.setOnClickListener(new View.OnClickListener() {
 
 
@@ -58,29 +57,6 @@ public abstract class LinkedFragment extends Fragment {
 
   }
 
-//  protected View linkButtonUpdate(View view) {
-//
-//    updateScore = (Button) view.findViewById(R.id.update_score_button);
-//    updateScore.setOnClickListener(new View.OnClickListener() {
-//
-//
-//
-//
-//      @Override
-//
-//      public void onClick(View view) {
-//
-//        loadHomeFragment();
-//
-//      }
-//
-//
-//
-//    });
-//
-//    return view;
-//
-//  }
 
 
 }
