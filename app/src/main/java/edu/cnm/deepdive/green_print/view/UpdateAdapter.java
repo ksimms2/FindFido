@@ -30,13 +30,13 @@ Unneeded for now... will need to reference when you get to a list view to displa
 //  Context context;
 //  private HistoryFragment historyFragment;
 //  private List<ConsumptionWithActivities> items;
-//  //private DateFormat format;
+//  //private DateFormat dateFormat;
 //
 //  public HistoryAdapter(HistoryFragment updateFragment, List<ConsumptionWithActivities> items) {
 //    context = historyFragment.getContext();
 //    this.historyFragment = historyFragment;
 //    this.items = items;
-//    //format = android.text.format.DateFormat.getDateFormat(context);
+//    //dateFormat = android.text.dateFormat.DateFormat.getDateFormat(context);
 //  }
 //
 //  @NonNull

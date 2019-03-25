@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.green_print.service;
 
 import android.support.annotation.Nullable;
+import edu.cnm.deepdive.android.BaseFluentAsyncTask;
 import edu.cnm.deepdive.green_print.model.ConsumptionDB;
 import edu.cnm.deepdive.green_print.model.entity.Activity;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;

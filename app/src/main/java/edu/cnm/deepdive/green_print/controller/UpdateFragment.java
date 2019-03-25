@@ -5,20 +5,15 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import edu.cnm.deepdive.green_print.R;
 import edu.cnm.deepdive.green_print.model.ConsumptionDB;
 import edu.cnm.deepdive.green_print.model.entity.Activity;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
-import edu.cnm.deepdive.green_print.service.CC_APIWebService;
 import edu.cnm.deepdive.green_print.service.CC_APIWebService.GetCCAPITask;
 import edu.cnm.deepdive.green_print.service.FragmentService;
 import java.util.List;
@@ -37,12 +32,11 @@ import java.util.Map;
 
 public class UpdateFragment extends LinkedFragment { //implements View.OnClickListener
 
-
-  private CC_APIWebService service;
-  private ListView takeActionListView;
-  private Editable edit = null;
-  private EditText textInputScore;
-  private TextView textView;
+//  private CC_APIWebService service;
+//  private ListView takeActionListView;
+//  private Editable edit = null;
+//  private EditText textInputScore;
+//  private TextView textView;
 
 
   public UpdateFragment() {
@@ -84,7 +78,7 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_update, container, false);
 
-    applyButton = (Button) view.findViewById(R.id.apply_button);
+    applyButton = view.findViewById(R.id.apply_button);
 
     applyButton.setOnClickListener(new View.OnClickListener() {
 
@@ -147,18 +141,6 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
             .execute(params2);
 
-        // Display total carbon footprint if available
-//        if (total_carbon_footprint == -1) {
-//
-//          Toast.makeText(getActivity(), "*** Error: Can't Calculate Carbon Footprint. ***", Toast.LENGTH_SHORT).show();
-//        } else {
-//          String toastStr = "Footprint: " + String.valueOf(total_carbon_footprint) + "tons/year";
-//
-//          Toast.makeText(getActivity(), toastStr, Toast.LENGTH_SHORT).show();
-//
-//
-//
-//        }
         loadFragment(new ScoreFragment());
       }
 

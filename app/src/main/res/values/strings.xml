@@ -68,6 +68,8 @@
   <string name="update">Update</string>
   <string name="update_your_footprint">Update your footprint:</string>
   <string name="apply_update">Apply</string>
+  <string name="back">Back</string>
+  <string name="score_format">%.2f</string>
 
 
 </resources>

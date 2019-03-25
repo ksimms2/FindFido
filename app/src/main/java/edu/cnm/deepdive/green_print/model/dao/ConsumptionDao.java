@@ -47,6 +47,9 @@ public interface ConsumptionDao {
     @Query("SELECT * FROM Consumption ORDER BY time DESC")
     List<Consumption> findAll();
 
+  @Query("SELECT * FROM Consumption WHERE consumption_id = :consumptionIds")
+  Consumption findById(long consumptionIds);
+
     /**
      * Allows for intances of {@link Consumption} to be deleted from the local database.
      */

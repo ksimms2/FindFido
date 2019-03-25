@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.green_print.service;
 
 import android.support.annotation.Nullable;
+import edu.cnm.deepdive.android.BaseFluentAsyncTask;
 import edu.cnm.deepdive.green_print.BuildConfig;
 import edu.cnm.deepdive.green_print.CC_APIApplication;
 import edu.cnm.deepdive.green_print.R;
