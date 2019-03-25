@@ -593,7 +593,7 @@
       android:id="@+id/submit_button"
       android:layout_width="100dp"
       android:layout_height="80dp"
-      android:text="Submit"
+      android:text="@string/submit"
       android:textStyle="bold"
       app:layout_constraintLeft_toLeftOf="@+id/guideline"
       app:layout_constraintRight_toRightOf="parent"

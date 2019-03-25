@@ -4,24 +4,17 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import edu.cnm.deepdive.green_print.R;
 import edu.cnm.deepdive.green_print.model.ConsumptionDB;
 import edu.cnm.deepdive.green_print.model.entity.Activity;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
-import edu.cnm.deepdive.green_print.service.CC_APIWebService;
 import edu.cnm.deepdive.green_print.service.CC_APIWebService.GetCCAPITask;
 import edu.cnm.deepdive.green_print.service.FragmentService;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,23 +31,12 @@ import java.util.Map;
 public class UpdateFragment extends LinkedFragment { //implements View.OnClickListener
 
 
-  private CC_APIWebService service;
-  private ListView takeActionListView;
-  private Editable edit = null;
-  private EditText textInputScore;
-  private TextView textView;
-
 
   public UpdateFragment() {
     // Required empty public constructor
   }
 
-
-  private List<ConsumptionWithActivities> takeaction;
-  //private UpdateAdapter adapter;
-  private ScoreFragment scoreFragment;
-  private Button applyButton;
-
+  private ScoreFragment scoreFragment = new ScoreFragment();
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -62,9 +44,6 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
 
   }
-
-  /**
-   */
 
   /**
    * <code>OnCreateView</code> launches the UI for the home screen. Calls on the
@@ -84,7 +63,9 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_update, container, false);
 
-    applyButton = (Button) view.findViewById(R.id.apply_button);
+    //private List<ConsumptionWithActivities> takeaction;
+    //private UpdateAdapter adapter;
+    Button applyButton = view.findViewById(R.id.apply_button);
 
     applyButton.setOnClickListener(new View.OnClickListener() {
 
@@ -132,7 +113,7 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
             .setTransformer((response) -> {
               Consumption consumption = new Consumption();
               consumption.setScore(response.getTakeActionGrandTotal());
-              ConsumptionDB.getInstance().getConsumtionDao().insert(consumption);
+              ConsumptionDB.getInstance().getConsumptionDao().insert(consumption);
               return response;
             })
             .setSuccessListener(
@@ -205,7 +186,7 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
     FragmentService
         .getInstance().showFragment(mainActivity, R.id.fragment_container, scoreFragment);
     Activity activity = new Activity();
-    activity.setConsumptionId(consumption.getId());
+    activity.setConsumptionId(consumption.getFie_id());
     // scoreFragment.setConsumption(consumption);
     //activity.getNavigation().setSelectedItemId(R.id.fragment_questions)
     Toast.makeText(getActivity(), "Update Clicked", Toast.LENGTH_SHORT).show();
@@ -224,7 +205,7 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
     @Override
 
     protected Void doInBackground(Consumption... consumptions) {
-      ConsumptionDB.getInstance().getConsumtionDao().insert(consumptions);
+      ConsumptionDB.getInstance().getConsumptionDao().insert(consumptions);
       return null;
 
     }
@@ -232,10 +213,10 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 //      updateFragment = fragment;
 //    }
 
-    /**
-     * Queries the local database for {@link Apod} instances, populating (indirectly) a {@link
-     * RecyclerView} with the results.
-     */
+//    /**
+//     * Queries the local database for {@link Apod} instances, populating (indirectly) a {@link
+//     * RecyclerView} with the results.
+//     */
 //  public void refresh() {
 //    if (!isHidden()) {
 //      new SelectAllConsumptionTask()

@@ -68,6 +68,11 @@
   <string name="update">Update</string>
   <string name="update_your_footprint">Update your footprint:</string>
   <string name="apply_update">Apply</string>
+  <string name="carbon_footprint_history">Carbon Footprint History</string>
+  <string name="returned_history">DEFAULT</string>
+  <string name="history">History</string>
+  <string name="submit">Submit</string>
+  <string name="back">Back</string>
 
 
 </resources>

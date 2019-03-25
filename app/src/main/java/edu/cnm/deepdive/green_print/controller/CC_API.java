@@ -15,7 +15,7 @@ import org.w3c.dom.Element;
  *
  * CoolClimate Network Information Director Christopher M. Jones, Ph.D. &amp; University of
  * California, Berkeley
- * @see <a hreh= https://api-central.berkeley.edu/api/11>UCB</a>
+ * @see <a href= https://api-central.berkeley.edu/api/11>UCB</a>
  * @see <a href= https://coolclimate.org/api>CoolClimate</a>
  */
 
@@ -143,7 +143,7 @@ public class CC_API {
   };
 
   /**
-   * Initializes the <code>CC_API</code> by calling {@link #calculateFootprintParams(int[], boolean[])} to gain
+   * Initializes the <code>CC_API</code> by calling <code>calculateFootprintParams(int[], boolean[])</code> to gain
    * access to the API to perform calculations from the user input provided {@link #keys} within the
    * {@link SurveyFragment}. This is where the API Id and key are initialized. Calls on to fulfill
    * state requirement in API

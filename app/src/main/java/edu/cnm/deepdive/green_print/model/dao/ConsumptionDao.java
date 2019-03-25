@@ -7,7 +7,6 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -41,11 +40,25 @@ public interface ConsumptionDao {
      * @return all {@link Consumption} instances in local database.
      */
 
-    @Query("SELECT * FROM Consumption WHERE time = :time")
-    Consumption findFirstByTime(Calendar time);
+    @Query("SELECT * FROM Consumption WHERE time = :consumptionId")
+    Consumption findById(long consumptionId);
+
+//     @Query("SELECT * FROM Consumption ORDER BY time DESC")
+//
+//    List<Consumption> findFirstByTime(Calendar time);
 
     @Query("SELECT * FROM Consumption ORDER BY time DESC")
     List<Consumption> findAll();
+
+
+    /**
+     * This method returns last score
+     *
+     * @return last score
+     */
+    @Query("SELECT * FROM Consumption ORDER BY time DESC LIMIT 1")
+    Consumption findLast();
+
 
     /**
      * Allows for intances of {@link Consumption} to be deleted from the local database.

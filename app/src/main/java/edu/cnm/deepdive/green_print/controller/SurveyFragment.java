@@ -30,9 +30,8 @@ import java.util.Map;
 public class SurveyFragment extends LinkedFragment {
 
 
-  private Button submitButton;
-  public static final String MY_PREFERENCES = "MyPrefs";
-  SharedPreferences sharedPreferences;
+  private static final String MY_PREFERENCES = "MyPrefs";
+  private SharedPreferences sharedPreferences;
 
   public SurveyFragment() {
     // Required empty public constructor
@@ -79,8 +78,7 @@ public class SurveyFragment extends LinkedFragment {
     EditText answer19Id = view.findViewById(R.id.answer_19_id);
     EditText answer20Id = view.findViewById(R.id.answer_20_id);
 
-
-    submitButton = view.findViewById(R.id.submit_button);
+    Button submitButton = view.findViewById(R.id.submit_button);
     sharedPreferences = this.getActivity()
         .getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
 
@@ -192,7 +190,7 @@ public class SurveyFragment extends LinkedFragment {
           .setTransformer((response) -> {
             Consumption consumption = new Consumption();
             consumption.setScore(response.getGrandTotal());
-            ConsumptionDB.getInstance().getConsumtionDao().insert(consumption);
+            ConsumptionDB.getInstance().getConsumptionDao().insert(consumption);
             return response;
           })
           .setSuccessListener(

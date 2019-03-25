@@ -152,9 +152,9 @@ public class MainActivity extends AppCompatActivity
       case R.id.fragment_score:
         loadFragment(new ScoreFragment(), R.id.fragment_container, "ScoreFragment", null);
         break;
-//      case R.id.fragment_update:
-//        loadFragment(new UpdateFragment(), R.id.fragment_container, "UpdateFragment", null);
-//        break;
+      case R.id.fragment_history:
+        loadFragment(new HistoryFragment(), R.id.fragment_container, "HistoryFragment", null);
+        break;
 
     }
 

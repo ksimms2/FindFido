@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import edu.cnm.deepdive.green_print.R;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
-
+import edu.cnm.deepdive.green_print.service.ConsumptionDBService.SelectConsumptionTask;
 
 
 /**
@@ -30,13 +30,10 @@ import edu.cnm.deepdive.green_print.model.entity.Consumption;
 
 public class ScoreFragment extends Fragment {
 
-  //Button surveyButton = (Button) findViewId(R.id.retake_survey_button);
 
-  private static final String TAG = "ScoreFragment";
 
   private Button surveyButton;
   private Button updateButton;
-  Consumption cmpnScore = new Consumption();
   private EditText scoreToText;
   public ScoreFragment() {
     // Required empty public constructor
@@ -67,7 +64,7 @@ public class ScoreFragment extends Fragment {
     surveyButton = view.findViewById(R.id.retake_survey_button);
     updateButton = view.findViewById(R.id.update_score_button);
     scoreToText = view.findViewById(R.id.scoreBox);
-    //scoreToText = cmpnScore.getScore();
+
 
     surveyButton.setOnClickListener(v -> {
       Toast.makeText(getActivity(), "Going to Survey", Toast.LENGTH_SHORT).show();
@@ -85,6 +82,34 @@ public class ScoreFragment extends Fragment {
 
     return view;
   }
+
+  public void setScore(Consumption consumption) {
+
+    // TODO apply score to score box
+
+  }
+
+  // History fragment lines 94-100, apoddbservice 88-94, using findLast in dao, invoke loadscore
+  // when you want update the score, setscore
+
+  public void loadScore() {
+
+    new SelectConsumptionTask()
+        .setTransformer((consumption) -> {
+          //TODO Insert Access object
+          return consumption.;
+        })
+        .setSuccessListener(this::setScore)
+        .setFailureListener((nullConsumption) -> {
+          // TODO some stuff
+        })
+        .execute();
+  }
+// TODO remove
+//  private MainActivity getNavActivity() {
+//    return (MainActivity) getActivity();
+//
+//  }
 
   @Override
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {

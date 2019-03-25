@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.green_print.service;
 
 import android.support.annotation.Nullable;
+import edu.cnm.deepdive.android.BaseFluentAsyncTask;
 import edu.cnm.deepdive.green_print.model.ConsumptionDB;
 import edu.cnm.deepdive.green_print.model.entity.Activity;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
@@ -15,7 +16,7 @@ import java.util.List;
 public final class ConsumptionDBService {
 
   private ConsumptionDBService(){
-
+    // left blank
   }
 
   /**
@@ -29,7 +30,7 @@ public final class ConsumptionDBService {
 
     @Override
     protected List<Long> perform (Consumption... consumptions){
-      return ConsumptionDB.getInstance().getConsumtionDao().insert(consumptions);
+      return ConsumptionDB.getInstance().getConsumptionDao().insert(consumptions);
     }
   }
 
@@ -39,16 +40,16 @@ public final class ConsumptionDBService {
   public static class SelectConsumptionTask extends
       BaseFluentAsyncTask<Calendar, Void, Consumption, Consumption> {
 
-    @Override
-    protected Consumption perform(Calendar... time) {
+
+    protected Consumption perform(Long... consumptionId) {
       Consumption consumption = ConsumptionDB.getInstance()
-          .getConsumtionDao()
-          .findFirstByTime(time[0]);
+          .getConsumptionDao()
+          .findById(consumptionId[0]);
       if (consumption == null) {
         throw new TaskException();
       }
       Activity activity = new Activity();
-      activity.setConsumptionId(consumption.getId());
+      activity.setConsumptionId(consumption.getFie_id());
       ConsumptionDB.getInstance().getActivityDao().insert(activity);
       return consumption;
     }
@@ -64,7 +65,7 @@ public final class ConsumptionDBService {
 
     @Override
     protected List<Consumption> perform(Void... voids) {
-      return ConsumptionDB.getInstance().getConsumtionDao().findAll();
+      return ConsumptionDB.getInstance().getConsumptionDao().findAll();
     }
 
   }
@@ -78,7 +79,7 @@ public final class ConsumptionDBService {
     @Nullable
     @Override
     protected Void perform(Consumption... consumptions) throws TaskException {
-      ConsumptionDB.getInstance().getConsumtionDao().delete(consumptions);
+      ConsumptionDB.getInstance().getConsumptionDao().delete(consumptions);
       return null;
     }
   }

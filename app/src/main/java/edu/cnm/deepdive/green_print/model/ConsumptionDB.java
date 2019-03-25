@@ -6,6 +6,9 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverter;
 import android.arch.persistence.room.TypeConverters;
+import android.content.Context;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.Nullable;
 import edu.cnm.deepdive.green_print.CC_APIApplication;
 import edu.cnm.deepdive.green_print.model.ConsumptionDB.Converters;
@@ -13,6 +16,7 @@ import edu.cnm.deepdive.green_print.model.dao.ActivityDao;
 import edu.cnm.deepdive.green_print.model.dao.ConsumptionDao;
 import edu.cnm.deepdive.green_print.model.entity.Activity;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
+import edu.cnm.deepdive.green_print.view.DataBaseHelper;
 import java.util.Calendar;
 
 
@@ -34,6 +38,10 @@ import java.util.Calendar;
 @TypeConverters(Converters.class)
 public abstract class ConsumptionDB extends RoomDatabase {
 
+  protected SQLiteDatabase database;
+  private DataBaseHelper dbHelper;
+  private Context dbContext;
+
   private static final String DB_NAME = "consumption_db";
 
   /**
@@ -50,7 +58,7 @@ public abstract class ConsumptionDB extends RoomDatabase {
    *
    * @return data access object for CRUD operations involving {@link Consumption} instances.
    */
-  public abstract ConsumptionDao getConsumtionDao();
+  public abstract ConsumptionDao getConsumptionDao();
 
   public abstract ActivityDao getActivityDao();
 
@@ -62,6 +70,19 @@ public abstract class ConsumptionDB extends RoomDatabase {
 
   }
 
+  public void open() throws SQLException {
+    if (dbHelper == null) {
+      dbHelper = DataBaseHelper.getHelper(dbContext);
+    }
+    database = dbHelper.getWritableDatabase();
+  }
+
+//  public ConsumptionDB(Context context) {
+//    this.dbContext = context;
+//    dbHelper = DataBaseHelper.getHelper(dbContext);
+//    open();
+//
+//  }
 
   /**
    * Supports conversion operations for persistence of relevant types not natively supported by

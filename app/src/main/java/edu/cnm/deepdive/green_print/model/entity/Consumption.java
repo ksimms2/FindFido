@@ -4,7 +4,6 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
-import java.io.Serializable;
 import java.util.Calendar;
 
 
@@ -17,12 +16,15 @@ import java.util.Calendar;
  */
 
 @Entity()
-public class Consumption implements Serializable {
+public class Consumption {
+
+
 
 
   @ColumnInfo(name = "consumption_id")
   @PrimaryKey(autoGenerate = true)
-  private long id;
+  private Long fie_id;
+
 
 
   @NonNull
@@ -30,14 +32,14 @@ public class Consumption implements Serializable {
 
   private Float score;
 
-  public long getId() {
-    return id;
+
+  public Long getFie_id() {
+    return fie_id;
   }
 
-  public void setId(long id) {
-    this.id = id;
+  public void setFie_id(Long fie_id) {
+    this.fie_id = fie_id;
   }
-
 
   @NonNull
   public Calendar getTime() {
@@ -56,5 +58,67 @@ public class Consumption implements Serializable {
     this.score = score;
   }
 
+//  public Consumption() {
+//    super();
+//  }
+//
+//  private Consumption(Parcel in) {
+//    super();
+//    this.fie_id = in.readInt();
+//    this.score = in.readFloat();
+//    //this.time = new Calendar(in.readLong()) {};
+//
+//  }
+//  @Override
+//  public String toString() {
+//    return "Consumption [fie_id=" + fie_id + ", score=" + score + " ]";
+//  }
+//
+//  @Override
+//  public int hashCode() {
+//    final int prime = 31;
+//    int result = 1;
+//    result = prime * result + fie_id;
+//    return result;
+//  }
 
+//  @Override
+//  public boolean equals(Object obj) {
+//    if (this == obj)
+//      return true;
+//    if (obj == null)
+//      return false;
+//    if (getClass() != obj.getClass())
+//      return false;
+//    Consumption other = (Consumption) obj;
+//    if (fie_id != other.fie_id)
+//      return false;
+//    return true;
+//  }
+
+//  @Override
+//  public int describeContents() {
+//    return 0;
+//  }
+//
+//  @Override
+//  public void writeToParcel(Parcel parcel, int flags) {
+//    parcel.writeLong(getFie_Id());
+//    parcel.writeFloat(getScore());
+//
+//  }
+//
+//  public static final Parcelable.Creator<Consumption> CREATOR = new Parcelable.Creator<Consumption>() {
+//    public Consumption createFromParcel(Parcel in) {
+//      return new Consumption(in);
+//    }
+//
+//    public Consumption[] newArray(int size) {
+//      return new Consumption[size];
+//    }
+//  };
+//
+//  public static Creator<Consumption> getCREATOR() {
+//    return CREATOR;
+//  }
 }
