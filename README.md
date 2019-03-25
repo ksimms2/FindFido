@@ -71,7 +71,7 @@ As this application progresses in development, the focus will start to implement
 + [User Story 2](UserStory2.md)
 
 ## Javadoc Page
-[Javadoc](docs/api/)
+
 
 ## Licenses?
 TBD
