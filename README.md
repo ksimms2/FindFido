@@ -64,14 +64,14 @@ As this application progresses in development, the focus will start to implement
 ## ERD
 + [GreenPrint ERD](GreenPrint_ERD.pdf)
 
-## DDL?
+## DDL
 
 ## User Stories
 + [User Story 1](UserStory1.md)
 + [User Story 2](UserStory2.md)
 
 ## Javadoc Page
-TBD
+[Javadoc](doc/api)
 
 ## Licenses?
 TBD

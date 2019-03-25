@@ -1,0 +1,8 @@
+edu.cnm.deepdive.green_print
+edu.cnm.deepdive.green_print.controller
+edu.cnm.deepdive.green_print.model
+edu.cnm.deepdive.green_print.model.dao
+edu.cnm.deepdive.green_print.model.entity
+edu.cnm.deepdive.green_print.model.pojo
+edu.cnm.deepdive.green_print.service
+edu.cnm.deepdive.green_print.view
