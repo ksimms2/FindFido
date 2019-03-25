@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:background="@color/colorAccent"
+  android:descendantFocusability="blocksDescendants">
+
+  <RelativeLayout
+    android:id="@+id/layout_item"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+      android:id="@+id/txt_score_id"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="6dp"/>
+
+    <TextView
+      android:id="@+id/txt_score_result"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toRightOf="@+id/txt_score_id"
+      android:padding="6dp"/>
+
+    <!--<TextView-->
+    <!--android:id="@+id/txt_score_time"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/txt_score_result"-->
+    <!--android:padding="6dp" />-->
+
+
+  </RelativeLayout>
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_below="@+id/layout_item"
+    android:background="@color/colorAccent"/>
+
+</RelativeLayout>

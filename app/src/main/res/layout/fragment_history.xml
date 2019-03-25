@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#EDEDED">
+
+  <ListView
+    android:id="@+id/list_history"
+    android:scrollbarStyle="outsideOverlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:divider="@color/darkBackground"
+    android:dividerHeight="10dp"
+    android:drawSelectorOnTop="true"
+    android:footerDividersEnabled="false"/>
+
+  <Button
+    android:id="@+id/back_button"
+    android:textStyle="bold"
+    android:layout_width="100dp"
+    android:layout_height="80dp"
+    android:layout_marginBottom="40dp"
+    android:layout_below="@id/list_history"
+    android:background="@color/scrollViewBackground"
+    android:text="@string/back"
+    />
+
+</RelativeLayout>
