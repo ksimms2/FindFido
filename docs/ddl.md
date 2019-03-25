@@ -1,3 +1,5 @@
+[DDL][docs/ddl.md]
+
 ```sql
 CREATE TABLE IF NOT EXISTS `${Activity}` (
     `activity_id`     INTEGER     PRIMARY KEY AUTOINCREMENT NOT NULL, 
