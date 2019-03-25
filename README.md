@@ -71,7 +71,7 @@ As this application progresses in development, the focus will start to implement
 + [User Story 2](UserStory2.md)
 
 ## Javadoc Page
-![Javadoc Page](file:///C:/Users/KSimms/Desktop/bootcamp/projects/GreenPrint/docs/api/index.html)
+![Javadoc Page](docs/api/)
 
 ## Licenses?
 TBD
