@@ -58,18 +58,18 @@ As this application progresses in development, the focus will start to implement
 
 
 ## Wireframes
-* [GreenPrint Wireframe 1](Green_Print_WireFrame1.pdf)
-* [GreenPrint Wireframe 2](Green_Print_WireFrame2.pdf)
++ [GreenPrint Wireframe 1](docs/Green_Print_WireFrame1.pdf)
+* [GreenPrint Wireframe 2](docs/Green_Print_WireFrame2.pdf)
 
 ## ERD
-* [GreenPrint ERD](GreenPrint_ERD.pdf)
++[GreenPrint ERD](docs/GreenPrint_ERD.pdf)
 
 ## DDL
 + [DDL](docs/ddl.md)
 
 ## User Stories
-+ [User Story 1](UserStory1.md)
-+ [User Story 2](UserStory2.md)
++ [User Story 1](docs/UserStory1.md)
++ [User Story 2](docs/UserStory2.md)
 
 ## Javadoc Page
 + [Javadoc](docs/api)
