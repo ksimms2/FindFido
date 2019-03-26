@@ -22,7 +22,7 @@
       android:title="@string/score"/>
     <item
       android:id="@+id/fragment_history"
-      android:icon="@drawable/ic_insert_chart"
+      android:icon="@drawable/ic_view_list_black_24dp"
       android:title="@string/history"/>
 
   </group>
