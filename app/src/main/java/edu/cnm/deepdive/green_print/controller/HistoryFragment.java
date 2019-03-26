@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 import edu.cnm.deepdive.green_print.R;
 import edu.cnm.deepdive.green_print.model.ConsumptionDB;
@@ -20,10 +19,8 @@ import java.util.List;
 public class HistoryFragment extends Fragment {
 
 
-  private Button backButton;
 
   private List<Consumption> scores;
-
   private HistoryAdapter adapter;
 
 
@@ -31,9 +28,16 @@ public class HistoryFragment extends Fragment {
 
       @Nullable Bundle savedInstanceState) {
 
+
     View view = inflater.inflate(R.layout.fragment_history, container, false);
 
     ListView listView = view.findViewById(R.id.list_history);
+    ViewGroup header = (ViewGroup) inflater.inflate(R.layout.header, listView,
+        false);
+    ViewGroup categories = (ViewGroup) inflater.inflate(R.layout.categories, listView,
+        false);
+    listView.addHeaderView(header, null, false);
+    listView.addHeaderView(categories, null, false);
     //listView.setOnItemClickListener(this);
 
     scores = new LinkedList<>();

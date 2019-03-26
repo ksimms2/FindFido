@@ -29,8 +29,10 @@ public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
 
-  //private ImageFragment imageFragment;
+  private HomeFragment homeFragment;
+  private SurveyFragment surveyFragment;
   private UpdateFragment updateFragment;
+  private HistoryFragment historyFragment;
   private ProgressBar loading;
   private DrawerLayout navigation;
 
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity
     setContentView(edu.cnm.deepdive.green_print.R.layout.activity_main);
     Toolbar toolbar = findViewById(edu.cnm.deepdive.green_print.R.id.toolbar);
     setSupportActionBar(toolbar);
+    //setupFragments(savedInstanceState);
+
 
     DrawerLayout drawer = findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -109,9 +113,9 @@ public class MainActivity extends AppCompatActivity
     return super.onOptionsItemSelected(item);
   }
 
-  //  private void setupFragments(Bundle savedInstanceState) {
+//    private void setupFragments(Bundle savedInstanceState) {
 //    navigation = findViewById(R.id.nav_view);
-//    //navigation.setOnNavigationItemSelectedListener(this);
+//    navigation.setOnNavigationItemSelectedListener(this);
 //    FragmentService fragmentService = FragmentService.getInstance();
 //    if (savedInstanceState == null) {
 //      surveyFragment = new SurveyFragment();
@@ -129,9 +133,9 @@ public class MainActivity extends AppCompatActivity
 //    surveyFragment.setHistoryFragment(updateFragment);
 //    UpdateFragment.setSurveyFragment(surveyFragment);
 //  }
-  public DrawerLayout getNavigation() {
-    return navigation;
-  }
+//  public DrawerLayout getNavigation() {
+//    return navigation;
+//  }
 
   /**
    * Implements navigation to other fragments once clicked.

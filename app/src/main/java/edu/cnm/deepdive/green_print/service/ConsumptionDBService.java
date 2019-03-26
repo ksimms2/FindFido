@@ -15,13 +15,13 @@ import java.util.List;
 
 public final class ConsumptionDBService {
 
-  private ConsumptionDBService(){
+  private ConsumptionDBService() {
 
   }
 
   /**
-   * Implements an asynchronous <code>INSERT</code> of an {@link Consumption} instance into the local
-   * database.
+   * Implements an asynchronous <code>INSERT</code> of an {@link Consumption} instance into the
+   * local database.
    */
 
   public static class InsertConsumptionTask extends
@@ -29,7 +29,7 @@ public final class ConsumptionDBService {
 
 
     @Override
-    protected List<Long> perform (Consumption... consumptions){
+    protected List<Long> perform(Consumption... consumptions) {
       return ConsumptionDB.getInstance().getConsumtionDao().insert(consumptions);
     }
   }
@@ -87,7 +87,8 @@ public final class ConsumptionDBService {
   /**
    * Ability to manually insert an {@link Activity}.
    */
-  public static class InsertActivityTask extends BaseFluentAsyncTask<Activity, Void, List<Long>, List<Long>>{
+  public static class InsertActivityTask extends
+      BaseFluentAsyncTask<Activity, Void, List<Long>, List<Long>> {
 
     @Nullable
     @Override

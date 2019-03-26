@@ -12,10 +12,6 @@
       android:id="@+id/fragment_home"
       android:icon="@drawable/ic_spa"
       android:title="@string/home"/>
- <!--   <item
-      android:id="@+id/profile"
-      android:icon="@drawable/ic_local_florist"
-      android:title="Profile"/> -->
     <item
       android:id="@+id/fragment_questions"
       android:icon="@drawable/tree_icon"
@@ -27,22 +23,9 @@
     <item
       android:id="@+id/fragment_history"
       android:icon="@drawable/ic_insert_chart"
-      android:title="History"/>
+      android:title="@string/history"/>
 
   </group>
 
-
- <!-- <item android:title="Communicate">
-    <menu>
-      <item
-        android:id="@+id/nav_tips"
-        android:icon="@drawable/ic_menu_share"
-        android:title="Tips"/>
-      <item
-        android:id="@+id/nav_send"
-        android:icon="@drawable/ic_menu_send"
-        android:title="Send_to_Friends"/>
-    </menu>
-  </item> -->
 
 </menu>

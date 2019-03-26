@@ -70,6 +70,11 @@
   <string name="apply_update">Apply</string>
   <string name="back">Back</string>
   <string name="score_format">%.2f</string>
+  <string name="greenprint_logo">GreenPrint Logo</string>
+  <string name="history">History</string>
+  <string name="score_history">Score History</string>
+  <string name="date_category">Date:</string>
+  <string name="score_category">Score:</string>
 
 
 </resources>

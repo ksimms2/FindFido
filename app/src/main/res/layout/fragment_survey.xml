@@ -35,22 +35,6 @@
       android:text="@string/survey"
       app:layout_constraintTop_toTopOf="parent"/>
 
-    <!-- <TextView
-       android:id="@+id/textView2"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:text="TextView"/> -->
-
-
-    <!--<android.support.design.widget.TextInputEditText
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/activity_horizontal_margin"
-      android:hint="TextInputEditText"
-      android:textColor="#fcfdfc"/>-->
-
-
-    <!-- TODO need to hard code so user can only select '1' to get to zipcode -->
 
     <TextView
       android:id="@+id/question_1_id"
@@ -105,7 +89,6 @@
 
       <requestFocus/>
     </EditText>
-
     <TextView
       android:id="@+id/question_3_id"
       android:layout_width="0dp"
@@ -129,7 +112,6 @@
       android:background="#CCCCCC"
       android:inputType="number"
       android:hint="@string/number_hint">
-
       <requestFocus/>
     </EditText>
 
@@ -602,7 +584,6 @@
       app:layout_constraintBottom_toBottomOf="parent"
       android:layout_marginBottom="40dp"
       />
-
 
 
   </android.support.constraint.ConstraintLayout>
