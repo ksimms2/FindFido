@@ -62,7 +62,7 @@ As this application progresses in development, the focus will start to implement
 * [GreenPrint Wireframe 2](docs/Green_Print_WireFrame2.pdf)
 
 ## ERD
-+[GreenPrint ERD](docs/GreenPrint_ERD.pdf)
++ [GreenPrint ERD](docs/GreenPrint_ERD.pdf)
 
 ## DDL
 + [DDL](docs/ddl.md)
