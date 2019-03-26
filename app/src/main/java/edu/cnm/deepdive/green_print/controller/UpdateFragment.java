@@ -1,10 +1,8 @@
 package edu.cnm.deepdive.green_print.controller;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +19,7 @@ import java.util.Map;
 
 /**
  * <code>UpdateFragment</code> gives the user checkbox options with activities which lower the
- * users
- * carbon footprint on completion. Update button sends a request to API and database to apply
+ * users carbon footprint on completion. Update button sends a request to API and database to apply
  * changes to the user score.
  *
  * @author Kevin Simms &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
@@ -69,6 +66,12 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
    * @param container uses the set container for the group
    * @param savedInstanceState Saves the instance created
    * @return displays the UI on the screen
+   *
+   * <code>OnCreatView</code> is currently hardcoded to display as if the user is selecting the
+   * seventh option of the take-action list and applying it to their prior score. The users"prior"
+   * score is also hardcoded to check connectivity, but the prior code will have to be used at some
+   * point in the future. There is also an issue with using the appropriate take-action keys that
+   * are needed to successfully use the API to its full potential.
    */
 
   @Override
@@ -112,6 +115,7 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
         int[] inputValues2 = new int[]{87107, 3, 2, 1, 200000, 1500, 800, 80, 300, 900, 90, 120,
             18000, 32, 15000, 28, 0, 0, 10000, 500};
+
         boolean[] takeActionInputs = new boolean[]{false, false, false, false, false, false, true,
             false, false, false, false, false, false, false, false};
 
@@ -188,69 +192,11 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
         .getInstance().showFragment(mainActivity, R.id.fragment_container, scoreFragment);
     Activity activity = new Activity();
     activity.setConsumptionId(consumption.getId());
-    // scoreFragment.setConsumption(consumption);
-    //activity.getNavigation().setSelectedItemId(R.id.fragment_questions)
     Toast.makeText(getActivity(), "Update Clicked", Toast.LENGTH_SHORT).show();
 
 
   }
 
 
-
-
-
-
-  private static class SaveScoreTask extends AsyncTask<Consumption, Void, Void> {
-
-
-    @Override
-
-    protected Void doInBackground(Consumption... consumptions) {
-      ConsumptionDB.getInstance().getConsumtionDao().insert(consumptions);
-      return null;
-
-    }
-    //    public void setUpdateFragment(UpdateFragment fragment) {
-//      updateFragment = fragment;
-//    }
-
-    /**
-     * Queries the local database for {@link Apod} instances, populating (indirectly) a {@link
-     * RecyclerView} with the results.
-     */
-//  public void refresh() {
-//    if (!isHidden()) {
-//      new SelectAllConsumptionTask()
-//          .setSuccessListener((consumptions) -> {
-//            takeaction.clear();
-//            takeaction.addAll(consumptions);
-//            adapter.notifyDataSetChanged();
-//          })
-//          .execute();
-//    }
-  }
 }
-//  public void createContextMenu(ContextMenu menu, int position, Consumption consumption){
-//    getActivity().getMenuInflater().inflate(R.menu.item_context, menu);
-//    menu.findItem(R.id.context_delete).setOnMenuItemClickListener((item) -> {
-//      new DeleteConsumptionTask()
-//          .setSuccessListener((v)-> {
-//            takeaction.remove(position);
-//            adapter.notifyItemRemoved(position);
-//          })
-//          .execute(consumption);
-//      return true;
-//    });
 
-
-
-
-
-
-
-//    myCheck = (CheckBox) view.findViewById(R.id.myCheckBox1);
-//   myCheck.isChecked(); <-- this the handle are you checked
-
-
-// use for loop from SurveyFragment example with boolean []
-// pass boolean [] to CC_API for recall.

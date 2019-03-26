@@ -15,9 +15,7 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
-    android:theme="@style/SurveyPageTheme"
-
-    >
+    android:theme="@style/SurveyPageTheme">
 
 
     <TextView
@@ -94,7 +92,7 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="10dp"
       android:background="@color/colorWhite"
-      android:checked="false"
+      android:checked="true"
       android:text="@string/takeaction_7"
       app:layout_constraintTop_toBottomOf="@id/check_6"/>
 

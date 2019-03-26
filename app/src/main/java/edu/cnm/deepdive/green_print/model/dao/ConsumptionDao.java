@@ -22,40 +22,39 @@ import java.util.List;
 public interface ConsumptionDao {
 
 
-    /**
-     * Inserts one or more {@link Consumption} instances into the local database.
-     *
-     * @param consumptions {@link Consumption} instance(s) to be inserted.
-     * @return inserted record IDs.
-     *
-     */
+  /**
+   * Inserts one or more {@link Consumption} instances into the local database.
+   *
+   * @param consumptions {@link Consumption} instance(s) to be inserted.
+   * @return inserted record IDs.
+   */
 
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    List<Long>insert(Consumption... consumptions);
+  @Insert(onConflict = OnConflictStrategy.IGNORE)
+  List<Long> insert(Consumption... consumptions);
 
-    /**
-     * Selects and returns all {@link Consumption} instances in the local database, sorting the result
-     * in descending date order.
-     *
-     * @return all {@link Consumption} instances in local database.
-     */
+  /**
+   * Selects and returns all {@link Consumption} instances in the local database, sorting the result
+   * in descending date order.
+   *
+   * @return all {@link Consumption} instances in local database.
+   */
 
-    @Query("SELECT * FROM Consumption WHERE time = :time")
-    Consumption findFirstByTime(Calendar time);
+  @Query("SELECT * FROM Consumption WHERE time = :time")
+  Consumption findFirstByTime(Calendar time);
 
-    @Query("SELECT * FROM Consumption ORDER BY time DESC")
-    List<Consumption> findAll();
+  @Query("SELECT * FROM Consumption ORDER BY time DESC")
+  List<Consumption> findAll();
 
-  @Query("SELECT * FROM Consumption WHERE consumption_id = :consumptionIds")
-  Consumption findById(long consumptionIds);
+  @Query("SELECT * FROM Consumption ORDER BY time DESC LIMIT 1")
+  Consumption findLast();
 
-    /**
-     * Allows for intances of {@link Consumption} to be deleted from the local database.
-     */
+  /**
+   * Allows for intances of {@link Consumption} to be deleted from the local database.
+   */
 
-    @Delete
-    int delete(Consumption... consumptions);
+  @Delete
+  int delete(Consumption... consumptions);
 
 
 }

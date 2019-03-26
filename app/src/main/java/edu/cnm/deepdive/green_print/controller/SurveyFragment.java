@@ -41,14 +41,13 @@ public class SurveyFragment extends LinkedFragment {
   /**
    * <code>OnCreateView</code> launches the UI for the home screen. Calls on the
    * <code>R.layout.fragment_survey</code>, which presents the .xml UI design.
-   * Implements API using input from survey. Saves survey answers in shared preferences.
-   * Displays the score into the ScoreFragment.
+   * Implements API using input from survey. Saves survey answers in shared preferences. Displays
+   * the score into the ScoreFragment.
    *
    * @param inflater loads UI
    * @param container uses the set container for the group
    * @param savedInstanceState Saves the instance created
    * @return displays the UI on the screen
-   *
    */
 
 
@@ -79,7 +78,6 @@ public class SurveyFragment extends LinkedFragment {
     EditText answer19Id = view.findViewById(R.id.answer_19_id);
     EditText answer20Id = view.findViewById(R.id.answer_20_id);
 
-
     submitButton = view.findViewById(R.id.submit_button);
     sharedPreferences = this.getActivity()
         .getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
@@ -105,10 +103,7 @@ public class SurveyFragment extends LinkedFragment {
     answer19Id.setText(sharedPreferences.getString("SavedAnswer19", ""));
     answer20Id.setText(sharedPreferences.getString("SavedAnswer20", ""));
 
-
     submitButton.setOnClickListener(view1 -> {
-
-
 
       String answer1 = answer1Id.getText().toString();
       String answer2 = answer2Id.getText().toString();
@@ -138,7 +133,6 @@ public class SurveyFragment extends LinkedFragment {
       String idStr;
       String userInputStr;
       int resID;
-
 
       for (int i = 1; i <= numInputs; i++) {
         idStr = "answer_" + String.valueOf(i) + "_id";
@@ -184,7 +178,6 @@ public class SurveyFragment extends LinkedFragment {
       boolean[] takeActionInputs = new boolean[]{false, false, false, false, false, false, false,
           false, false, false, false, false, false, false, false};
 
-
       CC_API ccApi = new CC_API();
       Map<String, String> params = ccApi.calculateFootprintParams(inputValues, takeActionInputs);
 
@@ -219,8 +212,8 @@ public class SurveyFragment extends LinkedFragment {
    * <code>loadFragment</code> allows submit button <code>R.id.submit_button</code>
    * to transition to <code>ScoreFragment</code> after implementation of <code>GetCCAPITask</code>
    *
-   * Creates a fragment manager, replaces the current fragment and transitions to new fragment,
-   * and saves changes.
+   * Creates a fragment manager, replaces the current fragment and transitions to new fragment, and
+   * saves changes.
    *
    * @param frag instance of a fragment
    */

@@ -58,6 +58,10 @@ public class HistoryFragment extends Fragment {
     protected List<Consumption> doInBackground(Void... voids) {
       return ConsumptionDB.getInstance().getConsumtionDao().findAll();
     }
+
+
   }
+
+
 
 }
