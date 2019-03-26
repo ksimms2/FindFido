@@ -58,11 +58,11 @@ As this application progresses in development, the focus will start to implement
 
 
 ## Wireframes
-+ [GreenPrint Wireframe 1](Green_Print_WireFrame1.pdf)
-+ [GreenPrint Wireframe 2](Green_Print_WireFrame2.pdf)
+* [GreenPrint Wireframe 1](Green_Print_WireFrame1.pdf)
+* [GreenPrint Wireframe 2](Green_Print_WireFrame2.pdf)
 
 ## ERD
-+ [GreenPrint ERD](GreenPrint_ERD.pdf)
+* [GreenPrint ERD](GreenPrint_ERD.pdf)
 
 ## DDL
 + [DDL](docs/ddl.md)
