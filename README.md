@@ -30,16 +30,25 @@ For this application, the following were used to test UI and function.
 + Nexus 5x emulator
 
 ## Third Party Libraries
-+ okHttp
-+ Retrofit
-+ Stetho
++ [Retrofit](https://square.github.io/retrofit/) (includes OkHttp and Retrofit)
+
+  Retrofit is designed to establish and perform requests to CoolClimate API web service.
+  
++ [Stetho](https://github.com/facebook/stetho/blob/master/README.md)
+
+  Stetho is a developmental tool that examines the local display rescources and database contents.
+  
 + Google Play Services
+
 + Room
+
++ [Deep Dive Android Utilites](https://github.com/deep-dive-coding-java/android-utilities/blob/master/README.md)
 
 
 ## External Services
 This app accesses the CoolClimate API carbon footprint calculator from the CoolClimate Network.
 + [CoolClimate Network](https://coolclimate.org/index)
+
 + [CoolClimate API](https://coolclimate.org/api)
 
 ## Potential Future of GreenPrint
@@ -57,18 +66,17 @@ As this application progresses in development, the focus will start to implement
 + History fragment that displays dates updated and score
 
 
-## Wireframes
+## Design Documentation
 + [GreenPrint Wireframe 1](docs/Green_Print_WireFrame1.pdf)
-* [GreenPrint Wireframe 2](docs/Green_Print_WireFrame2.pdf)
 
-## ERD
++ [GreenPrint Wireframe 2](docs/Green_Print_WireFrame2.pdf)
+
 + [GreenPrint ERD](docs/GreenPrint_ERD.pdf)
 
-## DDL
 + [DDL](docs/ddl.md)
 
-## User Stories
 + [User Story 1](docs/UserStory1.md)
+
 + [User Story 2](docs/UserStory2.md)
 
 ## Javadoc Page
