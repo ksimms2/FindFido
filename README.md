@@ -19,6 +19,7 @@ The current state of GreenPrint is running well, the user is able to switch betw
 + Need update screen to have working checkboxes
 + Need update button to decrease score by appropriate amount and update the footprint score
 + Would like a history fragment/screen to display previous scores
+
 ### Known Issues/Bugs
 + If survey is blank and submit button is used, the app crashes
 + Rotating screen returns to the home screen instead of staying on current screen
@@ -38,12 +39,12 @@ For this application, the following were used to test UI and function.
 
   Stetho is a developmental tool that examines the local display rescources and database contents.
   
-+ Google Play Services
++ [Google Play Services](https://developers.google.com/android/guides/opensource)
 
 + Room
 
 + [Deep Dive Android Utilites](https://github.com/deep-dive-coding-java/android-utilities/blob/master/README.md)
-
+  
 
 ## External Services
 This app accesses the CoolClimate API carbon footprint calculator from the CoolClimate Network.
