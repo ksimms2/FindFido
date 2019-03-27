@@ -100,3 +100,7 @@ TBD
 
 ## Instructions for Using GreenPrint
 TBD
+
+## GreenPrint, All Rights Reserved
+
+[GreenPrint License](LICENSE)
