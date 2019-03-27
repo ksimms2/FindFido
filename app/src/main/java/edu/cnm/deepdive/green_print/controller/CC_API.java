@@ -210,11 +210,12 @@ public class CC_API {
 
 
   /**
-   * Fulfills state requirement for API, allows user to only input their zip code.
+   * <code>getStateFromZip</code> fulfills state requirement for API,
+   * allows user to only input their zip code.
    *
    * @param zipCodeStr applies zip code to state
    * @return state Source
-   * @see <a href= https://stackoverflow.com/questions/28821804/ how-can-i-quickly-determine-the-state-for-a-given-zipcode
+   * @see <a href= https://stackoverflow.com/questions/28821804/ how-can-i-quickly-determine-the-state-for-a-given-zipcode</a>
    */
   private String getStateFromZip(String zipCodeStr) {
 

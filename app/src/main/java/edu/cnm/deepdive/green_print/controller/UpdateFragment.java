@@ -12,6 +12,7 @@ import edu.cnm.deepdive.green_print.R;
 import edu.cnm.deepdive.green_print.model.ConsumptionDB;
 import edu.cnm.deepdive.green_print.model.entity.Activity;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
+import edu.cnm.deepdive.green_print.model.pojo.ConsumptionWithActivities;
 import edu.cnm.deepdive.green_print.service.CC_APIWebService.GetCCAPITask;
 import edu.cnm.deepdive.green_print.service.FragmentService;
 import java.util.List;
@@ -89,27 +90,30 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
       public void onClick(View view) {
 
-//        View parentView;
-//        EditText userInputText;
-//        int numInputs = 20;
-//        int[] inputValues = new int[numInputs];
-//        String idStr;
-//        String userInputStr;
-//        int resID;
-//
-//       // Toast.makeText(getActivity(), "Update Clicked", Toast.LENGTH_SHORT).show();
-//
-//
-//
-//        for(int i = 1; i <= numInputs; i++){
-//          idStr = "answer_" + String.valueOf(i) + "_id";
-//          resID = getResources().getIdentifier(idStr, "id", getContext().getPackageName());
-//
-//          parentView = (View)view.getParent();
-//          userInputText = parentView.findViewById(resID);
-//          userInputStr = userInputText.getText().toString();
-//          inputValues[i - 1] = Integer.parseInt(userInputStr);
-//        }
+ /*     This portion of code was intended to help run the take-action keys, which in theory,
+        would subtract CO2/tons from the last recorded score. This action would take place
+        when the user completes a pre-determined task provided by the API. I was having issues
+        determining what combination of keys would perform the proper calculation.
+
+        View parentView;
+        EditText userInputText;
+        int numInputs = 20;
+        int[] inputValues = new int[numInputs];
+        String idStr;
+        String userInputStr;
+        int resID;
+
+       // Toast.makeText(getActivity(), "Update Clicked", Toast.LENGTH_SHORT).show();
+
+        for(int i = 1; i <= numInputs; i++){
+          idStr = "answer_" + String.valueOf(i) + "_id";
+          resID = getResources().getIdentifier(idStr, "id", getContext().getPackageName());
+
+          parentView = (View)view.getParent();
+          userInputText = parentView.findViewById(resID);
+          userInputStr = userInputText.getText().toString();
+          inputValues[i - 1] = Integer.parseInt(userInputStr);
+        }*/
 
         // this is so we can check connectivity to internet, must activate code above
 
@@ -121,7 +125,6 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
         CC_API ccApi = new CC_API();
 
-        //float total_carbon_footprint = ccApi.calculateFootprintParams(inputValues2, takeActionInputs);
 
         Map<String, String> params2 = ccApi
             .calculateFootprintParams(inputValues2, takeActionInputs);
@@ -174,15 +177,7 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
     transaction.addToBackStack(null);
     transaction.commit();
   }
-//    applyButton = view.findViewById(R.id.apply_button);
-//
-//    applyButton.setOnClickListener(v -> {
-//      Toast.makeText(getActivity(), "Update Applied, Going to Your Score", Toast.LENGTH_LONG)
-//          .show();
-//      ScoreFragment scoreFragment = new ScoreFragment();
-//      getFragmentManager().beginTransaction().replace(R.id.fragment_container, scoreFragment)
-//          .commit();
-//    });
+
 
   public void onClick(View view) {
 

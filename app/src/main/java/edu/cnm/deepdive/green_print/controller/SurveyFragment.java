@@ -200,7 +200,6 @@ public class SurveyFragment extends LinkedFragment {
           .execute(params);
 
       loadScoreFragment(new ScoreFragment());
-
     });
 
     return view;
