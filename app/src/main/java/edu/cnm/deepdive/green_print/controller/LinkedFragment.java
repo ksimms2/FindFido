@@ -12,18 +12,16 @@ import edu.cnm.deepdive.green_print.R;
 public abstract class LinkedFragment extends Fragment {
 
 
-  private Button retakeSurvey;
-
-
   /**
    * <code>LinkedFragment</code> provides link to load the Home screen.
    */
 
-  protected void loadHomeFragment() {
+  private void loadHomeFragment() {
 
     Fragment fragmentHome = new HomeFragment();
 
     FragmentManager manager = getFragmentManager();
+    assert manager != null;
     FragmentTransaction transaction = manager.beginTransaction();
     transaction.add(R.id.fragment_container, fragmentHome, "home");
     transaction.addToBackStack(null);
@@ -34,20 +32,8 @@ public abstract class LinkedFragment extends Fragment {
 
   protected View linkButton(View view) {
 
-    retakeSurvey = view.findViewById(R.id.retake_survey_button);
-    retakeSurvey.setOnClickListener(new View.OnClickListener() {
-
-
-      @Override
-
-      public void onClick(View view) {
-
-        loadHomeFragment();
-
-      }
-
-
-    });
+    Button retakeSurvey = view.findViewById(R.id.retake_survey_button);
+    retakeSurvey.setOnClickListener(view1 -> loadHomeFragment());
 
     return view;
 

@@ -3,6 +3,7 @@ package edu.cnm.deepdive.green_print.controller;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import edu.cnm.deepdive.green_print.model.ConsumptionDB;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
 import edu.cnm.deepdive.green_print.service.CC_APIWebService.GetCCAPITask;
 import java.util.Map;
+import java.util.Objects;
 
 
 /**
@@ -30,9 +32,11 @@ import java.util.Map;
 public class SurveyFragment extends LinkedFragment {
 
 
-  private Button submitButton;
-  public static final String MY_PREFERENCES = "MyPrefs";
-  SharedPreferences sharedPreferences;
+  private static final String MY_PREFERENCES = "MyPrefs";
+  /**
+   * // TODO
+   */
+  private SharedPreferences sharedPreferences;
 
   public SurveyFragment() {
     // Required empty public constructor
@@ -52,7 +56,7 @@ public class SurveyFragment extends LinkedFragment {
 
 
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+  public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_survey, container, false);
@@ -78,8 +82,8 @@ public class SurveyFragment extends LinkedFragment {
     EditText answer19Id = view.findViewById(R.id.answer_19_id);
     EditText answer20Id = view.findViewById(R.id.answer_20_id);
 
-    submitButton = view.findViewById(R.id.submit_button);
-    sharedPreferences = this.getActivity()
+    Button submitButton = view.findViewById(R.id.submit_button);
+    sharedPreferences = Objects.requireNonNull(this.getActivity())
         .getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
 
     answer1Id.setText(sharedPreferences.getString("SavedAnswer1", ""));
@@ -136,7 +140,8 @@ public class SurveyFragment extends LinkedFragment {
 
       for (int i = 1; i <= numInputs; i++) {
         idStr = "answer_" + String.valueOf(i) + "_id";
-        resID = getResources().getIdentifier(idStr, "id", getContext().getPackageName());
+        resID = getResources()
+            .getIdentifier(idStr, "id", Objects.requireNonNull(getContext()).getPackageName());
 
         parentView = (View) view1.getParent();
 
@@ -190,11 +195,9 @@ public class SurveyFragment extends LinkedFragment {
           })
           .setSuccessListener(
 
-              ccResponse ->
+              ccResponse -> {
+              }
 
-                  Toast.makeText(getActivity(),
-                      "Total: " + ccResponse.getGrandTotal(), Toast.LENGTH_LONG)
-                      .show()
           ) // Display total carbon footprint if available
 
           .execute(params);
@@ -221,6 +224,7 @@ public class SurveyFragment extends LinkedFragment {
 
     FragmentManager nextFrag;
     nextFrag = getFragmentManager();
+    assert nextFrag != null;
     FragmentTransaction transaction = nextFrag.beginTransaction();
     transaction.replace(R.id.fragment_container, frag);
     transaction.addToBackStack(null);

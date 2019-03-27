@@ -3,7 +3,7 @@ package edu.cnm.deepdive.green_print.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.w3c.dom.Element;
+
 
 /**
  * <code>CC_API</code> implementation of the CoolClimate API. Methods take user input by
@@ -193,20 +193,6 @@ public class CC_API {
 
   }
 
-
-  private String getValueForKey(Element allElements, String keyStr) {
-
-    String valueStr = "";
-
-    try {
-      valueStr = allElements.getElementsByTagName(keyStr).item(0).getTextContent();
-    } catch (Exception e) {
-      String errorMsg = allElements.getElementsByTagName("error_message").item(0).getTextContent();
-      System.out.printf("%n*** API Request Error: %s ***%n", errorMsg);
-    }
-
-    return valueStr;
-  }
 
 
   /**

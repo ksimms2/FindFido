@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.green_print.controller;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -43,9 +44,7 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
 
   private List<ConsumptionWithActivities> takeaction;
-  //private UpdateAdapter adapter;
   private ScoreFragment scoreFragment;
-  private Button applyButton;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -55,8 +54,6 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
   }
 
-  /**
-   */
 
   /**
    * <code>OnCreateView</code> launches the UI for the home screen. Calls on the
@@ -76,82 +73,74 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
    */
 
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+  public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
 
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_update, container, false);
 
-    applyButton = view.findViewById(R.id.apply_button);
+    Button applyButton = view.findViewById(R.id.apply_button);
 
-    applyButton.setOnClickListener(new View.OnClickListener() {
+    applyButton.setOnClickListener(view1 -> {
 
-      @Override
+/*     This portion of code was intended to help run the take-action keys, which in theory,
+      would subtract CO2/tons from the last recorded score. This action would take place
+      when the user completes a pre-determined task provided by the API. I was having issues
+      determining what combination of keys would perform the proper calculation.
 
-      public void onClick(View view) {
+      View parentView;
+      EditText userInputText;
+      int numInputs = 20;
+      int[] inputValues = new int[numInputs];
+      String idStr;
+      String userInputStr;
+      int resID;
 
- /*     This portion of code was intended to help run the take-action keys, which in theory,
-        would subtract CO2/tons from the last recorded score. This action would take place
-        when the user completes a pre-determined task provided by the API. I was having issues
-        determining what combination of keys would perform the proper calculation.
+     // Toast.makeText(getActivity(), "Update Clicked", Toast.LENGTH_SHORT).show();
 
-        View parentView;
-        EditText userInputText;
-        int numInputs = 20;
-        int[] inputValues = new int[numInputs];
-        String idStr;
-        String userInputStr;
-        int resID;
+      for(int i = 1; i <= numInputs; i++){
+        idStr = "answer_" + String.valueOf(i) + "_id";
+        resID = getResources().getIdentifier(idStr, "id", getContext().getPackageName());
 
-       // Toast.makeText(getActivity(), "Update Clicked", Toast.LENGTH_SHORT).show();
+        parentView = (View)view.getParent();
+        userInputText = parentView.findViewById(resID);
+        userInputStr = userInputText.getText().toString();
+        inputValues[i - 1] = Integer.parseInt(userInputStr);
+      }*/
 
-        for(int i = 1; i <= numInputs; i++){
-          idStr = "answer_" + String.valueOf(i) + "_id";
-          resID = getResources().getIdentifier(idStr, "id", getContext().getPackageName());
+      // this is so we can check connectivity to internet, must activate code above
 
-          parentView = (View)view.getParent();
-          userInputText = parentView.findViewById(resID);
-          userInputStr = userInputText.getText().toString();
-          inputValues[i - 1] = Integer.parseInt(userInputStr);
-        }*/
+      int[] inputValues2 = new int[]{87107, 3, 2, 1, 200000, 1500, 800, 80, 300, 900, 90, 120,
+          18000, 32, 15000, 28, 0, 0, 10000, 500};
 
-        // this is so we can check connectivity to internet, must activate code above
+      boolean[] takeActionInputs = new boolean[]{false, false, false, false, false, false, true,
+          false, false, false, false, false, false, false, false};
 
-        int[] inputValues2 = new int[]{87107, 3, 2, 1, 200000, 1500, 800, 80, 300, 900, 90, 120,
-            18000, 32, 15000, 28, 0, 0, 10000, 500};
+      CC_API ccApi = new CC_API();
 
-        boolean[] takeActionInputs = new boolean[]{false, false, false, false, false, false, true,
-            false, false, false, false, false, false, false, false};
+      Map<String, String> params2 = ccApi
+          .calculateFootprintParams(inputValues2, takeActionInputs);
 
-        CC_API ccApi = new CC_API();
+      new GetCCAPITask()
+          .setTransformer((response) -> {
+            Consumption consumption = new Consumption();
+            consumption.setScore(response.getTakeActionGrandTotal());
+            ConsumptionDB.getInstance().getConsumtionDao().insert(consumption);
+            return response;
+          })
+          .setSuccessListener(
 
+              ccResponse ->
 
-        Map<String, String> params2 = ccApi
-            .calculateFootprintParams(inputValues2, takeActionInputs);
+                  Toast.makeText(getActivity(),
+                      "Take Action Total: " +
+                          (ccResponse.getTakeActionGrandTotal() - 11.611036), Toast.LENGTH_LONG)
+                      .show()
+          ) // Display total carbon footprint if available
 
-        new GetCCAPITask()
-            .setTransformer((response) -> {
-              Consumption consumption = new Consumption();
-              consumption.setScore(response.getTakeActionGrandTotal());
-              ConsumptionDB.getInstance().getConsumtionDao().insert(consumption);
-              return response;
-            })
-            .setSuccessListener(
+          .execute(params2);
 
-                ccResponse ->
-
-                    Toast.makeText(getActivity(),
-                        "Take Action Total: " +
-                            (ccResponse.getTakeActionGrandTotal() - 11.611036), Toast.LENGTH_LONG)
-                        .show()
-            ) // Display total carbon footprint if available
-
-            .execute(params2);
-
-        loadFragment(new ScoreFragment());
-      }
-
-
+      loadFragment(new ScoreFragment());
     });
 
     return view;
@@ -172,6 +161,7 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
   private void loadFragment(ScoreFragment frag2) {
 
     FragmentManager scoreFrag = getFragmentManager();
+    assert scoreFrag != null;
     FragmentTransaction transaction = scoreFrag.beginTransaction();
     transaction.replace(R.id.fragment_container, frag2);
     transaction.addToBackStack(null);

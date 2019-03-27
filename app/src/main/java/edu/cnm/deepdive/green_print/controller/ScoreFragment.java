@@ -1,8 +1,12 @@
 package edu.cnm.deepdive.green_print.controller;
 
 
+import static edu.cnm.deepdive.green_print.R.id.scoreBox;
+
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,10 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import edu.cnm.deepdive.green_print.R;
 import edu.cnm.deepdive.green_print.model.ConsumptionDB;
 import edu.cnm.deepdive.green_print.model.entity.Consumption;
+import java.util.Objects;
 
 
 /**
@@ -33,10 +37,7 @@ public class ScoreFragment extends Fragment {
 
   //Button surveyButton = (Button) findViewId(R.id.retake_survey_button);
 
-  private static final String TAG = "ScoreFragment";
 
-  private Button surveyButton;
-  private Button updateButton;
   private TextView scoreToText;
 
   public ScoreFragment() {
@@ -58,26 +59,25 @@ public class ScoreFragment extends Fragment {
 
 
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+  public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    // Inflate the layout for this fragment
+    //Inflate the layout for this fragment
 
     View view = inflater.inflate(R.layout.fragment_score, container, false);
 
-    surveyButton = view.findViewById(R.id.retake_survey_button);
-    updateButton = view.findViewById(R.id.update_score_button);
-    scoreToText = view.findViewById(R.id.scoreBox);
-    //scoreToText = cmpnScore.getScore();
+    Button surveyButton = view.findViewById(R.id.retake_survey_button);
+    Button updateButton = view.findViewById(R.id.update_score_button);
+    scoreToText = view.findViewById(scoreBox);
 
     surveyButton.setOnClickListener(v -> {
-      Toast.makeText(getActivity(), "Going to Survey", Toast.LENGTH_SHORT).show();
       SurveyFragment surveyFragment = new SurveyFragment();
+      assert getFragmentManager() != null;
       getFragmentManager().beginTransaction().replace(R.id.fragment_container, surveyFragment)
           .commit();
     });
     updateButton.setOnClickListener(v -> {
-      Toast.makeText(getActivity(), "Going to Update Score", Toast.LENGTH_SHORT).show();
       UpdateFragment updateFragment = new UpdateFragment();
+      assert getFragmentManager() != null;
       getFragmentManager().beginTransaction().replace(R.id.fragment_container, updateFragment)
           .commit();
 
@@ -89,7 +89,7 @@ public class ScoreFragment extends Fragment {
 
 
   @Override
-  public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
   }
 
@@ -99,11 +99,12 @@ public class ScoreFragment extends Fragment {
    * <code>ScoreFragment</code>
    */
 
+  @SuppressLint("StaticFieldLeak")
   private class QueryLastScoreTask extends AsyncTask<Void, Void, Consumption> {
 
     @Override
     protected void onPostExecute(Consumption consumption) {
-      String format = getContext().getString(R.string.score_format);
+      String format = Objects.requireNonNull(getContext()).getString(R.string.score_format);
       scoreToText.setText(String.format(format, consumption.getScore()));
     }
 

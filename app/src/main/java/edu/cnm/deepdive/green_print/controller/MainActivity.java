@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.green_print.controller;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity
   private HistoryFragment historyFragment;
   private ProgressBar loading;
   private DrawerLayout navigation;
+  private MenuItem mItem;
+  private Fragment mFragment;
+  private String mTag;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -137,6 +141,7 @@ public class MainActivity extends AppCompatActivity
 //    return navigation;
 //  }
 
+
   /**
    * Implements navigation to other fragments once clicked.
    *
@@ -144,20 +149,21 @@ public class MainActivity extends AppCompatActivity
    * @return the fragment selected
    */
   @Override
-  public boolean onNavigationItemSelected(MenuItem item) {
+  public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    mItem = item;
 
     switch (item.getItemId()) {
       case R.id.fragment_home:
-        loadFragment(new HomeFragment(), R.id.fragment_container, "HomeFragment", null);
+        loadFragment(new HomeFragment(), "HomeFragment");
         break;
       case R.id.fragment_questions:
-        loadFragment(new SurveyFragment(), R.id.fragment_container, "SurveyFragment", null);
+        loadFragment(new SurveyFragment(), "SurveyFragment");
         break;
       case R.id.fragment_score:
-        loadFragment(new ScoreFragment(), R.id.fragment_container, "ScoreFragment", null);
+        loadFragment(new ScoreFragment(), "ScoreFragment");
         break;
       case R.id.fragment_history:
-        loadFragment(new HistoryFragment(), R.id.fragment_container, "HistoryFragment", null);
+        loadFragment(new HistoryFragment(), "HistoryFragment");
         break;
 
     }
@@ -168,13 +174,13 @@ public class MainActivity extends AppCompatActivity
   }
 
 
-  private void loadFragment(Fragment fragment, int container, String tag, Bundle args) {
-    FragmentManager manager = getSupportFragmentManager();
-    if (args != null) {
-      fragment.setArguments(args);
-    }
+  private void loadFragment(Fragment fragment, String tag) {
+    mFragment = fragment;
+    mTag = tag;
+    FragmentManager manager;
+    manager = getSupportFragmentManager();
     manager.beginTransaction()
-        .add(container, fragment, tag)
+        .add(R.id.fragment_container, fragment, tag)
         .commit();
 
   }

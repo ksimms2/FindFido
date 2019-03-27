@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.green_print.controller;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,6 +16,7 @@ import edu.cnm.deepdive.green_print.model.entity.Consumption;
 import edu.cnm.deepdive.green_print.view.HistoryAdapter;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 public class HistoryFragment extends Fragment {
 
@@ -38,17 +40,17 @@ public class HistoryFragment extends Fragment {
         false);
     listView.addHeaderView(header, null, false);
     listView.addHeaderView(categories, null, false);
-    //listView.setOnItemClickListener(this);
 
     scores = new LinkedList<>();
 
-    adapter = new HistoryAdapter(getContext(), scores);
+    adapter = new HistoryAdapter(Objects.requireNonNull(getContext()), scores);
     listView.setAdapter(adapter);
 
     new ScoreQueryTask().execute();
     return view;
   }
 
+  @SuppressLint("StaticFieldLeak")
   private class ScoreQueryTask extends AsyncTask<Void, Void, List<Consumption>> {
 
     @Override
