@@ -113,13 +113,74 @@ limitations under the License.
 
 ## Instructions for Building GreenPrint
 
-1. Clone the repository into a local Android Studio project.
+1. Clone the repository into a local Android Studio or perfered IDE project.
+
 2. Get a [CoolClimate API Key](https://coolclimate.org/api)
-3. Apply appropriate keys: [CoolClimate Variables](docs/CoolClimate_Variables.xlsx)
-    (Use Postman to determine which keys and take actions you need .)
+
+3. Add active API key:
+
+        to an internal directory-> name it service-> paste credentials (ID then key, on seperate lines)-> save as (.properties)
+        
+   (This is important so your key is not exposed to improper use and is needed to reference within the app)
+   
+4.Apply appropriate keys: [CoolClimate Variables](docs/CoolClimate_Variables.xlsx)
+
+    (Use Postman to determine which keys and take actions you need.)
+    
+5. Build the app onto a device with the minimum of API 24.
 
 ## Instructions for Using GreenPrint
-TBD
+
+### On Startup
+
+1. The Home screen will load upon starting the application.
+
+2. The main navigation is through the side drawer, click the 3 horizontal in the upper left corner of the screen.
+
+3. This will open the drawer menu to reveal other items to navigate to, Survey, Score, and History.
+
+4. Click on the Survey option. 
+
+The survey is a series of questions that ask the user about their yearly activities that produce varying ranges of carbon dioxide.
+
+5. This brings up the initial survey to be filled out by the user -> answer the questions -> click "Submit" (at the bottom of the screen)
+	
+6. The Submit button will activate the API code and process the users carbon footprint score.
+
+7. On submit, this will navigate to the Score screen (which is also accessible within the drawer menu).
+
+### After Score is Obtained
+
+1. The user should then click "Update Score", which will bring up a list of activities and tasks that will help the user lower their score throughout the year.
+
+2. Once the user has completed a task, simply click the appropriate check-box.
+(Currently option 7 is hard coded to as selected, until take action method is updated... TBD)
+
+3. Click "Apply", which will subtract the take action options selected and return to the Score screen and apply the updated score.
+
+4. Continue as needed until all tasks are complete. 
+
+### The Start Of A New Year
+
+1. At the beginning of a new year the user should retake the survey to start the process over.
+
+2. The "Retake Survey" option is located  on the Score screen.
+
+3. Click "Retake Survey", this will clear the previous score. (Currently a work in progress)
+
+4. Fill out the survey again and see your new score.
+
+### History
+
+1. The user can access their history of the previous scores.
+
+2. Open drawer menu, click "History".
+
+3. Upon navigation to the History screen, the user can view all of their scores.
+
+### Survey FYI
+
+The survey can be updated at anytime and as many times as the user sees fit. As the user becomes more aware of their carbon usage, they begin to hone in on more accurate estimations of usage.
 
 ## GreenPrint, All Rights Reserved
 
