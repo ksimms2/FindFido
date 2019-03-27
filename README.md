@@ -112,7 +112,10 @@ limitations under the License.
 
 
 ## Instructions for Building GreenPrint
-TBD
+
+1. Clone the repository into a local Android Studio project.
+2. Get a [CoolClimate API Key](https://coolclimate.org/api)
+3. Apply appropriate keys 
 
 ## Instructions for Using GreenPrint
 TBD
