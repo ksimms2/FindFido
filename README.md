@@ -92,7 +92,7 @@ As this application progresses in development, the focus will start to implement
 
 + [Javadoc](docs/api)
 
-## Licenses
+## Licenses/Copyright
 
 
 ## Instructions for Building GreenPrint
