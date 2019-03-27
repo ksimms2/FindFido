@@ -115,7 +115,8 @@ limitations under the License.
 
 1. Clone the repository into a local Android Studio project.
 2. Get a [CoolClimate API Key](https://coolclimate.org/api)
-3. Apply appropriate keys 
+3. Apply appropriate keys: [CoolClimate Variables](docs/CoolClimate_Variables.xlsx)
+    (Use Postman to determine which keys and take actions you need .)
 
 ## Instructions for Using GreenPrint
 TBD
