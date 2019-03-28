@@ -106,7 +106,13 @@ public class ScoreFragment extends Fragment {
 
     @Override
     protected Consumption doInBackground(Void... voids) {
-      return ConsumptionDB.getInstance().getConsumtionDao().findLast();
+
+      Consumption consumption = ConsumptionDB.getInstance().getConsumtionDao().findLast();
+      if(consumption == null){
+        cancel(true);
+
+      }
+      return consumption;
     }
   }
 

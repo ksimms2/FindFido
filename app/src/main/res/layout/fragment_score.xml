@@ -17,6 +17,8 @@
     android:textStyle="bold"
     android:textColor="@color/colorWhite"
     android:gravity="center"
+    android:hint="@string/score"
+    android:textColorHint="@color/colorWhite"
     android:background="@drawable/textview_border"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
