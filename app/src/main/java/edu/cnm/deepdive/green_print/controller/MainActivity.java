@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
 import edu.cnm.deepdive.green_print.R;
 
 
@@ -28,18 +27,6 @@ import edu.cnm.deepdive.green_print.R;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
-
-
-  private HomeFragment homeFragment;
-  private SurveyFragment surveyFragment;
-  private UpdateFragment updateFragment;
-  private HistoryFragment historyFragment;
-  private ScoreFragment scoreFragment;
-  private ProgressBar loading;
-  private NavigationView navigation;
-  private MenuItem mItem;
-  private Fragment mFragment;
-  private String mTag;
 
 
   @Override
@@ -64,7 +51,8 @@ public class MainActivity extends AppCompatActivity
   }
 
   /**
-   * Loads the HomeFragment on startup.
+   * <code>loadHomeFragment</code> loads the {@link HomeFragment} on startup of application.
+   *
    */
   private void loadHomeFragment() {
 
@@ -77,7 +65,11 @@ public class MainActivity extends AppCompatActivity
 
   }
 
-
+  /**
+   * <code>onBackPressed</code> allows user to press the phones back button to go to the previously
+   * viewed screen.
+   *
+   */
   @Override
   public void onBackPressed() {
     DrawerLayout drawer = findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
@@ -104,7 +96,6 @@ public class MainActivity extends AppCompatActivity
    * Handle action bar item clicks here. The action bar will automatically handle clicks on the
    * HomeFragment/Up button, so long as you specify a parent activity in AndroidManifest.xml.
    */
-
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -119,14 +110,16 @@ public class MainActivity extends AppCompatActivity
 
 
   /**
-   * Implements navigation to other fragments once clicked.
+   * Implements navigation to other fragments once clicked within the side drawer menu.
+   * Available fragments to select are {@link HomeFragment}, {@link SurveyFragment},
+   * {@link ScoreFragment}, and {@link HistoryFragment}.
    *
    * @param item available fragments in menu bar
    * @return the fragment selected
    */
   @Override
   public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-    mItem = item;
+    MenuItem item1 = item;
 
     switch (item.getItemId()) {
       case R.id.fragment_home:
@@ -149,10 +142,12 @@ public class MainActivity extends AppCompatActivity
     return true;
   }
 
-
+  /**
+   * <code>loadFragment</code> creates a {@link FragmentManager} to support
+   * @param fragment
+   * @param tag
+   */
   private void loadFragment(Fragment fragment, String tag) {
-    mFragment = fragment;
-    mTag = tag;
     FragmentManager manager;
     manager = getSupportFragmentManager();
     manager.beginTransaction()

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -28,22 +29,32 @@ import java.util.Objects;
  * @author Kevin Simms &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
  * @version 1.0
  */
-
 public class SurveyFragment extends LinkedFragment {
 
-  private HomeFragment homeFragment;
-  private SurveyFragment surveyFragment;
-  private UpdateFragment updateFragment;
-  private HistoryFragment historyFragment;
-  private ScoreFragment scoreFragment;
+  public static final String RESET_KEY = "reset";
   private static final String MY_PREFERENCES = "MyPrefs";
-  /**
-   * // TODO
-   */
+
   private SharedPreferences sharedPreferences;
+  private boolean reset = false;
 
   public SurveyFragment() {
     // Required empty public constructor
+  }
+
+  /**
+   * <code>onCreate</code> provides a RESET_KEY to {@link ScoreFragment}. If Retake Survey Button
+   * is
+   * clicked, this provides a blank survey to be filled out and resubmitted.
+   *
+   * @param savedInstanceState checks the current state of the fragment.
+   */
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    Bundle args = getArguments();
+    if (args != null) {
+      reset = args.getBoolean(RESET_KEY, reset);
+    }
   }
 
   /**
@@ -57,8 +68,6 @@ public class SurveyFragment extends LinkedFragment {
    * @param savedInstanceState Saves the instance created
    * @return displays the UI on the screen
    */
-
-
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
@@ -90,26 +99,28 @@ public class SurveyFragment extends LinkedFragment {
     sharedPreferences = Objects.requireNonNull(this.getActivity())
         .getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
 
-    answer1Id.setText(sharedPreferences.getString("SavedAnswer1", ""));
-    answer2Id.setText(sharedPreferences.getString("SavedAnswer2", ""));
-    answer3Id.setText(sharedPreferences.getString("SavedAnswer3", ""));
-    answer4Id.setText(sharedPreferences.getString("SavedAnswer4", ""));
-    answer5Id.setText(sharedPreferences.getString("SavedAnswer5", ""));
-    answer6Id.setText(sharedPreferences.getString("SavedAnswer6", ""));
-    answer7Id.setText(sharedPreferences.getString("SavedAnswer7", ""));
-    answer8Id.setText(sharedPreferences.getString("SavedAnswer8", ""));
-    answer9Id.setText(sharedPreferences.getString("SavedAnswer9", ""));
-    answer10Id.setText(sharedPreferences.getString("SavedAnswer10", ""));
-    answer11Id.setText(sharedPreferences.getString("SavedAnswer11", ""));
-    answer12Id.setText(sharedPreferences.getString("SavedAnswer12", ""));
-    answer13Id.setText(sharedPreferences.getString("SavedAnswer13", ""));
-    answer14Id.setText(sharedPreferences.getString("SavedAnswer14", ""));
-    answer15Id.setText(sharedPreferences.getString("SavedAnswer15", ""));
-    answer16Id.setText(sharedPreferences.getString("SavedAnswer16", ""));
-    answer17Id.setText(sharedPreferences.getString("SavedAnswer17", ""));
-    answer18Id.setText(sharedPreferences.getString("SavedAnswer18", ""));
-    answer19Id.setText(sharedPreferences.getString("SavedAnswer19", ""));
-    answer20Id.setText(sharedPreferences.getString("SavedAnswer20", ""));
+    if (!reset) {
+      answer1Id.setText(sharedPreferences.getString("SavedAnswer1", ""));
+      answer2Id.setText(sharedPreferences.getString("SavedAnswer2", ""));
+      answer3Id.setText(sharedPreferences.getString("SavedAnswer3", ""));
+      answer4Id.setText(sharedPreferences.getString("SavedAnswer4", ""));
+      answer5Id.setText(sharedPreferences.getString("SavedAnswer5", ""));
+      answer6Id.setText(sharedPreferences.getString("SavedAnswer6", ""));
+      answer7Id.setText(sharedPreferences.getString("SavedAnswer7", ""));
+      answer8Id.setText(sharedPreferences.getString("SavedAnswer8", ""));
+      answer9Id.setText(sharedPreferences.getString("SavedAnswer9", ""));
+      answer10Id.setText(sharedPreferences.getString("SavedAnswer10", ""));
+      answer11Id.setText(sharedPreferences.getString("SavedAnswer11", ""));
+      answer12Id.setText(sharedPreferences.getString("SavedAnswer12", ""));
+      answer13Id.setText(sharedPreferences.getString("SavedAnswer13", ""));
+      answer14Id.setText(sharedPreferences.getString("SavedAnswer14", ""));
+      answer15Id.setText(sharedPreferences.getString("SavedAnswer15", ""));
+      answer16Id.setText(sharedPreferences.getString("SavedAnswer16", ""));
+      answer17Id.setText(sharedPreferences.getString("SavedAnswer17", ""));
+      answer18Id.setText(sharedPreferences.getString("SavedAnswer18", ""));
+      answer19Id.setText(sharedPreferences.getString("SavedAnswer19", ""));
+      answer20Id.setText(sharedPreferences.getString("SavedAnswer20", ""));
+    }
 
     submitButton.setOnClickListener(view1 -> {
 
@@ -230,7 +241,6 @@ public class SurveyFragment extends LinkedFragment {
    *
    * @param frag instance of a fragment
    */
-
   private void loadScoreFragment(ScoreFragment frag) {
 
     FragmentManager nextFrag;
@@ -241,17 +251,6 @@ public class SurveyFragment extends LinkedFragment {
     transaction.addToBackStack(null);
     transaction.commit();
   }
-
-  /**
-   * Sets the {@link HistoryFragment} to be refreshed on successful retrieval of an {@link Apod}
-   * instance from the NASA APOD web service.
-   *
-   * @param historyFragment host {@link HistoryFragment} for list of {@link Apod} instances in local
-   * database.
-   */
-
-
-
 
 
 }

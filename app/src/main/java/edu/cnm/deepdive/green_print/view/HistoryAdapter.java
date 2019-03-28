@@ -18,6 +18,16 @@ public class HistoryAdapter extends ArrayAdapter<Consumption> {
   DateFormat dateFormat;
   String scoreFormat;
 
+  /**
+   * <code>HistoryAdapter</code> provides a link between the database and UI display. Using the
+   * the available categories within the {@link Consumption} entity as a reference to make the
+   * columns (date and score) that are displayed when {@link edu.cnm.deepdive.green_print.controller.HistoryFragment}
+   * is inflated for display for the user.
+   *
+   * @param context access to the database
+   * @param items categories from Consumption (date, score)
+   */
+
   public HistoryAdapter(@NonNull Context context, List<Consumption> items) {
     super(context, R.layout.history_item, items);
     dateFormat = android.text.format.DateFormat.getDateFormat(context);
@@ -25,6 +35,15 @@ public class HistoryAdapter extends ArrayAdapter<Consumption> {
   }
 
 
+  /**
+   * <code>getView</code> converts the database items within {@link Consumption} entity class to
+   * be viewed as a text.
+   *
+   * @param position position of each item.
+   * @param convertView converts view.
+   * @param parent group of Consumption
+   * @return visual text of the items
+   */
   @NonNull
   @Override
   public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

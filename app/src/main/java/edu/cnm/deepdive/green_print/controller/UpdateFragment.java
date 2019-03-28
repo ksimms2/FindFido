@@ -31,16 +31,8 @@ import java.util.Map;
 
 public class UpdateFragment extends LinkedFragment { //implements View.OnClickListener
 
-//  private CC_APIWebService service;
-//  private ListView takeActionListView;
-//  private Editable edit = null;
-//  private EditText textInputScore;
-//  private TextView textView;
 
-  private HomeFragment homeFragment;
-  private SurveyFragment surveyFragment;
-  private UpdateFragment updateFragment;
-  private HistoryFragment historyFragment;
+
   private ScoreFragment scoreFragment;
 
 

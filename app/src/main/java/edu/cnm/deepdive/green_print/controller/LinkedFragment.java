@@ -13,7 +13,8 @@ public abstract class LinkedFragment extends Fragment {
 
 
   /**
-   * <code>LinkedFragment</code> provides link to load the Home screen.
+   * <code>LinkedFragment</code> provides a link to load the {@link HomeFragment} within
+   * other fragments.
    */
 
   private void loadHomeFragment() {

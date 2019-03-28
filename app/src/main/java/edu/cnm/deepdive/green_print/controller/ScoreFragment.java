@@ -31,15 +31,8 @@ import java.util.Objects;
  * @author Kevin Simms &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
  * @version 1.0
  */
-
-
 public class ScoreFragment extends Fragment {
 
-  private HomeFragment homeFragment;
-  private SurveyFragment surveyFragment;
-  private UpdateFragment updateFragment;
-  private HistoryFragment historyFragment;
-  private ScoreFragment scoreFragment;
   private TextView scoreToText;
 
   public ScoreFragment() {
@@ -53,13 +46,12 @@ public class ScoreFragment extends Fragment {
    * Inflates either {@link SurveyFragment} or {@link UpdateFragment} on the click of the
    * corresponding button. Inflates ScoreFragment's UI.
    *
+   *
    * @param inflater loads UI
    * @param container uses the set container for the group
    * @param savedInstanceState Saves the instance created
    * @return displays the UI on the screen
    */
-
-
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
@@ -74,6 +66,9 @@ public class ScoreFragment extends Fragment {
     surveyButton.setOnClickListener(v -> {
       SurveyFragment surveyFragment = new SurveyFragment();
       assert getFragmentManager() != null;
+      Bundle args = new Bundle();
+      args.putBoolean(SurveyFragment.RESET_KEY, true);
+      surveyFragment.setArguments(args);
       getFragmentManager().beginTransaction().replace(R.id.fragment_container, surveyFragment)
           .commit();
     });
@@ -100,7 +95,6 @@ public class ScoreFragment extends Fragment {
    * the score to a string to be displayed in the TextView of the score-box within the
    * <code>ScoreFragment</code>
    */
-
   @SuppressLint("StaticFieldLeak")
   private class QueryLastScoreTask extends AsyncTask<Void, Void, Consumption> {
 

@@ -8,7 +8,7 @@
   android:background="@color/scrollViewBackground"
   android:padding="@dimen/activity_horizontal_margin"
   android:id="@+id/survey_id2"
-  tools:context=".controller.SurveyFragment">
+  >
 
   <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"

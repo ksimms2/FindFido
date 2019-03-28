@@ -18,8 +18,6 @@ import java.util.Map;
  * @see <a href= https://api-central.berkeley.edu/api/11>UCB</a>
  * @see <a href= https://coolclimate.org/api>CoolClimate</a>
  */
-
-
 public class CC_API {
 
   /**
@@ -30,7 +28,6 @@ public class CC_API {
    * personal vehicle usage and mpg (up to 3 vehicles) and final questions about how many miles the
    * user acquires through air travel and public transportation.
    */
-
   private static String[] keys = {
       "input_location",                               // User inputs their zip code
       "input_size",                            // The number of people that live in the user's house
@@ -61,7 +58,6 @@ public class CC_API {
    * thermostat in winter and summer, riding their bike instead of driving, carpooling, and
    * practicing eco driving.
    */
-
   private static String[] takeActionKeys = {
       "input_takeaction_switch_to_cfl",
       "input_takeaction_maintain_my_vehicles",
@@ -85,7 +81,6 @@ public class CC_API {
    * keys are invisible to the user but the programmer has the option to add any of the keys to
    * {@link #keys} to receive user input.
    */
-
   private static String[] requiredKeys = {
       "input_location_mode=1",                                        // 1 = Zip code
       "input_changed=0",                                              // Meaningless variable
@@ -143,8 +138,8 @@ public class CC_API {
   };
 
   /**
-   * Initializes the <code>CC_API</code> by calling {@link #calculateFootprintParams(int[],
-   * boolean[])} to gain access to the API to perform calculations from the user input provided
+   * Initializes the <code>CC_API</code> by calling <code>calculateFootprintParams(int[],
+   * boolean[])</code> to gain access to the API to perform calculations from the user input provided
    * {@link #keys} within the {@link SurveyFragment}. This is where the API Id and key are
    * initialized. Calls on to fulfill state requirement in API
    *
@@ -152,7 +147,6 @@ public class CC_API {
    * @return from API that then is parsed for the grand total to be displayed in {@link
    * ScoreFragment}
    */
-
   public Map<String, String> calculateFootprintParams(int[] inputValues,
       boolean[] takeActionInputs) {
 

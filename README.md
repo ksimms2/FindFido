@@ -14,7 +14,7 @@ Environmental forward users would find this app useful and help people understan
 
 The current state of GreenPrint is running well, the user is able to switch between fragments, the survey allows for input which is applied to the overall score, the survey is able to save inputs in shared preferences, and the local database is saving footproint scores every time the survey is submitted.
 ### Unimplemented/Incomplete Elements of GreenPrint
-+ Need retake survey button to clear survey to filled out again.
+
 + Need update screen to have working checkboxes
 + Need update button to decrease score by appropriate amount and update the footprint score
 
@@ -38,7 +38,7 @@ For this application, the following were used to test UI and function.
   
 + [Stetho](https://github.com/facebook/stetho/blob/master/README.md)
 
-  Stetho is a developmental tool that examines the local display rescources and database contents.
+  Stetho is a developmental tool that examines the local display resources and database contents.
 
 + [Deep Dive Android Utilities](https://github.com/deep-dive-coding-java/android-utilities/blob/master/README.md)
 
@@ -165,7 +165,7 @@ The survey is a series of questions that ask the user about their yearly activit
 
 2. The "Retake Survey" option is located  on the Score screen.
 
-3. Click "Retake Survey", this will clear the previous score. (Currently a work in progress)
+3. Click "Retake Survey", this will clear the previous score. 
 
 4. Fill out the survey again and see your new score.
 

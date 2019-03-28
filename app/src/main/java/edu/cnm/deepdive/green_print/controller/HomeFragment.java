@@ -17,11 +17,6 @@ import edu.cnm.deepdive.green_print.R;
 
 public class HomeFragment extends LinkedFragment {
 
-  private HomeFragment homeFragment;
-  private SurveyFragment surveyFragment;
-  private UpdateFragment updateFragment;
-  private HistoryFragment historyFragment;
-  private ScoreFragment scoreFragment;
 
   public HomeFragment() {
     // Required empty public constructor
