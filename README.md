@@ -21,6 +21,7 @@ The current state of GreenPrint is running well, the user is able to switch betw
 ### Known Issues/Bugs
 
 + Rotating screen returns to the home screen instead of staying on current screen
++ Rotating screen also seems to clear shared preferences.
 + Keyboard on survey covers some of the answer boxes as the screen auto-scrolls
 + When selecting from the menu, highlighted selection does not always correspond with current fragment 
 
