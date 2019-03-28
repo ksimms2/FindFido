@@ -8,7 +8,7 @@ The functionality of this app will feature a profile of the user and a score of 
 This app will need some internet to access the API to process the initial survey, some updates and accessing a potential online community. But notifications could be sent using the app and most tips could be held within the app.
 + The survey will determine initial carbon footprint score. 
 + The User can submit daily/weekly tasks to decrease their carbon footprint.
-Environmental foward users would find this app useful and help people understand their environmental impact.
+Environmental forward users would find this app useful and help people understand their environmental impact.
 
 ## Current Development of GreenPrint
 
@@ -20,10 +20,9 @@ The current state of GreenPrint is running well, the user is able to switch betw
 
 ### Known Issues/Bugs
 
-+ If survey is blank and submit button is used, the app crashes
 + Rotating screen returns to the home screen instead of staying on current screen
 + Keyboard on survey covers some of the answer boxes as the screen auto-scrolls
-+ When selecting from the menu, highlighted selection does not always coorespond with current fragment 
++ When selecting from the menu, highlighted selection does not always correspond with current fragment 
 
 ## Android API version and Hardware
 
@@ -41,7 +40,7 @@ For this application, the following were used to test UI and function.
 
   Stetho is a developmental tool that examines the local display rescources and database contents.
 
-+ [Deep Dive Android Utilites](https://github.com/deep-dive-coding-java/android-utilities/blob/master/README.md)
++ [Deep Dive Android Utilities](https://github.com/deep-dive-coding-java/android-utilities/blob/master/README.md)
 
 + Room
   
@@ -68,7 +67,7 @@ As this application progresses in development, the focus will start to implement
 
 ### User Interface Improvements
 
-+ Use Google Signin API 
++ Use Google Sign-in API 
 + Improvement of GreenPrint logo
 + Use of images as background
 + History fragment that displays dates updated and score

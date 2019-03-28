@@ -194,7 +194,6 @@ public class CC_API {
   }
 
 
-
   /**
    * <code>getStateFromZip</code> fulfills state requirement for API,
    * allows user to only input their zip code.

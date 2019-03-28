@@ -15,7 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
 import edu.cnm.deepdive.green_print.R;
-import edu.cnm.deepdive.green_print.service.FragmentService;
 
 
 /**
@@ -49,8 +48,6 @@ public class MainActivity extends AppCompatActivity
     setContentView(edu.cnm.deepdive.green_print.R.layout.activity_main);
     Toolbar toolbar = findViewById(edu.cnm.deepdive.green_print.R.id.toolbar);
     setSupportActionBar(toolbar);
-    setupFragments(savedInstanceState);
-
 
     DrawerLayout drawer = findViewById(edu.cnm.deepdive.green_print.R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -119,69 +116,6 @@ public class MainActivity extends AppCompatActivity
 
     return super.onOptionsItemSelected(item);
   }
-
-  private void setupFragments(Bundle savedInstanceState) {
-    NavigationView navigationView = findViewById(edu.cnm.deepdive.green_print.R.id.nav_view);
-    navigationView.setNavigationItemSelectedListener(this);
-    FragmentService fragmentService = FragmentService.getInstance();
-    if (savedInstanceState == null) {
-      homeFragment = new HomeFragment();
-      fragmentService.loadFragment(this, R.id.fragment_container, homeFragment,
-          homeFragment.getClass().getSimpleName(), false);
-      surveyFragment = new SurveyFragment();
-      fragmentService.loadFragment(this, R.id.fragment_container, surveyFragment,
-          surveyFragment.getClass().getSimpleName(), true);
-      scoreFragment = new ScoreFragment();
-      fragmentService.loadFragment(this, R.id.fragment_container, scoreFragment,
-          scoreFragment.getClass().getSimpleName(), true);
-      historyFragment = new HistoryFragment();
-      fragmentService.loadFragment(this, R.id.fragment_container, historyFragment,
-          historyFragment.getClass().getSimpleName(), false);
-      updateFragment = new UpdateFragment();
-      fragmentService.loadFragment(this, R.id.fragment_container, updateFragment,
-          updateFragment.getClass().getSimpleName(), true);
-    } else {
-      homeFragment = (HomeFragment) fragmentService.findFragment(
-          this, R.id.fragment_container, HomeFragment.class.getSimpleName());
-      surveyFragment = (SurveyFragment) fragmentService.findFragment(
-          this, R.id.fragment_container, SurveyFragment.class.getSimpleName());
-      scoreFragment = (ScoreFragment) fragmentService.findFragment(
-          this, R.id.fragment_container, ScoreFragment.class.getSimpleName());
-      historyFragment = (HistoryFragment) fragmentService.findFragment(
-          this, R.id.fragment_container, HistoryFragment.class.getSimpleName());
-      updateFragment = (UpdateFragment) fragmentService.findFragment(
-          this, R.id.fragment_container, UpdateFragment.class.getSimpleName());
-    }
-    homeFragment.setSurveyFragment(surveyFragment);
-    homeFragment.setScoreFragment(scoreFragment);
-    homeFragment.setHistoryFragment(historyFragment);
-    homeFragment.setUpdateFragment(updateFragment);
-
-    surveyFragment.setHomeFragment(homeFragment);
-    surveyFragment.setScoreFragment(scoreFragment);
-    surveyFragment.setHistoryFragment(historyFragment);
-    surveyFragment.setUpdateFragment(updateFragment);
-
-    scoreFragment.setHomeFragment(homeFragment);
-    scoreFragment.setSurveyFragment(surveyFragment);
-    scoreFragment.setHistoryFragment(historyFragment);
-    scoreFragment.setUpdateFragment(updateFragment);
-
-    historyFragment.setHomeFragment(homeFragment);
-    historyFragment.setSurveyFragment(surveyFragment);
-    historyFragment.setScoreFragment(scoreFragment);
-    historyFragment.setUpdateFragment(updateFragment);
-
-    updateFragment.setHomeFragment(homeFragment);
-    updateFragment.setSurveyFragment(surveyFragment);
-    updateFragment.setScoreFragment(scoreFragment);
-    updateFragment.setHistoryFragment(historyFragment);
-
-
-  }
-//  public DrawerLayout getNavigation() {
-//    return navigation;
-//  }
 
 
   /**

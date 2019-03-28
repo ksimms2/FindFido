@@ -116,21 +116,6 @@ public class ScoreFragment extends Fragment {
     }
   }
 
-  public void setHomeFragment(HomeFragment homeFragment) {
-    this.homeFragment = homeFragment;
-  }
 
-  public void setSurveyFragment(SurveyFragment surveyFragment) {
-    this.surveyFragment = surveyFragment;
-  }
-
-
-  public void setHistoryFragment(HistoryFragment historyFragment) {
-    this.historyFragment = historyFragment;
-  }
-
-  public void setUpdateFragment(UpdateFragment updateFragment) {
-    this.updateFragment = updateFragment;
-  }
 
 }

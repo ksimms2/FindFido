@@ -34,7 +34,6 @@ public class HistoryFragment extends Fragment {
 
       @Nullable Bundle savedInstanceState) {
 
-
     View view = inflater.inflate(R.layout.fragment_history, container, false);
 
     ListView listView = view.findViewById(R.id.list_history);
@@ -54,21 +53,6 @@ public class HistoryFragment extends Fragment {
     return view;
   }
 
-  public void setHomeFragment(HomeFragment homeFragment) {
-    this.homeFragment = homeFragment;
-  }
-
-  public void setSurveyFragment(SurveyFragment surveyFragment) {
-    this.surveyFragment = surveyFragment;
-  }
-
-  public void setScoreFragment(ScoreFragment scoreFragment) {
-    this.scoreFragment = scoreFragment;
-  }
-
-  public void setUpdateFragment(UpdateFragment updateFragment) {
-    this.updateFragment = updateFragment;
-  }
 
   @SuppressLint("StaticFieldLeak")
   private class ScoreQueryTask extends AsyncTask<Void, Void, List<Consumption>> {
@@ -87,12 +71,6 @@ public class HistoryFragment extends Fragment {
 
 
   }
-
-
-
-
-
-
 
 
 }

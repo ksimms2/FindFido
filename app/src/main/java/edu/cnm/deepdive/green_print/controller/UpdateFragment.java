@@ -44,7 +44,6 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
   private ScoreFragment scoreFragment;
 
 
-
   public UpdateFragment() {
     // Required empty public constructor
   }
@@ -187,23 +186,6 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
 
   }
-
-  public void setHomeFragment(HomeFragment homeFragment) {
-    this.homeFragment = homeFragment;
-  }
-
-  public void setSurveyFragment(SurveyFragment surveyFragment) {
-    this.surveyFragment = surveyFragment;
-  }
-
-  public void setScoreFragment(ScoreFragment scoreFragment) {
-    this.scoreFragment = scoreFragment;
-  }
-
-  public void setHistoryFragment(HistoryFragment historyFragment) {
-    this.historyFragment = historyFragment;
-  }
-
 
 
 }

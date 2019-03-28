@@ -45,20 +45,4 @@ public class HomeFragment extends LinkedFragment {
   }
 
 
-  public void setSurveyFragment(SurveyFragment surveyFragment) {
-    this.surveyFragment = surveyFragment;
-  }
-
-  public void setScoreFragment(ScoreFragment scoreFragment) {
-    this.scoreFragment = scoreFragment;
-  }
-
-  public void setHistoryFragment(HistoryFragment historyFragment) {
-    this.historyFragment = historyFragment;
-  }
-
-  public void setUpdateFragment(UpdateFragment updateFragment) {
-    this.updateFragment = updateFragment;
-  }
-
 }

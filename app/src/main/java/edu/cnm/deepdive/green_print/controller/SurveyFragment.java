@@ -151,8 +151,15 @@ public class SurveyFragment extends LinkedFragment {
 
         userInputText = parentView.findViewById(resID);
         userInputStr = userInputText.getText().toString();
-        inputValues[i - 1] = Integer.parseInt(userInputStr);
+        if (userInputText.getText().toString().equals("")) {
+          Toast.makeText(getActivity(), "Empty Box(es), Please Fill In Response. ",
+              Toast.LENGTH_LONG).show();
+          return;
+        } else {
+          inputValues[i - 1] = Integer.parseInt(userInputStr);
 
+
+        }
       }
 
       SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -179,7 +186,7 @@ public class SurveyFragment extends LinkedFragment {
       editor.putString("SavedAnswer20", answer20);
       editor.apply();
 
-      Toast.makeText(getActivity(), "Saved in Preferences", Toast.LENGTH_LONG).show();
+      //Toast.makeText(getActivity(), "Saved in Preferences", Toast.LENGTH_LONG).show();
 
       // this is hard code so we can check connectivity to internet, must activate code above
       // Integer[] inputValues2 = new Integer[]{87113, 3, 2, 1, 1, 1700, 80, 40, 0, 11, 100, 200,
@@ -235,22 +242,16 @@ public class SurveyFragment extends LinkedFragment {
     transaction.commit();
   }
 
-  public void setHomeFragment(HomeFragment homeFragment) {
-    this.homeFragment = homeFragment;
-  }
+  /**
+   * Sets the {@link HistoryFragment} to be refreshed on successful retrieval of an {@link Apod}
+   * instance from the NASA APOD web service.
+   *
+   * @param historyFragment host {@link HistoryFragment} for list of {@link Apod} instances in local
+   * database.
+   */
 
 
-  public void setScoreFragment(ScoreFragment scoreFragment) {
-    this.scoreFragment = scoreFragment;
-  }
 
-  public void setHistoryFragment(HistoryFragment historyFragment) {
-    this.historyFragment = historyFragment;
-  }
-
-  public void setUpdateFragment(UpdateFragment updateFragment) {
-    this.updateFragment = updateFragment;
-  }
 
 
 }
