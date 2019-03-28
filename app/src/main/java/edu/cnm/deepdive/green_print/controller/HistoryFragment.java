@@ -21,7 +21,11 @@ import java.util.Objects;
 public class HistoryFragment extends Fragment {
 
 
-
+  private HomeFragment homeFragment;
+  private SurveyFragment surveyFragment;
+  private UpdateFragment updateFragment;
+  private HistoryFragment historyFragment;
+  private ScoreFragment scoreFragment;
   private List<Consumption> scores;
   private HistoryAdapter adapter;
 
@@ -50,6 +54,22 @@ public class HistoryFragment extends Fragment {
     return view;
   }
 
+  public void setHomeFragment(HomeFragment homeFragment) {
+    this.homeFragment = homeFragment;
+  }
+
+  public void setSurveyFragment(SurveyFragment surveyFragment) {
+    this.surveyFragment = surveyFragment;
+  }
+
+  public void setScoreFragment(ScoreFragment scoreFragment) {
+    this.scoreFragment = scoreFragment;
+  }
+
+  public void setUpdateFragment(UpdateFragment updateFragment) {
+    this.updateFragment = updateFragment;
+  }
+
   @SuppressLint("StaticFieldLeak")
   private class ScoreQueryTask extends AsyncTask<Void, Void, List<Consumption>> {
 
@@ -67,6 +87,11 @@ public class HistoryFragment extends Fragment {
 
 
   }
+
+
+
+
+
 
 
 

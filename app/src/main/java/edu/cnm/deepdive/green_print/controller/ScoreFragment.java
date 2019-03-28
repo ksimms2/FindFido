@@ -35,9 +35,11 @@ import java.util.Objects;
 
 public class ScoreFragment extends Fragment {
 
-  //Button surveyButton = (Button) findViewId(R.id.retake_survey_button);
-
-
+  private HomeFragment homeFragment;
+  private SurveyFragment surveyFragment;
+  private UpdateFragment updateFragment;
+  private HistoryFragment historyFragment;
+  private ScoreFragment scoreFragment;
   private TextView scoreToText;
 
   public ScoreFragment() {
@@ -112,6 +114,23 @@ public class ScoreFragment extends Fragment {
     protected Consumption doInBackground(Void... voids) {
       return ConsumptionDB.getInstance().getConsumtionDao().findLast();
     }
+  }
+
+  public void setHomeFragment(HomeFragment homeFragment) {
+    this.homeFragment = homeFragment;
+  }
+
+  public void setSurveyFragment(SurveyFragment surveyFragment) {
+    this.surveyFragment = surveyFragment;
+  }
+
+
+  public void setHistoryFragment(HistoryFragment historyFragment) {
+    this.historyFragment = historyFragment;
+  }
+
+  public void setUpdateFragment(UpdateFragment updateFragment) {
+    this.updateFragment = updateFragment;
   }
 
 }

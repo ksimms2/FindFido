@@ -31,7 +31,11 @@ import java.util.Objects;
 
 public class SurveyFragment extends LinkedFragment {
 
-
+  private HomeFragment homeFragment;
+  private SurveyFragment surveyFragment;
+  private UpdateFragment updateFragment;
+  private HistoryFragment historyFragment;
+  private ScoreFragment scoreFragment;
   private static final String MY_PREFERENCES = "MyPrefs";
   /**
    * // TODO
@@ -229,6 +233,23 @@ public class SurveyFragment extends LinkedFragment {
     transaction.replace(R.id.fragment_container, frag);
     transaction.addToBackStack(null);
     transaction.commit();
+  }
+
+  public void setHomeFragment(HomeFragment homeFragment) {
+    this.homeFragment = homeFragment;
+  }
+
+
+  public void setScoreFragment(ScoreFragment scoreFragment) {
+    this.scoreFragment = scoreFragment;
+  }
+
+  public void setHistoryFragment(HistoryFragment historyFragment) {
+    this.historyFragment = historyFragment;
+  }
+
+  public void setUpdateFragment(UpdateFragment updateFragment) {
+    this.updateFragment = updateFragment;
   }
 
 

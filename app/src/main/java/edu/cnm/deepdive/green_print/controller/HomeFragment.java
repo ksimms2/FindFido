@@ -17,6 +17,11 @@ import edu.cnm.deepdive.green_print.R;
 
 public class HomeFragment extends LinkedFragment {
 
+  private HomeFragment homeFragment;
+  private SurveyFragment surveyFragment;
+  private UpdateFragment updateFragment;
+  private HistoryFragment historyFragment;
+  private ScoreFragment scoreFragment;
 
   public HomeFragment() {
     // Required empty public constructor
@@ -37,6 +42,23 @@ public class HomeFragment extends LinkedFragment {
       Bundle savedInstanceState) {
     // Inflate the layout for this fragment
     return inflater.inflate(R.layout.fragment_home, container, false);
+  }
+
+
+  public void setSurveyFragment(SurveyFragment surveyFragment) {
+    this.surveyFragment = surveyFragment;
+  }
+
+  public void setScoreFragment(ScoreFragment scoreFragment) {
+    this.scoreFragment = scoreFragment;
+  }
+
+  public void setHistoryFragment(HistoryFragment historyFragment) {
+    this.historyFragment = historyFragment;
+  }
+
+  public void setUpdateFragment(UpdateFragment updateFragment) {
+    this.updateFragment = updateFragment;
   }
 
 }

@@ -3,7 +3,7 @@
   android:textStyle="bold"
   android:layout_width="match_parent"
   android:layout_height="75dp"
-  android:background="@color/colorWhite"
+  android:background="#2a362f"
   android:orientation="horizontal"
   >
 
@@ -12,14 +12,12 @@
     android:id="@+id/date_col"
     android:textStyle="bold"
     android:layout_width="0dp"
-    android:layout_height="wrap_content"
+    android:layout_height="75dp"
     android:layout_weight="1"
     android:paddingTop="25dp"
     android:paddingStart="15dp"
-    android:divider="@color/darkBackground"
-    android:dividerHeight="10dp"
     android:text="@string/date_category"
-    android:textColor="@color/darkBackground"
+    android:textColor="#98ea47"
     android:textSize="20sp"
 
     />
@@ -28,14 +26,12 @@
     android:id="@+id/score_col"
     android:textStyle="bold"
     android:layout_width="0dp"
-    android:layout_height="wrap_content"
+    android:layout_height="75dp"
     android:layout_weight="1"
     android:paddingTop="25dp"
     android:paddingEnd="10dp"
-    android:divider="@color/darkBackground"
-    android:dividerHeight="10dp"
     android:text="@string/score_category"
-    android:textColor="@color/darkBackground"
+    android:textColor="#98ea47"
     android:textSize="20sp"
     />
 

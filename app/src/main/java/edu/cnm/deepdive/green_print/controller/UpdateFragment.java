@@ -37,6 +37,13 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 //  private EditText textInputScore;
 //  private TextView textView;
 
+  private HomeFragment homeFragment;
+  private SurveyFragment surveyFragment;
+  private UpdateFragment updateFragment;
+  private HistoryFragment historyFragment;
+  private ScoreFragment scoreFragment;
+
+
 
   public UpdateFragment() {
     // Required empty public constructor
@@ -44,7 +51,6 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
 
   private List<ConsumptionWithActivities> takeaction;
-  private ScoreFragment scoreFragment;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -181,6 +187,23 @@ public class UpdateFragment extends LinkedFragment { //implements View.OnClickLi
 
 
   }
+
+  public void setHomeFragment(HomeFragment homeFragment) {
+    this.homeFragment = homeFragment;
+  }
+
+  public void setSurveyFragment(SurveyFragment surveyFragment) {
+    this.surveyFragment = surveyFragment;
+  }
+
+  public void setScoreFragment(ScoreFragment scoreFragment) {
+    this.scoreFragment = scoreFragment;
+  }
+
+  public void setHistoryFragment(HistoryFragment historyFragment) {
+    this.historyFragment = historyFragment;
+  }
+
 
 
 }
