@@ -119,9 +119,9 @@ limitations under the License.
 
 3. Add active API key:
 
-        to an internal directory-> name it service-> paste credentials (ID then key, on seperate lines)-> save as (.properties)
+	 to an internal directory-> name it service-> paste credentials (ID then key, on seperate lines)-> save as (.properties)
         
-   (This is important so your key is not exposed to improper use and is needed to reference within the app)
+   	(This is important so your key is not exposed to improper use and is needed to reference within the app)
    
 4.Apply appropriate keys: [CoolClimate Variables](docs/CoolClimate_Variables.xlsx)
 
