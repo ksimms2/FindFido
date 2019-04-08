@@ -58,4 +58,4 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 ## GreenPrint License
   
-[GreenPrint MIT License](/LICENSE)
+[GreenPrint MIT License](/LICENSE.md)
