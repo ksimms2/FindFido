@@ -184,4 +184,4 @@ The survey can be updated at anytime and as many times as the user sees fit. As 
 
 ## GreenPrint, All Rights Reserved
 
-[GreenPrint License](/LICENSE.md)
+[GreenPrint License](LICENSE.md)
